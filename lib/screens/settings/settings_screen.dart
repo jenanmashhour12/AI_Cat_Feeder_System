@@ -1,0 +1,442 @@
+import 'package:flutter/material.dart';
+import '../../core/constants/app_colors.dart';
+import '../../core/constants/app_spacing.dart';
+import '../../core/constants/app_text_styles.dart';
+
+class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({super.key});
+
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  bool _notificationsEnabled = true;
+  bool _lowFoodAlert = true;
+  bool _lowWaterAlert = true;
+  bool _feedingCompleteAlert = true;
+  bool _unrecognizedAnimalAlert = true;
+  bool _deviceOfflineAlert = true;
+  double _defaultPortion = 30;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.background,
+      appBar: AppBar(title: const Text('Settings')),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(AppSpacing.lg),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildSection(
+              title: 'Device',
+              children: [
+                _SettingsTile(
+                  icon: Icons.developer_board_outlined,
+                  iconColor: AppColors.success,
+                  iconBg: AppColors.successLight,
+                  title: 'Raspberry Pi Status',
+                  subtitle: 'Connected  •  IP: 192.168.1.42',
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        width: 8,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          color: AppColors.online,
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                      ),
+                      const SizedBox(width: AppSpacing.sm),
+                      const Icon(Icons.chevron_right,
+                          color: AppColors.textHint, size: 20),
+                    ],
+                  ),
+                ),
+                _SettingsTile(
+                  icon: Icons.cloud_sync_outlined,
+                  iconColor: AppColors.primary,
+                  iconBg: AppColors.primaryLight,
+                  title: 'Firebase Sync',
+                  subtitle: 'Realtime sync active',
+                  trailing: const Icon(Icons.chevron_right,
+                      color: AppColors.textHint, size: 20),
+                ),
+                _SettingsTile(
+                  icon: Icons.wifi_outlined,
+                  iconColor: AppColors.success,
+                  iconBg: AppColors.successLight,
+                  title: 'Network',
+                  subtitle: 'Connected  •  Signal: Strong',
+                  trailing: const Icon(Icons.chevron_right,
+                      color: AppColors.textHint, size: 20),
+                ),
+              ],
+            ),
+            const SizedBox(height: AppSpacing.xl),
+            _buildSection(
+              title: 'Notifications',
+              children: [
+                _SwitchTile(
+                  icon: Icons.notifications_outlined,
+                  iconColor: AppColors.primary,
+                  iconBg: AppColors.primaryLight,
+                  title: 'Push Notifications',
+                  subtitle: 'Enable all alerts',
+                  value: _notificationsEnabled,
+                  onChanged: (v) => setState(() => _notificationsEnabled = v),
+                ),
+                _SwitchTile(
+                  icon: Icons.set_meal_outlined,
+                  iconColor: AppColors.warning,
+                  iconBg: AppColors.warningLight,
+                  title: 'Low Food Alert',
+                  subtitle: 'Notify when food is below 30%',
+                  value: _lowFoodAlert,
+                  onChanged: _notificationsEnabled
+                      ? (v) => setState(() => _lowFoodAlert = v)
+                      : null,
+                ),
+                _SwitchTile(
+                  icon: Icons.water_drop_outlined,
+                  iconColor: const Color(0xFF38BDF8),
+                  iconBg: const Color(0xFFE0F5FE),
+                  title: 'Low Water Alert',
+                  subtitle: 'Notify when water is below 40%',
+                  value: _lowWaterAlert,
+                  onChanged: _notificationsEnabled
+                      ? (v) => setState(() => _lowWaterAlert = v)
+                      : null,
+                ),
+                _SwitchTile(
+                  icon: Icons.check_circle_outline,
+                  iconColor: AppColors.success,
+                  iconBg: AppColors.successLight,
+                  title: 'Feeding Complete',
+                  subtitle: 'Notify after each feeding',
+                  value: _feedingCompleteAlert,
+                  onChanged: _notificationsEnabled
+                      ? (v) => setState(() => _feedingCompleteAlert = v)
+                      : null,
+                ),
+                _SwitchTile(
+                  icon: Icons.pets,
+                  iconColor: AppColors.error,
+                  iconBg: AppColors.errorLight,
+                  title: 'Unrecognized Animal',
+                  subtitle: 'Alert on unknown animal detection',
+                  value: _unrecognizedAnimalAlert,
+                  onChanged: _notificationsEnabled
+                      ? (v) => setState(() => _unrecognizedAnimalAlert = v)
+                      : null,
+                ),
+                _SwitchTile(
+                  icon: Icons.wifi_off_outlined,
+                  iconColor: AppColors.error,
+                  iconBg: AppColors.errorLight,
+                  title: 'Device Offline',
+                  subtitle: 'Alert when feeder disconnects',
+                  value: _deviceOfflineAlert,
+                  onChanged: _notificationsEnabled
+                      ? (v) => setState(() => _deviceOfflineAlert = v)
+                      : null,
+                ),
+              ],
+            ),
+            const SizedBox(height: AppSpacing.xl),
+            _buildSection(
+              title: 'Feeding Preferences',
+              children: [
+                _buildPortionTile(),
+                _SettingsTile(
+                  icon: Icons.pets,
+                  iconColor: AppColors.primary,
+                  iconBg: AppColors.primaryLight,
+                  title: 'Registered Cats',
+                  subtitle: '1 cat registered',
+                  trailing: const Icon(Icons.chevron_right,
+                      color: AppColors.textHint, size: 20),
+                ),
+                _SettingsTile(
+                  icon: Icons.history_outlined,
+                  iconColor: AppColors.primary,
+                  iconBg: AppColors.primaryLight,
+                  title: 'Log Retention',
+                  subtitle: 'Keep logs for 30 days',
+                  trailing: const Icon(Icons.chevron_right,
+                      color: AppColors.textHint, size: 20),
+                ),
+              ],
+            ),
+            const SizedBox(height: AppSpacing.xl),
+            _buildSection(
+              title: 'About',
+              children: [
+                _SettingsTile(
+                  icon: Icons.info_outline,
+                  iconColor: AppColors.textSecondary,
+                  iconBg: AppColors.surfaceVariant,
+                  title: 'App Version',
+                  subtitle: '1.0.0 (Build 1)',
+                  trailing: const SizedBox.shrink(),
+                ),
+                _SettingsTile(
+                  icon: Icons.memory_outlined,
+                  iconColor: AppColors.textSecondary,
+                  iconBg: AppColors.surfaceVariant,
+                  title: 'Firmware Version',
+                  subtitle: 'Pi v0.9.1',
+                  trailing: const SizedBox.shrink(),
+                ),
+              ],
+            ),
+            const SizedBox(height: AppSpacing.xxxl),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPortionTile() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppSpacing.md,
+        vertical: AppSpacing.md,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 36,
+                height: 36,
+                decoration: BoxDecoration(
+                  color: AppColors.primaryLight,
+                  borderRadius:
+                      BorderRadius.circular(AppSpacing.iconRadius - 2),
+                ),
+                child: const Icon(Icons.scale_outlined,
+                    color: AppColors.primary, size: 18),
+              ),
+              const SizedBox(width: AppSpacing.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Default Portion Size',
+                        style: AppTextStyles.titleSmall),
+                    Text(
+                      '${_defaultPortion.toStringAsFixed(0)}g per feeding',
+                      style: AppTextStyles.bodySmall,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppSpacing.md,
+                  vertical: AppSpacing.xs,
+                ),
+                decoration: BoxDecoration(
+                  color: AppColors.primaryLight,
+                  borderRadius: BorderRadius.circular(AppSpacing.chipRadius),
+                ),
+                child: Text(
+                  '${_defaultPortion.toStringAsFixed(0)}g',
+                  style: AppTextStyles.titleSmall
+                      .copyWith(color: AppColors.primary),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          SliderTheme(
+            data: SliderTheme.of(context).copyWith(
+              activeTrackColor: AppColors.primary,
+              inactiveTrackColor: AppColors.primaryLight,
+              thumbColor: AppColors.primary,
+              overlayColor: AppColors.primary.withOpacity(0.12),
+              trackHeight: 4,
+              thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 10),
+            ),
+            child: Slider(
+              value: _defaultPortion,
+              min: 10,
+              max: 100,
+              divisions: 18,
+              onChanged: (v) => setState(() => _defaultPortion = v),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('10g', style: AppTextStyles.labelSmall),
+              Text('100g', style: AppTextStyles.labelSmall),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSection({
+    required String title,
+    required List<Widget> children,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(
+            left: AppSpacing.xs,
+            bottom: AppSpacing.md,
+          ),
+          child: Text(
+            title.toUpperCase(),
+            style: AppTextStyles.labelSmall.copyWith(
+              letterSpacing: 1.0,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            color: AppColors.surface,
+            borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
+            border: Border.all(color: AppColors.cardBorder, width: 1),
+          ),
+          child: Column(
+            children: List.generate(children.length, (index) {
+              final isLast = index == children.length - 1;
+              return Column(
+                children: [
+                  children[index],
+                  if (!isLast)
+                    const Divider(height: 1, indent: 56, endIndent: 0),
+                ],
+              );
+            }),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _SettingsTile extends StatelessWidget {
+  final IconData icon;
+  final Color iconColor;
+  final Color iconBg;
+  final String title;
+  final String subtitle;
+  final Widget trailing;
+
+  const _SettingsTile({
+    required this.icon,
+    required this.iconColor,
+    required this.iconBg,
+    required this.title,
+    required this.subtitle,
+    required this.trailing,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppSpacing.md,
+        vertical: AppSpacing.md,
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 36,
+            height: 36,
+            decoration: BoxDecoration(
+              color: iconBg,
+              borderRadius: BorderRadius.circular(AppSpacing.iconRadius - 2),
+            ),
+            child: Icon(icon, color: iconColor, size: 18),
+          ),
+          const SizedBox(width: AppSpacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title, style: AppTextStyles.titleSmall),
+                Text(subtitle, style: AppTextStyles.bodySmall),
+              ],
+            ),
+          ),
+          trailing,
+        ],
+      ),
+    );
+  }
+}
+
+class _SwitchTile extends StatelessWidget {
+  final IconData icon;
+  final Color iconColor;
+  final Color iconBg;
+  final String title;
+  final String subtitle;
+  final bool value;
+  final ValueChanged<bool>? onChanged;
+
+  const _SwitchTile({
+    required this.icon,
+    required this.iconColor,
+    required this.iconBg,
+    required this.title,
+    required this.subtitle,
+    required this.value,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final isDisabled = onChanged == null;
+
+    return Opacity(
+      opacity: isDisabled ? 0.45 : 1.0,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.md,
+          vertical: AppSpacing.sm,
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 36,
+              height: 36,
+              decoration: BoxDecoration(
+                color: iconBg,
+                borderRadius: BorderRadius.circular(AppSpacing.iconRadius - 2),
+              ),
+              child: Icon(icon, color: iconColor, size: 18),
+            ),
+            const SizedBox(width: AppSpacing.md),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: AppTextStyles.titleSmall),
+                  Text(subtitle, style: AppTextStyles.bodySmall),
+                ],
+              ),
+            ),
+            Switch.adaptive(
+              value: value,
+              onChanged: onChanged,
+              activeColor: AppColors.primary,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
