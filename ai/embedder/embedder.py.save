@@ -1,0 +1,302 @@
+import numpy as np
+import tensorflow as tf
+import cv2
+from pathlib import Path
+
+
+class CatFaceEmbedder:
+    """
+    Stage 2 of the recognition pipeline.
+    Uses the fine-tuned model to extract
+    128-dimensional embedding vectors from cat face ROIs.
+    """
+
+    INPUT_SIZE    = (224, 224)
+    EMBEDDING_DIM = 128
+
+    def __init__(self, use_tflite=False):
+        base_dir = Path(__file__).parent
+
+        if use_tflite:
+            tflite_path = base_dir / "cat_feeder_embedding.tflite"
+            if not tflite_path.exists():
+                raise FileNotFoundError(
+                    f"TFLite model not found at {tflite_path}"
+                )
+            print("Loading TFLite model...")
+            self.mode        = "tflite"
+            self.interpreter = tf.lite.Interpreter(model_path=str(tflite_path))
+            self.interpreter.allocate_tensors()
+            self.input_details  = self.interpreter.get_input_details()
+            self.output_details = self.interpreter.get_output_details()
+            print("✅ TFLite model loaded")
+            print(f"   Input shape:  {self.input_details[0]['shape']}")
+            print(f"   Output shape: {self.output_details[0]['shape']}")
+
+        else:
+            required_files = [
+                "dense_weights.npy",
+                "d          "embedding_weights.npy",
+                "embedding_bias.npy"
+            ]
+            for f in required_files:
+                i not (base_dir / f).exists():
+                   raise FileNotFoundError(
+                        f"Missing weight file: {f}\n"
+                        f"Make sure all 4 .npy files are in ai/embedder/"
+                    )
+
+            print("Building model and loading fine-tuned weights...")
+            self.mode  = "keras"
+            self.model = self._build_model(base_dir)
+            prin("✅ Fine-tuned model loaded successfully")
+           print(f"   Input shape:  {self.model.input_shape}")
+            print(f"   Output shape: {self.model.output_shape}")
+
+    def _build_model(self, base_dir):
+        """
+        Rebuild the model architecture and load
+        the fine-tuned weights for the custom head.
+        Base MobileNetV2 keeps its ImageNet weights.
+        ""
+        base_model = tf.keras.applications.MobileNetV2(
+            input_shape=(*self.INPUT_SIZE, 3),
+            include_top=False,
+            weights='imagenet'
+       
+        base_model.trainable = False
+
+        inputs  = tf.keras.Input(shape=(*self.INPUT_SIZE, 3))
+   x       = base_model(inputs, training=False)
+        x       = tf.keras.layers.GlobalAveragePooling2D()(x)
+        x       = tf.keras.layers.Dense(
+                      256, activation='relu', name='dense'
+                  )(x)
+        x       = tf.keras.layers.Dropout(0.3)(x)
+        outputs = tf.keras.layers.Dense(
+                      self.EMBEDDING_DIM, name='embedding'
+                  )(x)
+
+        model = tf.keras.Model(inputs, outputs)
+
+        # Load fine-tuned weights
+        dense_w = np.load(str(base_dir / "dense_weights.npy"))
+        dense_b = np.load(str(base_dir / "dense_bias.npy"))
+        emb_w   = np.load(str(base_dir / "embedding_weights.npy"))
+        emb_b   = np.load(str(base_dir / "embedding_bias.npy"))
+
+        model.get_layer('dense').set_weights([dense_w, dense_b])
+        model.get_layer('embedding').set_weights([emb_w, emb_b])
+
+        print(f"   Dense layer weights:     {dense_w.shape}")
+        print(f"   Embedding layer weights: {emb_w.shape}")
+
+        return model
+
+    def preprocess(self, roi):
+        """        Preprocess a face ROI for model input.
+
+        Args:
+            roi: BGR face image as numpy array
+
+       Returns:
+            Preprocessed float32 array of shape (1, 224, 224, 3)
+        """
+        resized = cv2.resize(roi, self.INPUT_SIZE)
+        rgb     = cv2.cvtColor(resized, cv2.COLOR_BGR2RGB)
+        img     = rgb.astype(np.float32)
+        img     = (img / 127.5) - 1.0
+        return np.expand_dims(img, axis=0)
+
+   def extract(self, roi):
+        """
+        Extract a normalized embedding vector from a face ROI.
+
+        Args:
+            roi: BGR face image as numpy array
+
+        Returns:
+            embedding: L2-normalized numpy array of shape (128,)        """
+        input_data = self.preprocess(roi)
+
+        if self.mode == "tflite":
+            self.interpreter.set_t
+
+                self.input_details[0]['index'], input_data
+            )
+            self.interpreter.invoke()
+            raw_embedding = self.interpreter.get_tensor(
+                self.output_details[0]['index']
+            )[0]
+        else:
+            raw_embedding = self.model(
+                input_data, training=False
+            ).numpy()[0]
+
+        return self._l2_normalize(raw_embedding)
+
+    def extract_batch(self, rois):
+        """
+        Extract embeddings from a list of ROIs.
+
+        Args:
+            rois: List of BGR face images
+
+        Returns:
+            embeddings: numpy array of shape (N, 128)
+        """
+        if len(rois) == 0:
+            return np.array([])
+
+        return np.array([self.extract(roi) for roi in rois])
+
+    def _l2_normalize(self, embedding):
+        """L2 normalize an embedding vector."""
+        norm = np.linalg.norm(embedding)
+        if norm == 0:
+            return embedding
+        return embedding / norm
+
+    def cosine_similarity(self, embedding_a, embedding_b):
+        """
+        Cosine similarity between two L2-normalized embeddings.
+
+        Returns float between -1 and 1.
+        1.0  = identical
+        0.0  = unrelated
+        -1.0 = opposite
+        """
+        return float(np.dot(embedding_a, embedding_b))
+
+    def similarity_to_gallery(self, live_embedding, gallery_embeddings):
+        """
+        Compare a live embedding against a stored gallery.
+
+        Args:
+            live_embedding:     numpy array (128,)
+            gallery_embeddings: numpy array (N, 128)
+
+        Returns:
+            max_score:  highest similarity found
+            mean_score: mean of top 5 similarities
+            best_idx:   index of closest match in gallery
+        """
+        if len(gallery_embeddings) == 0:
+            return 0.0, 0.0, -1
+
+        similarities = np.dot(gallery_embeddings, live_embedding)
+        best_idx     = int(np.argmax(similarities))
+        max_score    = float(similarities[best_idx])
+        top_k        = min(5, len(similarities))
+        top_scores   = np.sort(similarities)[-top_k:]
+        mean_score   = float(np.mean(top_scores))
+
+        return max_score, mean_score, best_idx
+
+
+def test_embedder():
+    """
+    Test the fine-tuned embedder using webcam.
+
+    Expected results:
+        Same cat:      similarity > 0.85
+        Different cat: similarity < 0.65
+    """
+    import sys
+    sys.path.append(str(Path(__file__).parent.parent.parent))
+    from ai.detector.face_detector import CatFaceDetector
+
+    detector = CatFaceDetector()
+    embedder = CatFaceEmbedder(use_tflite=False)
+
+    print("\n=== Fine-Tuned Embedder Test ===")
+    print("Hold a cat photo in front of the webcam")
+    print("Press SPACE to capture an embedding")
+    print("Press Q to quit")
+    print()
+
+    cap = cv2.VideoCapture(0)
+    if not cap.isOpened():
+        print("❌ Could not open webcam")
+        return
+
+    captured          = []
+    first_embedding   = None
+
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break
+
+        rois, boxes = detector.detect(frame)
+        qualities   = [detector.assess_quality(roi) for roi in rois]
+        output      = detector.draw_detections(frame, boxes, qualities)
+
+        # Status message
+        if first_embedding is None:
+            msg = "Press SPACE to capture first embedding"
+        elif len(captured) == 0:
+            msg = "Press SPACE to capture second embedding"
+        else:
+            last = captured[-1]
+            if last > 0.85:
+                verdict = "SAME CAT ✅"
+            elif last > 0.65:
+                verdict = "UNCERTAIN ⚠️"
+            else:
+                verdict = "DIFFERENT CAT ❌"
+            msg = f"Similarity: {last:.4f} | {verdict} | Q to quit"
+
+        cv2.putText(
+            output, msg, (10, 30),
+            cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 0), 2
+        )
+        cv2.imshow("Fine-Tuned Embedder Test", output)
+
+        key = cv2.waitKey(1) & 0xFF
+
+        if key == ord('q'):
+            break
+
+        elif key == ord(' ') and len(rois) > 0:
+            # Find best quality ROI
+            best_roi_idx = 0
+            best_quality = 0
+            for i, (score, passed, reason) in enumerate(qualities):
+                if passed and score > best_quality:
+                    best_quality = score
+                    best_roi_idx = i
+
+            score, passed, reason = qualities[best_roi_idx]
+
+            if passed:
+                embedding = embedder.extract(rois[best_roi_idx])
+                print(f"\n✅ Embedding captured")
+                print(f"   Shape: {embedding.shape}")
+                print(f"   Norm:  {np.linalg.norm(embedding):.4f}")
+
+                if first_embedding is None:
+                    first_embedding = embedding
+                    print("   First embedding stored")
+                    print("   Now show the same or a different cat and press SPACE")
+                else:
+                    similarity = embedder.cosine_similarity(
+                        first_embedding, embedding
+                    )
+                    captured.append(similarity)
+                    print(f"   Similarity with first: {similarity:.4f}")
+                    if similarity > 0.85:
+                        print("   ✅ Same cat")
+                    elif similarity > 0.65:
+                        print("   ⚠️  Uncertain")
+                    else:
+                        print("   ❌ Different cat")
+            else:
+                print(f"❌ Quality too low: {reason} — try again")
+
+    cap.release()
+    cv2.destroyAllWindows()
+
+
+if __name__ == "__main__":
+    test_embedder()
