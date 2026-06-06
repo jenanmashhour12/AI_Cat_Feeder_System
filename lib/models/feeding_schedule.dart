@@ -60,4 +60,29 @@ class FeedingSchedule {
       activeDays: activeDays ?? this.activeDays,
     );
   }
+
+  factory FeedingSchedule.fromMap(String id, Map<String, dynamic> map) {
+    return FeedingSchedule(
+      id: id,
+      label: map['label'] ?? '',
+      hour: map['hour'] ?? 0,
+      minute: map['minute'] ?? 0,
+      portionGrams: (map['portion_g'] ?? 0).toDouble(),
+      isEnabled: map['enabled'] ?? true,
+      activeDays: List<bool>.from(
+        map['active_days'] ?? [true, true, true, true, true, true, true],
+      ),
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'label': label,
+      'hour': hour,
+      'minute': minute,
+      'portion_g': portionGrams,
+      'enabled': isEnabled,
+      'active_days': activeDays,
+    };
+  }
 }
