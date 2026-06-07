@@ -3,6 +3,7 @@ import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_spacing.dart';
 import '../../core/constants/app_text_styles.dart';
 import '../../models/feeding_schedule.dart';
+import '../../services/firebase_service.dart';
 import 'widgets/schedule_card.dart';
 import 'widgets/schedule_form_sheet.dart';
 
@@ -14,35 +15,7 @@ class ScheduleScreen extends StatefulWidget {
 }
 
 class _ScheduleScreenState extends State<ScheduleScreen> {
-  final List<FeedingSchedule> _schedules = [
-    const FeedingSchedule(
-      id: '1',
-      label: 'Morning Feeding',
-      hour: 7,
-      minute: 0,
-      portionGrams: 40,
-      isEnabled: true,
-      activeDays: [true, true, true, true, true, true, true],
-    ),
-    const FeedingSchedule(
-      id: '2',
-      label: 'Afternoon Feeding',
-      hour: 13,
-      minute: 0,
-      portionGrams: 30,
-      isEnabled: true,
-      activeDays: [true, true, true, true, true, false, false],
-    ),
-    const FeedingSchedule(
-      id: '3',
-      label: 'Evening Feeding',
-      hour: 18,
-      minute: 0,
-      portionGrams: 40,
-      isEnabled: false,
-      activeDays: [true, true, true, true, true, true, true],
-    ),
-  ];
+  final FirebaseService _firebaseService = FirebaseService();
 
   void _openAddSheet() {
     showModalBottomSheet(
@@ -50,7 +23,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (_) => ScheduleFormSheet(
-        onSave: (schedule) => setState(() => _schedules.add(schedule)),
+        onSave: (schedule) async {
+          await _firebaseService.saveSchedule(schedule);
+        },
       ),
     );
   }
@@ -62,23 +37,16 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       backgroundColor: Colors.transparent,
       builder: (_) => ScheduleFormSheet(
         existing: schedule,
-        onSave: (updated) {
-          setState(() {
-            final index = _schedules.indexWhere((s) => s.id == schedule.id);
-            if (index != -1) _schedules[index] = updated;
-          });
+        onSave: (updated) async {
+          await _firebaseService.saveSchedule(updated);
         },
       ),
     );
   }
 
-  void _toggleSchedule(FeedingSchedule schedule) {
-    setState(() {
-      final index = _schedules.indexWhere((s) => s.id == schedule.id);
-      if (index != -1) {
-        _schedules[index] = schedule.copyWith(isEnabled: !schedule.isEnabled);
-      }
-    });
+  Future<void> _toggleSchedule(FeedingSchedule schedule) async {
+    final updated = schedule.copyWith(isEnabled: !schedule.isEnabled);
+    await _firebaseService.saveSchedule(updated);
   }
 
   void _deleteSchedule(FeedingSchedule schedule) {
@@ -104,10 +72,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
             ),
           ),
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               Navigator.of(ctx).pop();
-              setState(
-                  () => _schedules.removeWhere((s) => s.id == schedule.id));
+              await _firebaseService.deleteSchedule(schedule.id);
             },
             style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
             child: const Text('Delete'),
@@ -119,55 +86,63 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final enabledCount = _schedules.where((s) => s.isEnabled).length;
+    return StreamBuilder<List<FeedingSchedule>>(
+      stream: _firebaseService.watchSchedules(),
+      builder: (context, snapshot) {
+        final schedules = snapshot.data ?? [];
+        final enabledCount = schedules.where((s) => s.isEnabled).length;
 
-    return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: AppBar(
-        title: const Text('Feeding Schedule'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
+        return Scaffold(
+          backgroundColor: AppColors.background,
+          appBar: AppBar(
+            title: const Text('Feeding Schedule'),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.add),
+                onPressed: _openAddSheet,
+                tooltip: 'Add Schedule',
+              ),
+            ],
+          ),
+          body: Column(
+            children: [
+              _buildSummaryBanner(enabledCount, schedules.length),
+              Expanded(
+                child: snapshot.connectionState == ConnectionState.waiting
+                    ? const Center(child: CircularProgressIndicator())
+                    : schedules.isEmpty
+                        ? _buildEmptyState()
+                        : ListView.separated(
+                            padding: const EdgeInsets.all(AppSpacing.lg),
+                            itemCount: schedules.length,
+                            separatorBuilder: (_, __) =>
+                                const SizedBox(height: AppSpacing.md),
+                            itemBuilder: (context, index) {
+                              final schedule = schedules[index];
+                              return ScheduleCard(
+                                schedule: schedule,
+                                onToggle: () => _toggleSchedule(schedule),
+                                onEdit: () => _openEditSheet(schedule),
+                                onDelete: () => _deleteSchedule(schedule),
+                              );
+                            },
+                          ),
+              ),
+            ],
+          ),
+          floatingActionButton: FloatingActionButton.extended(
             onPressed: _openAddSheet,
-            tooltip: 'Add Schedule',
+            backgroundColor: AppColors.primary,
+            foregroundColor: Colors.white,
+            icon: const Icon(Icons.add),
+            label: const Text('Add Schedule'),
           ),
-        ],
-      ),
-      body: Column(
-        children: [
-          _buildSummaryBanner(enabledCount),
-          Expanded(
-            child: _schedules.isEmpty
-                ? _buildEmptyState()
-                : ListView.separated(
-                    padding: const EdgeInsets.all(AppSpacing.lg),
-                    itemCount: _schedules.length,
-                    separatorBuilder: (_, __) =>
-                        const SizedBox(height: AppSpacing.md),
-                    itemBuilder: (context, index) {
-                      final schedule = _schedules[index];
-                      return ScheduleCard(
-                        schedule: schedule,
-                        onToggle: () => _toggleSchedule(schedule),
-                        onEdit: () => _openEditSheet(schedule),
-                        onDelete: () => _deleteSchedule(schedule),
-                      );
-                    },
-                  ),
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _openAddSheet,
-        backgroundColor: AppColors.primary,
-        foregroundColor: Colors.white,
-        icon: const Icon(Icons.add),
-        label: const Text('Add Schedule'),
-      ),
+        );
+      },
     );
   }
 
-  Widget _buildSummaryBanner(int enabled) {
+  Widget _buildSummaryBanner(int enabled, int total) {
     return Container(
       margin: const EdgeInsets.fromLTRB(
         AppSpacing.lg,
@@ -189,13 +164,13 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           const SizedBox(width: AppSpacing.sm),
           Expanded(
             child: Text(
-              '$enabled of ${_schedules.length} schedules active',
+              '$enabled of $total schedules active',
               style:
                   AppTextStyles.titleSmall.copyWith(color: AppColors.primary),
             ),
           ),
           Text(
-            'Total: ${_schedules.length} schedules',
+            'Total: $total schedules',
             style: AppTextStyles.labelMedium
                 .copyWith(color: AppColors.primaryDark),
           ),

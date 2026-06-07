@@ -55,22 +55,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ],
                   ),
                 ),
-                _SettingsTile(
+                const _SettingsTile(
                   icon: Icons.cloud_sync_outlined,
                   iconColor: AppColors.primary,
                   iconBg: AppColors.primaryLight,
                   title: 'Firebase Sync',
                   subtitle: 'Realtime sync active',
-                  trailing: const Icon(Icons.chevron_right,
+                  trailing: Icon(Icons.chevron_right,
                       color: AppColors.textHint, size: 20),
                 ),
-                _SettingsTile(
+                const _SettingsTile(
                   icon: Icons.wifi_outlined,
                   iconColor: AppColors.success,
                   iconBg: AppColors.successLight,
                   title: 'Network',
                   subtitle: 'Connected  •  Signal: Strong',
-                  trailing: const Icon(Icons.chevron_right,
+                  trailing: Icon(Icons.chevron_right,
                       color: AppColors.textHint, size: 20),
                 ),
               ],
@@ -150,22 +150,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
               title: 'Feeding Preferences',
               children: [
                 _buildPortionTile(),
-                _SettingsTile(
+                const _SettingsTile(
                   icon: Icons.pets,
                   iconColor: AppColors.primary,
                   iconBg: AppColors.primaryLight,
                   title: 'Registered Cats',
                   subtitle: '1 cat registered',
-                  trailing: const Icon(Icons.chevron_right,
+                  trailing: Icon(Icons.chevron_right,
                       color: AppColors.textHint, size: 20),
                 ),
-                _SettingsTile(
+                const _SettingsTile(
                   icon: Icons.history_outlined,
                   iconColor: AppColors.primary,
                   iconBg: AppColors.primaryLight,
                   title: 'Log Retention',
                   subtitle: 'Keep logs for 30 days',
-                  trailing: const Icon(Icons.chevron_right,
+                  trailing: Icon(Icons.chevron_right,
                       color: AppColors.textHint, size: 20),
                 ),
               ],
@@ -174,21 +174,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
             _buildSection(
               title: 'About',
               children: [
-                _SettingsTile(
+                const _SettingsTile(
                   icon: Icons.info_outline,
                   iconColor: AppColors.textSecondary,
                   iconBg: AppColors.surfaceVariant,
                   title: 'App Version',
                   subtitle: '1.0.0 (Build 1)',
-                  trailing: const SizedBox.shrink(),
+                  trailing: SizedBox.shrink(),
                 ),
-                _SettingsTile(
+                const _SettingsTile(
                   icon: Icons.memory_outlined,
                   iconColor: AppColors.textSecondary,
                   iconBg: AppColors.surfaceVariant,
                   title: 'Firmware Version',
                   subtitle: 'Pi v0.9.1',
-                  trailing: const SizedBox.shrink(),
+                  trailing: SizedBox.shrink(),
                 ),
               ],
             ),
