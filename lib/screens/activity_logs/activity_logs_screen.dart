@@ -223,18 +223,21 @@ class _ActivityLogsScreenState extends State<ActivityLogsScreen> {
 
   void _showFilterSheet() {
     final filters = [
-      _FilterOption(
+      const _FilterOption(
           type: ActivityLogType.feedingCompleted, label: 'Feeding Completed'),
-      _FilterOption(
+      const _FilterOption(
           type: ActivityLogType.feedingFailed, label: 'Feeding Failed'),
-      _FilterOption(type: ActivityLogType.catDetected, label: 'Cat Detected'),
-      _FilterOption(
+      const _FilterOption(
+          type: ActivityLogType.catDetected, label: 'Cat Detected'),
+      const _FilterOption(
           type: ActivityLogType.unknownAnimal, label: 'Unknown Animal'),
-      _FilterOption(type: ActivityLogType.lowFood, label: 'Low Food'),
-      _FilterOption(type: ActivityLogType.lowWater, label: 'Low Water'),
-      _FilterOption(type: ActivityLogType.waterRefill, label: 'Water Refill'),
-      _FilterOption(type: ActivityLogType.manualFeed, label: 'Manual Feed'),
-      _FilterOption(
+      const _FilterOption(type: ActivityLogType.lowFood, label: 'Low Food'),
+      const _FilterOption(type: ActivityLogType.lowWater, label: 'Low Water'),
+      const _FilterOption(
+          type: ActivityLogType.waterRefill, label: 'Water Refill'),
+      const _FilterOption(
+          type: ActivityLogType.manualFeed, label: 'Manual Feed'),
+      const _FilterOption(
           type: ActivityLogType.deviceConnected, label: 'Device Connected'),
     ];
 

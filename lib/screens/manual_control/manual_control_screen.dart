@@ -5,6 +5,7 @@ import '../../core/constants/app_text_styles.dart';
 import 'models/action_result.dart';
 import 'widgets/action_result_banner.dart';
 import 'widgets/portion_selector.dart';
+import '../../services/firebase_service.dart';
 
 class ManualControlScreen extends StatefulWidget {
   const ManualControlScreen({super.key});
@@ -18,6 +19,7 @@ class _ManualControlScreenState extends State<ManualControlScreen> {
   ActionResult? _lastResult;
   bool _isFeeding = false;
   bool _isRefilling = false;
+  final FirebaseService _firebaseService = FirebaseService();
 
   Future<void> _triggerFeed() async {
     final confirmed = await _showConfirmation(
@@ -34,14 +36,14 @@ class _ManualControlScreenState extends State<ManualControlScreen> {
       _lastResult = null;
     });
 
-    await Future.delayed(const Duration(seconds: 2));
+    await _firebaseService.sendFeedCommand(_selectedPortion);
 
     setState(() {
       _isFeeding = false;
       _lastResult = ActionResult(
         success: true,
         message:
-            '${_selectedPortion.toStringAsFixed(0)}g dispensed successfully.',
+            '${_selectedPortion.toStringAsFixed(0)}g feed command sent successfully.',
         time: _formattedNow(),
         icon: Icons.check_circle_outline,
         color: AppColors.success,
@@ -153,7 +155,7 @@ class _ManualControlScreenState extends State<ManualControlScreen> {
   }
 
   Widget _buildStatusRow() {
-    return Row(
+    return const Row(
       children: [
         _StatusPill(
           label: 'Feeder Online',
@@ -161,19 +163,19 @@ class _ManualControlScreenState extends State<ManualControlScreen> {
           color: AppColors.success,
           bg: AppColors.successLight,
         ),
-        const SizedBox(width: AppSpacing.sm),
+        SizedBox(width: AppSpacing.sm),
         _StatusPill(
           label: 'Food: 72%',
           icon: Icons.set_meal_outlined,
           color: AppColors.primary,
           bg: AppColors.primaryLight,
         ),
-        const SizedBox(width: AppSpacing.sm),
+        SizedBox(width: AppSpacing.sm),
         _StatusPill(
           label: 'Water: 45%',
           icon: Icons.water_drop_outlined,
-          color: const Color(0xFF38BDF8),
-          bg: const Color(0xFFE0F5FE),
+          color: Color(0xFF38BDF8),
+          bg: Color(0xFFE0F5FE),
         ),
       ],
     );

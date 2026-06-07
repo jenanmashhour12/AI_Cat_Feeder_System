@@ -7,7 +7,10 @@ class FirebaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   Stream<SystemStatus> watchSystemStatus() {
-    return _db.collection('system_status').doc('main').snapshots().map((doc) {
+    return _db.collection('system_status').doc('status').snapshots().map((doc) {
+      print('DOC EXISTS: ${doc.exists}');
+      print('DOC DATA: ${doc.data()}');
+
       final data = doc.data() ?? {};
       return SystemStatus.fromMap(data);
     });

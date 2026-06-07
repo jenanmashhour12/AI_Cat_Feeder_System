@@ -5,49 +5,71 @@ import '../../core/constants/app_text_styles.dart';
 import '../../widgets/status_card.dart';
 import '../../widgets/section_header.dart';
 import '../../widgets/info_chip.dart';
+import '../../models/system_status.dart';
+import '../../services/firebase_service.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
+  static final FirebaseService _firebaseService = FirebaseService();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.background,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: AppSpacing.xl),
-              _buildHeader(),
-              const SizedBox(height: AppSpacing.xxl),
-              _buildSystemStatusBanner(),
-              const SizedBox(height: AppSpacing.xxl),
-              SectionHeader(
-                title: 'System Status',
-                actionLabel: 'Refresh',
-                onAction: () {},
+    return StreamBuilder<SystemStatus>(
+      stream: _firebaseService.watchSystemStatus(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const Scaffold(
+            backgroundColor: AppColors.background,
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        }
+
+        final status = snapshot.data!;
+
+        return Scaffold(
+          backgroundColor: AppColors.background,
+          body: SafeArea(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: AppSpacing.xl),
+                  _buildHeader(),
+                  const SizedBox(height: AppSpacing.xxl),
+                  _buildSystemStatusBanner(status),
+                  const SizedBox(height: AppSpacing.xxl),
+                  SectionHeader(
+                    title: 'System Status',
+                    actionLabel:
+                        snapshot.connectionState == ConnectionState.waiting
+                            ? 'Loading'
+                            : 'Live',
+                    onAction: () {},
+                  ),
+                  const SizedBox(height: AppSpacing.md),
+                  _buildStatusGrid(status),
+                  const SizedBox(height: AppSpacing.xxl),
+                  const SectionHeader(title: 'Quick Actions'),
+                  const SizedBox(height: AppSpacing.md),
+                  _buildQuickActions(context),
+                  const SizedBox(height: AppSpacing.xxl),
+                  SectionHeader(
+                    title: 'Latest Activity',
+                    actionLabel: 'View All',
+                    onAction: () {},
+                  ),
+                  const SizedBox(height: AppSpacing.md),
+                  _buildActivityPreview(),
+                  const SizedBox(height: AppSpacing.xxxl),
+                ],
               ),
-              const SizedBox(height: AppSpacing.md),
-              _buildStatusGrid(),
-              const SizedBox(height: AppSpacing.xxl),
-              const SectionHeader(title: 'Quick Actions'),
-              const SizedBox(height: AppSpacing.md),
-              _buildQuickActions(context),
-              const SizedBox(height: AppSpacing.xxl),
-              SectionHeader(
-                title: 'Latest Activity',
-                actionLabel: 'View All',
-                onAction: () {},
-              ),
-              const SizedBox(height: AppSpacing.md),
-              _buildActivityPreview(),
-              const SizedBox(height: AppSpacing.xxxl),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 
@@ -81,7 +103,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSystemStatusBanner() {
+  Widget _buildSystemStatusBanner(SystemStatus status) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(AppSpacing.lg),
@@ -109,7 +131,7 @@ class DashboardScreen extends StatelessWidget {
                 width: 8,
                 height: 8,
                 decoration: BoxDecoration(
-                  color: AppColors.online,
+                  color: status.piOnline ? AppColors.online : AppColors.error,
                   borderRadius: BorderRadius.circular(100),
                   boxShadow: [
                     BoxShadow(
@@ -121,7 +143,7 @@ class DashboardScreen extends StatelessWidget {
               ),
               const SizedBox(width: AppSpacing.sm),
               Text(
-                'Feeder Online',
+                status.piOnline ? 'Feeder Online' : 'Feeder Offline',
                 style: AppTextStyles.titleSmall.copyWith(color: Colors.white),
               ),
             ],
@@ -178,7 +200,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildStatusGrid() {
+  Widget _buildStatusGrid(SystemStatus status) {
     return Column(
       children: [
         Row(
@@ -186,30 +208,32 @@ class DashboardScreen extends StatelessWidget {
             Expanded(
               child: StatusCard(
                 title: 'Food Level',
-                value: '72%',
+                value: '${status.foodLevelPct.toStringAsFixed(0)}%',
                 subtitle: 'Approx. 3 days left',
                 icon: Icons.set_meal_outlined,
                 iconColor: AppColors.primary,
                 iconBackground: AppColors.primaryLight,
-                trailing: _buildLevelBar(0.72, AppColors.primary),
+                trailing: _buildLevelBar(
+                    status.foodLevelPct / 100, AppColors.primary),
               ),
             ),
             const SizedBox(width: AppSpacing.md),
             Expanded(
               child: StatusCard(
                 title: 'Water Level',
-                value: '45%',
+                value: '${status.waterLevelPct.toStringAsFixed(0)}%',
                 subtitle: 'Refill recommended',
                 icon: Icons.water_drop_outlined,
                 iconColor: const Color(0xFF38BDF8),
                 iconBackground: const Color(0xFFE0F5FE),
-                trailing: _buildLevelBar(0.45, const Color(0xFF38BDF8)),
+                trailing: _buildLevelBar(
+                    status.waterLevelPct / 100, const Color(0xFF38BDF8)),
               ),
             ),
           ],
         ),
         const SizedBox(height: AppSpacing.md),
-        StatusCard(
+        const StatusCard(
           title: 'Last Feeding',
           value: '9:00 AM — 30g',
           subtitle: 'Successful  •  Cat detected and authorized',
@@ -220,7 +244,7 @@ class DashboardScreen extends StatelessWidget {
         const SizedBox(height: AppSpacing.md),
         StatusCard(
           title: 'Raspberry Pi',
-          value: 'Connected',
+          value: status.piOnline ? 'Connected' : 'Disconnected',
           subtitle: 'Signal: Strong  •  Latency: 12ms',
           icon: Icons.developer_board_outlined,
           iconColor: AppColors.success,
@@ -229,7 +253,7 @@ class DashboardScreen extends StatelessWidget {
             width: 8,
             height: 8,
             decoration: BoxDecoration(
-              color: AppColors.online,
+              color: status.piOnline ? AppColors.online : AppColors.error,
               borderRadius: BorderRadius.circular(100),
             ),
           ),
@@ -337,21 +361,21 @@ class DashboardScreen extends StatelessWidget {
 
   Widget _buildActivityPreview() {
     final events = [
-      _ActivityItem(
+      const _ActivityItem(
         icon: Icons.restaurant_outlined,
         title: 'Feeding Completed',
         subtitle: 'Today at 9:00 AM  •  30g dispensed',
         color: AppColors.success,
         bg: AppColors.successLight,
       ),
-      _ActivityItem(
+      const _ActivityItem(
         icon: Icons.pets,
         title: 'Cat Detected & Authorized',
         subtitle: 'Today at 8:58 AM',
         color: AppColors.primary,
         bg: AppColors.primaryLight,
       ),
-      _ActivityItem(
+      const _ActivityItem(
         icon: Icons.warning_amber_outlined,
         title: 'Low Water Alert',
         subtitle: 'Today at 7:30 AM',

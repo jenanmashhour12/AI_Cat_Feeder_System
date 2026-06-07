@@ -15,7 +15,7 @@ class ScheduleScreen extends StatefulWidget {
 
 class _ScheduleScreenState extends State<ScheduleScreen> {
   final List<FeedingSchedule> _schedules = [
-    FeedingSchedule(
+    const FeedingSchedule(
       id: '1',
       label: 'Morning Feeding',
       hour: 7,
@@ -24,7 +24,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       isEnabled: true,
       activeDays: [true, true, true, true, true, true, true],
     ),
-    FeedingSchedule(
+    const FeedingSchedule(
       id: '2',
       label: 'Afternoon Feeding',
       hour: 13,
@@ -33,7 +33,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       isEnabled: true,
       activeDays: [true, true, true, true, true, false, false],
     ),
-    FeedingSchedule(
+    const FeedingSchedule(
       id: '3',
       label: 'Evening Feeding',
       hour: 18,
