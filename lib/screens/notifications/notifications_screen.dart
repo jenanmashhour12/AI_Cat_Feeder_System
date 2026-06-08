@@ -3,6 +3,7 @@ import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_spacing.dart';
 import '../../core/constants/app_text_styles.dart';
 import '../../models/notification_item.dart';
+import '../../services/firebase_service.dart';
 
 class NotificationsScreen extends StatefulWidget {
   const NotificationsScreen({super.key});
@@ -12,100 +13,15 @@ class NotificationsScreen extends StatefulWidget {
 }
 
 class _NotificationsScreenState extends State<NotificationsScreen> {
-  List<NotificationItem> _notifications = [
-    NotificationItem(
-      id: '1',
-      type: NotificationType.lowWater,
-      title: 'Low Water Level',
-      message: 'Water level has dropped below 40%. Please refill soon.',
-      timestamp: DateTime.now().subtract(const Duration(minutes: 30)),
-      isRead: false,
-    ),
-    NotificationItem(
-      id: '2',
-      type: NotificationType.feedingComplete,
-      title: 'Feeding Completed',
-      message: '30g of food was successfully dispensed at 9:00 AM.',
-      timestamp: DateTime.now().subtract(const Duration(hours: 1)),
-      isRead: false,
-    ),
-    NotificationItem(
-      id: '3',
-      type: NotificationType.unknownAnimal,
-      title: 'Unrecognized Animal Detected',
-      message:
-          'An unrecognized animal approached the feeder. Access was denied.',
-      timestamp: DateTime.now().subtract(const Duration(hours: 3)),
-      isRead: false,
-    ),
-    NotificationItem(
-      id: '4',
-      type: NotificationType.lowFood,
-      title: 'Low Food Level',
-      message: 'Food container is at 28%. Consider refilling soon.',
-      timestamp: DateTime.now().subtract(const Duration(days: 1)),
-      isRead: true,
-    ),
-    NotificationItem(
-      id: '5',
-      type: NotificationType.feedingComplete,
-      title: 'Feeding Completed',
-      message: '30g of food was successfully dispensed at 6:00 PM.',
-      timestamp: DateTime.now().subtract(const Duration(days: 1, hours: 2)),
-      isRead: true,
-    ),
-    NotificationItem(
-      id: '6',
-      type: NotificationType.deviceOffline,
-      title: 'Device Went Offline',
-      message:
-          'The feeder lost connection briefly. It reconnected after 2 minutes.',
-      timestamp: DateTime.now().subtract(const Duration(days: 2)),
-      isRead: true,
-    ),
-    NotificationItem(
-      id: '7',
-      type: NotificationType.deviceOnline,
-      title: 'Device Back Online',
-      message: 'Raspberry Pi reconnected to Firebase successfully.',
-      timestamp: DateTime.now().subtract(const Duration(days: 2, minutes: 2)),
-      isRead: true,
-    ),
-    NotificationItem(
-      id: '8',
-      type: NotificationType.manualFeed,
-      title: 'Manual Feed Triggered',
-      message: '20g was dispensed manually via the app.',
-      timestamp: DateTime.now().subtract(const Duration(days: 3)),
-      isRead: true,
-    ),
-  ];
+  final FirebaseService _firebaseService = FirebaseService();
 
-  int get _unreadCount => _notifications.where((n) => !n.isRead).length;
-
-  void _markAllRead() {
-    setState(() {
-      _notifications =
-          _notifications.map((n) => n.copyWith(isRead: true)).toList();
-    });
+  Future<void> _markAllRead(List<NotificationItem> notifications) async {
+    for (final n in notifications.where((n) => !n.isRead)) {
+      await _firebaseService.markNotificationRead(n.id);
+    }
   }
 
-  void _markRead(String id) {
-    setState(() {
-      _notifications = _notifications.map((n) {
-        if (n.id == id) return n.copyWith(isRead: true);
-        return n;
-      }).toList();
-    });
-  }
-
-  void _deleteNotification(String id) {
-    setState(() {
-      _notifications.removeWhere((n) => n.id == id);
-    });
-  }
-
-  void _clearAll() {
+  void _clearAll(List<NotificationItem> notifications) {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
@@ -123,18 +39,19 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
             onPressed: () => Navigator.of(ctx).pop(),
             child: Text(
               'Cancel',
-              style: AppTextStyles.bodyMedium
-                  .copyWith(color: AppColors.textSecondary),
+              style: AppTextStyles.bodyMedium.copyWith(
+                color: AppColors.textSecondary,
+              ),
             ),
           ),
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               Navigator.of(ctx).pop();
-              setState(() => _notifications.clear());
+              for (final n in notifications) {
+                await _firebaseService.deleteNotification(n.id);
+              }
             },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.error,
-            ),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
             child: const Text('Clear All'),
           ),
         ],
@@ -144,78 +61,97 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: AppBar(
-        title: Row(
-          children: [
-            const Text('Notifications'),
-            if (_unreadCount > 0) ...[
-              const SizedBox(width: AppSpacing.sm),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 7,
-                  vertical: 2,
-                ),
-                decoration: BoxDecoration(
-                  color: AppColors.primary,
-                  borderRadius: BorderRadius.circular(100),
-                ),
-                child: Text(
-                  '$_unreadCount',
-                  style: AppTextStyles.labelSmall.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            ],
-          ],
-        ),
-        actions: [
-          if (_unreadCount > 0)
-            TextButton(
-              onPressed: _markAllRead,
-              child: Text(
-                'Mark all read',
-                style: AppTextStyles.labelMedium
-                    .copyWith(color: AppColors.primary),
-              ),
-            ),
-          IconButton(
-            icon: const Icon(Icons.delete_sweep_outlined),
-            onPressed: _notifications.isEmpty ? null : _clearAll,
-            tooltip: 'Clear all',
-          ),
-        ],
-      ),
-      body: _notifications.isEmpty
-          ? _buildEmptyState()
-          : Column(
+    return StreamBuilder<List<NotificationItem>>(
+      stream: _firebaseService.watchNotifications(),
+      builder: (context, snapshot) {
+        final notifications = snapshot.data ?? [];
+        final unreadCount = notifications.where((n) => !n.isRead).length;
+
+        return Scaffold(
+          backgroundColor: AppColors.background,
+          appBar: AppBar(
+            title: Row(
               children: [
-                if (_unreadCount > 0) _buildUnreadBanner(),
-                Expanded(
-                  child: ListView.separated(
-                    padding: const EdgeInsets.all(AppSpacing.lg),
-                    itemCount: _notifications.length,
-                    separatorBuilder: (_, __) =>
-                        const SizedBox(height: AppSpacing.md),
-                    itemBuilder: (context, index) {
-                      final n = _notifications[index];
-                      return _NotificationTile(
-                        notification: n,
-                        onTap: () => _markRead(n.id),
-                        onDelete: () => _deleteNotification(n.id),
-                      );
-                    },
+                const Text('Notifications'),
+                if (unreadCount > 0) ...[
+                  const SizedBox(width: AppSpacing.sm),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 7,
+                      vertical: 2,
+                    ),
+                    decoration: BoxDecoration(
+                      color: AppColors.primary,
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Text(
+                      '$unreadCount',
+                      style: AppTextStyles.labelSmall.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ],
             ),
+            actions: [
+              if (unreadCount > 0)
+                TextButton(
+                  onPressed: () => _markAllRead(notifications),
+                  child: Text(
+                    'Mark all read',
+                    style: AppTextStyles.labelMedium.copyWith(
+                      color: AppColors.primary,
+                    ),
+                  ),
+                ),
+              IconButton(
+                icon: const Icon(Icons.delete_sweep_outlined),
+                onPressed: notifications.isEmpty
+                    ? null
+                    : () => _clearAll(notifications),
+                tooltip: 'Clear all',
+              ),
+            ],
+          ),
+          body: snapshot.connectionState == ConnectionState.waiting
+              ? const Center(child: CircularProgressIndicator())
+              : notifications.isEmpty
+                  ? _buildEmptyState()
+                  : Column(
+                      children: [
+                        if (unreadCount > 0)
+                          _buildUnreadBanner(unreadCount, notifications),
+                        Expanded(
+                          child: ListView.separated(
+                            padding: const EdgeInsets.all(AppSpacing.lg),
+                            itemCount: notifications.length,
+                            separatorBuilder: (_, __) =>
+                                const SizedBox(height: AppSpacing.md),
+                            itemBuilder: (context, index) {
+                              final n = notifications[index];
+                              return _NotificationTile(
+                                notification: n,
+                                onTap: () =>
+                                    _firebaseService.markNotificationRead(n.id),
+                                onDelete: () =>
+                                    _firebaseService.deleteNotification(n.id),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+        );
+      },
     );
   }
 
-  Widget _buildUnreadBanner() {
+  Widget _buildUnreadBanner(
+    int unreadCount,
+    List<NotificationItem> notifications,
+  ) {
     return Container(
       margin: const EdgeInsets.fromLTRB(
         AppSpacing.lg,
@@ -233,18 +169,22 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       ),
       child: Row(
         children: [
-          const Icon(Icons.circle_notifications_outlined,
-              color: AppColors.primary, size: 18),
+          const Icon(
+            Icons.circle_notifications_outlined,
+            color: AppColors.primary,
+            size: 18,
+          ),
           const SizedBox(width: AppSpacing.sm),
           Expanded(
             child: Text(
-              '$_unreadCount unread notification${_unreadCount > 1 ? 's' : ''}',
-              style:
-                  AppTextStyles.titleSmall.copyWith(color: AppColors.primary),
+              '$unreadCount unread notification${unreadCount > 1 ? 's' : ''}',
+              style: AppTextStyles.titleSmall.copyWith(
+                color: AppColors.primary,
+              ),
             ),
           ),
           GestureDetector(
-            onTap: _markAllRead,
+            onTap: () => _markAllRead(notifications),
             child: Text(
               'Mark all read',
               style: AppTextStyles.labelMedium.copyWith(
@@ -279,10 +219,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
           const SizedBox(height: AppSpacing.lg),
           Text('No Notifications', style: AppTextStyles.headlineMedium),
           const SizedBox(height: AppSpacing.sm),
-          Text(
-            'You are all caught up.',
-            style: AppTextStyles.bodyMedium,
-          ),
+          Text('You are all caught up.', style: AppTextStyles.bodyMedium),
         ],
       ),
     );

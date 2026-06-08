@@ -15,6 +15,51 @@ class NotificationItem {
     required this.isRead,
   });
 
+  factory NotificationItem.fromMap(
+    String id,
+    Map<String, dynamic> map,
+  ) {
+    NotificationType type;
+
+    switch (map['type']) {
+      case 'low_food':
+        type = NotificationType.lowFood;
+        break;
+      case 'low_water':
+        type = NotificationType.lowWater;
+        break;
+      case 'feeding_complete':
+        type = NotificationType.feedingComplete;
+        break;
+      case 'unknown_animal':
+        type = NotificationType.unknownAnimal;
+        break;
+      case 'device_offline':
+        type = NotificationType.deviceOffline;
+        break;
+      case 'device_online':
+        type = NotificationType.deviceOnline;
+        break;
+      case 'manual_feed':
+        type = NotificationType.manualFeed;
+        break;
+      default:
+        type = NotificationType.manualFeed;
+    }
+
+    return NotificationItem(
+      id: id,
+      type: type,
+      title: map['title'] ?? '',
+      message: map['message'] ?? '',
+      timestamp: DateTime.tryParse(
+            map['timestamp']?.toString() ?? '',
+          ) ??
+          DateTime.now(),
+      isRead: map['is_read'] ?? false,
+    );
+  }
+
   String get formattedTime {
     final now = DateTime.now();
     final diff = now.difference(timestamp);
