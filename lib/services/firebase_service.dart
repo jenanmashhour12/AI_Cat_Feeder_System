@@ -14,6 +14,14 @@ class FirebaseService {
     });
   }
 
+  Stream<QuerySnapshot<Map<String, dynamic>>> watchLatestFeedings() {
+    return _db
+        .collection('feedings')
+        .orderBy('timestamp', descending: true)
+        .limit(3)
+        .snapshots();
+  }
+
   Stream<List<FeedingSchedule>> watchSchedules() {
     return _db.collection('schedules').snapshots().map((snapshot) => snapshot
         .docs

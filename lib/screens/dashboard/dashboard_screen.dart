@@ -7,6 +7,7 @@ import '../../widgets/section_header.dart';
 import '../../widgets/info_chip.dart';
 import '../../models/system_status.dart';
 import '../../services/firebase_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -360,39 +361,46 @@ class DashboardScreen extends StatelessWidget {
   }
 
   Widget _buildActivityPreview() {
-    final events = [
-      const _ActivityItem(
-        icon: Icons.restaurant_outlined,
-        title: 'Feeding Completed',
-        subtitle: 'Today at 9:00 AM  •  30g dispensed',
-        color: AppColors.success,
-        bg: AppColors.successLight,
-      ),
-      const _ActivityItem(
-        icon: Icons.pets,
-        title: 'Cat Detected & Authorized',
-        subtitle: 'Today at 8:58 AM',
-        color: AppColors.primary,
-        bg: AppColors.primaryLight,
-      ),
-      const _ActivityItem(
-        icon: Icons.warning_amber_outlined,
-        title: 'Low Water Alert',
-        subtitle: 'Today at 7:30 AM',
-        color: AppColors.warning,
-        bg: AppColors.warningLight,
-      ),
-    ];
+    return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+      stream: _firebaseService.watchLatestFeedings(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const Center(child: CircularProgressIndicator());
+        }
 
-    return Column(
-      children: events
-          .map(
-            (e) => Padding(
+        final docs = snapshot.data!.docs;
+
+        if (docs.isEmpty) {
+          return Text('No recent activity yet.',
+              style: AppTextStyles.bodyMedium);
+        }
+
+        return Column(
+          children: docs.map((doc) {
+            final data = doc.data();
+            final authorized = data['authorized'] == true;
+            final catName = data['cat_name'] ?? 'Unknown Cat';
+            final portion = data['portion_g'] ?? 0;
+
+            final item = _ActivityItem(
+              icon: authorized
+                  ? Icons.restaurant_outlined
+                  : Icons.cancel_outlined,
+              title: authorized ? 'Feeding Completed' : 'Feeding Failed',
+              subtitle: authorized
+                  ? '$portion g dispensed for $catName'
+                  : 'Access denied for $catName',
+              color: authorized ? AppColors.success : AppColors.error,
+              bg: authorized ? AppColors.successLight : AppColors.errorLight,
+            );
+
+            return Padding(
               padding: const EdgeInsets.only(bottom: AppSpacing.md),
-              child: _buildActivityTile(e),
-            ),
-          )
-          .toList(),
+              child: _buildActivityTile(item),
+            );
+          }).toList(),
+        );
+      },
     );
   }
 
