@@ -85,7 +85,7 @@ class PortionSelector extends StatelessWidget {
             activeTrackColor: AppColors.primary,
             inactiveTrackColor: AppColors.primaryLight,
             thumbColor: AppColors.primary,
-            overlayColor: AppColors.primary.withOpacity(0.12),
+            overlayColor: AppColors.primary.withValues(alpha: 0.12),
             trackHeight: 4,
             thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 10),
           ),

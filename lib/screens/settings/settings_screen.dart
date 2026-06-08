@@ -315,7 +315,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               activeTrackColor: AppColors.primary,
               inactiveTrackColor: AppColors.primaryLight,
               thumbColor: AppColors.primary,
-              overlayColor: AppColors.primary.withOpacity(0.12),
+              overlayColor: AppColors.primary.withValues(alpha: 0.12),
               trackHeight: 4,
               thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 10),
             ),
@@ -492,7 +492,8 @@ class _SwitchTile extends StatelessWidget {
             Switch.adaptive(
               value: value,
               onChanged: onChanged,
-              activeColor: AppColors.primary,
+              activeThumbColor: AppColors.primary,
+              activeTrackColor: AppColors.primaryLight,
             ),
           ],
         ),

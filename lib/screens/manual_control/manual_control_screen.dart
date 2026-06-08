@@ -343,7 +343,7 @@ class _ManualControlScreenState extends State<ManualControlScreen> {
         color: AppColors.warningLight,
         borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
         border: Border.all(
-          color: AppColors.warning.withOpacity(0.3),
+          color: AppColors.warning.withValues(alpha: 0.3),
           width: 1,
         ),
       ),

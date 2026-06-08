@@ -117,7 +117,7 @@ class DashboardScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primary.withOpacity(0.25),
+            color: AppColors.primary.withValues(alpha: 0.25),
             blurRadius: 16,
             offset: const Offset(0, 6),
           ),
@@ -136,7 +136,7 @@ class DashboardScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(100),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.online.withOpacity(0.5),
+                      color: AppColors.online.withValues(alpha: 0.5),
                       blurRadius: 6,
                     ),
                   ],
@@ -181,14 +181,14 @@ class DashboardScreen extends StatelessWidget {
                 children: [
                   InfoChip(
                     label: 'Cat Detected',
-                    backgroundColor: Colors.white.withOpacity(0.2),
+                    backgroundColor: Colors.white.withValues(alpha: 0.2),
                     textColor: Colors.white,
                     icon: Icons.pets,
                   ),
                   const SizedBox(height: 8),
                   InfoChip(
                     label: 'Authorized',
-                    backgroundColor: AppColors.success.withOpacity(0.25),
+                    backgroundColor: AppColors.success.withValues(alpha: 0.25),
                     textColor: Colors.white,
                     icon: Icons.verified_outlined,
                   ),

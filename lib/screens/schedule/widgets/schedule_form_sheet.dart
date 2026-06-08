@@ -174,7 +174,7 @@ class _ScheduleFormSheetState extends State<ScheduleFormSheet> {
               color: AppColors.primaryLight,
               borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
               border: Border.all(
-                color: AppColors.primary.withOpacity(0.3),
+                color: AppColors.primary.withValues(alpha: 0.3),
                 width: 1.5,
               ),
             ),
@@ -267,7 +267,7 @@ class _ScheduleFormSheetState extends State<ScheduleFormSheet> {
             activeTrackColor: AppColors.primary,
             inactiveTrackColor: AppColors.primaryLight,
             thumbColor: AppColors.primary,
-            overlayColor: AppColors.primary.withOpacity(0.12),
+            overlayColor: AppColors.primary.withValues(alpha: 0.12),
             trackHeight: 4,
             thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 10),
           ),

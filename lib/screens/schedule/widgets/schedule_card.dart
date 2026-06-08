@@ -31,14 +31,14 @@ class ScheduleCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
           border: Border.all(
             color: isEnabled
-                ? AppColors.primary.withOpacity(0.25)
+                ? AppColors.primary.withValues(alpha: 0.25)
                 : AppColors.cardBorder,
             width: isEnabled ? 1.5 : 1,
           ),
           boxShadow: isEnabled
               ? [
                   BoxShadow(
-                    color: AppColors.primary.withOpacity(0.06),
+                    color: AppColors.primary.withValues(alpha: 0.06),
                     blurRadius: 12,
                     offset: const Offset(0, 4),
                   ),
@@ -129,7 +129,8 @@ class ScheduleCard extends StatelessWidget {
         Switch.adaptive(
           value: schedule.isEnabled,
           onChanged: (_) => onToggle(),
-          activeColor: AppColors.primary,
+          activeThumbColor: AppColors.primary,
+          activeTrackColor: AppColors.primaryLight,
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         ),
         const SizedBox(height: 4),

@@ -312,8 +312,9 @@ class _NotificationTile extends StatelessWidget {
             color: AppColors.surface,
             borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
             border: Border.all(
-              color:
-                  isUnread ? _iconColor.withOpacity(0.3) : AppColors.cardBorder,
+              color: isUnread
+                  ? _iconColor.withValues(alpha: 0.3)
+                  : AppColors.cardBorder,
               width: isUnread ? 1.5 : 1,
             ),
           ),

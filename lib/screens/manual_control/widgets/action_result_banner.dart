@@ -16,7 +16,7 @@ class ActionResultBanner extends StatelessWidget {
         color: result.bg,
         borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
         border: Border.all(
-          color: result.color.withOpacity(0.3),
+          color: result.color.withValues(alpha: 0.3),
           width: 1,
         ),
       ),
@@ -26,7 +26,7 @@ class ActionResultBanner extends StatelessWidget {
             width: 36,
             height: 36,
             decoration: BoxDecoration(
-              color: result.color.withOpacity(0.15),
+              color: result.color.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(AppSpacing.iconRadius - 2),
             ),
             child: Icon(result.icon, color: result.color, size: 18),
