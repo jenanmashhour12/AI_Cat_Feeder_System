@@ -2,15 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../models/system_status.dart';
 import '../models/feeding_schedule.dart';
+import '../models/activity_log.dart';
 
 class FirebaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   Stream<SystemStatus> watchSystemStatus() {
     return _db.collection('system_status').doc('status').snapshots().map((doc) {
-      print('DOC EXISTS: ${doc.exists}');
-      print('DOC DATA: ${doc.data()}');
-
       final data = doc.data() ?? {};
       return SystemStatus.fromMap(data);
     });
@@ -49,5 +47,13 @@ class FirebaseService {
         .set({
       'portion_g': portionG,
     }, SetOptions(merge: true));
+  }
+
+  Stream<List<ActivityLog>> watchFeedings() {
+    return _db.collection('feedings').snapshots().map((snapshot) => snapshot
+        .docs
+        .map((doc) => ActivityLog.fromFeeding(doc.id, doc.data()))
+        .toList()
+      ..sort((a, b) => b.timestamp.compareTo(a.timestamp)));
   }
 }

@@ -3,6 +3,7 @@ import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_spacing.dart';
 import '../../core/constants/app_text_styles.dart';
 import '../../models/activity_log.dart';
+import '../../services/firebase_service.dart';
 
 class ActivityLogsScreen extends StatefulWidget {
   const ActivityLogsScreen({super.key});
@@ -13,94 +14,6 @@ class ActivityLogsScreen extends StatefulWidget {
 
 class _ActivityLogsScreenState extends State<ActivityLogsScreen> {
   ActivityLogType? _selectedFilter;
-
-  final List<ActivityLog> _logs = [
-    ActivityLog(
-      id: '1',
-      type: ActivityLogType.feedingCompleted,
-      title: 'Feeding Completed',
-      detail: '30g dispensed successfully',
-      timestamp: DateTime.now().subtract(const Duration(hours: 1)),
-      isSuccess: true,
-    ),
-    ActivityLog(
-      id: '2',
-      type: ActivityLogType.catDetected,
-      title: 'Cat Detected — Authorized',
-      detail: 'Whiskers recognized via AI model',
-      timestamp: DateTime.now().subtract(const Duration(hours: 1, minutes: 2)),
-      isSuccess: true,
-    ),
-    ActivityLog(
-      id: '3',
-      type: ActivityLogType.lowWater,
-      title: 'Low Water Level',
-      detail: 'Water dropped below 40% threshold',
-      timestamp: DateTime.now().subtract(const Duration(hours: 2, minutes: 30)),
-      isSuccess: false,
-    ),
-    ActivityLog(
-      id: '4',
-      type: ActivityLogType.manualFeed,
-      title: 'Manual Feed Triggered',
-      detail: '20g dispensed by user',
-      timestamp: DateTime.now().subtract(const Duration(hours: 5)),
-      isSuccess: true,
-    ),
-    ActivityLog(
-      id: '5',
-      type: ActivityLogType.unknownAnimal,
-      title: 'Unrecognized Animal',
-      detail: 'Access denied — unknown animal detected',
-      timestamp: DateTime.now().subtract(const Duration(days: 1, hours: 2)),
-      isSuccess: false,
-    ),
-    ActivityLog(
-      id: '6',
-      type: ActivityLogType.feedingCompleted,
-      title: 'Feeding Completed',
-      detail: '30g dispensed successfully',
-      timestamp: DateTime.now().subtract(const Duration(days: 1, hours: 6)),
-      isSuccess: true,
-    ),
-    ActivityLog(
-      id: '7',
-      type: ActivityLogType.waterRefill,
-      title: 'Water Refill Completed',
-      detail: 'Water tank refilled manually',
-      timestamp: DateTime.now().subtract(const Duration(days: 1, hours: 8)),
-      isSuccess: true,
-    ),
-    ActivityLog(
-      id: '8',
-      type: ActivityLogType.deviceConnected,
-      title: 'Device Connected',
-      detail: 'Raspberry Pi reconnected to Firebase',
-      timestamp: DateTime.now().subtract(const Duration(days: 2)),
-      isSuccess: true,
-    ),
-    ActivityLog(
-      id: '9',
-      type: ActivityLogType.feedingFailed,
-      title: 'Feeding Failed',
-      detail: 'Motor error — food not dispensed',
-      timestamp: DateTime.now().subtract(const Duration(days: 2, hours: 3)),
-      isSuccess: false,
-    ),
-    ActivityLog(
-      id: '10',
-      type: ActivityLogType.lowFood,
-      title: 'Low Food Level',
-      detail: 'Food dropped below 30% threshold',
-      timestamp: DateTime.now().subtract(const Duration(days: 3)),
-      isSuccess: false,
-    ),
-  ];
-
-  List<ActivityLog> get _filteredLogs {
-    if (_selectedFilter == null) return _logs;
-    return _logs.where((l) => l.type == _selectedFilter).toList();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,32 +38,55 @@ class _ActivityLogsScreenState extends State<ActivityLogsScreen> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          _buildSummaryRow(),
-          Expanded(
-            child: _filteredLogs.isEmpty
-                ? _buildEmptyState()
-                : ListView.separated(
-                    padding: const EdgeInsets.all(AppSpacing.lg),
-                    itemCount: _filteredLogs.length,
-                    separatorBuilder: (_, __) =>
-                        const SizedBox(height: AppSpacing.md),
-                    itemBuilder: (context, index) {
-                      return _LogTile(log: _filteredLogs[index]);
-                    },
-                  ),
-          ),
-        ],
+      body: StreamBuilder<List<ActivityLog>>(
+        stream: FirebaseService().watchFeedings(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          final logs = snapshot.data!;
+
+          final filteredLogs = _selectedFilter == null
+              ? logs
+              : logs.where((l) => l.type == _selectedFilter).toList();
+
+          final total = logs.length;
+          final success = logs.where((l) => l.isSuccess).length;
+          final failed = total - success;
+
+          return Column(
+            children: [
+              _buildSummaryRow(total, success, failed),
+              Expanded(
+                child: filteredLogs.isEmpty
+                    ? _buildEmptyState()
+                    : ListView.separated(
+                        padding: const EdgeInsets.all(AppSpacing.lg),
+                        itemCount: filteredLogs.length,
+                        separatorBuilder: (_, __) =>
+                            const SizedBox(height: AppSpacing.md),
+                        itemBuilder: (context, index) {
+                          return _LogTile(
+                            log: filteredLogs[index],
+                          );
+                        },
+                      ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
 
-  Widget _buildSummaryRow() {
-    final total = _logs.length;
-    final success = _logs.where((l) => l.isSuccess).length;
-    final failed = total - success;
-
+  Widget _buildSummaryRow(
+    int total,
+    int success,
+    int failed,
+  ) {
     return Container(
       margin: const EdgeInsets.fromLTRB(
         AppSpacing.lg,

@@ -15,6 +15,35 @@ class ActivityLog {
     required this.isSuccess,
   });
 
+  factory ActivityLog.fromFeeding(String id, Map<String, dynamic> map) {
+    final authorized = map['authorized'] == true;
+    final catName = map['cat_name'] ?? 'Unknown Cat';
+    final portion = map['portion_g'] ?? 0;
+    final reason = map['reason'] ?? '';
+
+    return ActivityLog(
+      id: id,
+      type: authorized
+          ? ActivityLogType.feedingCompleted
+          : ActivityLogType.feedingFailed,
+      title: authorized ? 'Feeding Completed' : 'Feeding Failed',
+      detail: authorized
+          ? '$portion g dispensed for $catName'
+          : reason.toString().isEmpty
+              ? 'Access denied for $catName'
+              : reason.toString(),
+      timestamp: _parseDate(map['timestamp']),
+      isSuccess: authorized,
+    );
+  }
+
+  static DateTime _parseDate(dynamic value) {
+    if (value == null) return DateTime.now();
+    if (value is DateTime) return value;
+    if (value is String) return DateTime.tryParse(value) ?? DateTime.now();
+    return value.toDate();
+  }
+
   String get formattedTime {
     final now = DateTime.now();
     final diff = now.difference(timestamp);
