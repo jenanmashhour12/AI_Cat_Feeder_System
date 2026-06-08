@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_spacing.dart';
 import '../../core/constants/app_text_styles.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -18,6 +19,44 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool _unrecognizedAnimalAlert = true;
   bool _deviceOfflineAlert = true;
   double _defaultPortion = 30;
+
+  final _settingsRef =
+      FirebaseFirestore.instance.collection('settings').doc('app');
+  Future<void> _loadSettings() async {
+    final doc = await _settingsRef.get();
+
+    if (!doc.exists) return;
+
+    final data = doc.data()!;
+
+    setState(() {
+      _notificationsEnabled = data['notifications_enabled'] ?? true;
+      _lowFoodAlert = data['low_food_alert'] ?? true;
+      _lowWaterAlert = data['low_water_alert'] ?? true;
+      _feedingCompleteAlert = data['feeding_complete_alert'] ?? true;
+      _unrecognizedAnimalAlert = data['unrecognized_animal_alert'] ?? true;
+      _deviceOfflineAlert = data['device_offline_alert'] ?? true;
+      _defaultPortion = (data['default_portion'] ?? 30).toDouble();
+    });
+  }
+
+  Future<void> _saveSettings() async {
+    await _settingsRef.set({
+      'notifications_enabled': _notificationsEnabled,
+      'low_food_alert': _lowFoodAlert,
+      'low_water_alert': _lowWaterAlert,
+      'feeding_complete_alert': _feedingCompleteAlert,
+      'unrecognized_animal_alert': _unrecognizedAnimalAlert,
+      'device_offline_alert': _deviceOfflineAlert,
+      'default_portion': _defaultPortion,
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSettings();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +125,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   title: 'Push Notifications',
                   subtitle: 'Enable all alerts',
                   value: _notificationsEnabled,
-                  onChanged: (v) => setState(() => _notificationsEnabled = v),
+                  onChanged: (v) {
+                    setState(() => _notificationsEnabled = v);
+                    _saveSettings();
+                  },
                 ),
                 _SwitchTile(
                   icon: Icons.set_meal_outlined,
@@ -96,7 +138,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   subtitle: 'Notify when food is below 30%',
                   value: _lowFoodAlert,
                   onChanged: _notificationsEnabled
-                      ? (v) => setState(() => _lowFoodAlert = v)
+                      ? (v) {
+                          setState(() => _lowFoodAlert = v);
+                          _saveSettings();
+                        }
                       : null,
                 ),
                 _SwitchTile(
@@ -107,7 +152,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   subtitle: 'Notify when water is below 40%',
                   value: _lowWaterAlert,
                   onChanged: _notificationsEnabled
-                      ? (v) => setState(() => _lowWaterAlert = v)
+                      ? (v) {
+                          setState(() => _lowWaterAlert = v);
+                          _saveSettings();
+                        }
                       : null,
                 ),
                 _SwitchTile(
@@ -118,7 +166,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   subtitle: 'Notify after each feeding',
                   value: _feedingCompleteAlert,
                   onChanged: _notificationsEnabled
-                      ? (v) => setState(() => _feedingCompleteAlert = v)
+                      ? (v) {
+                          setState(() => _feedingCompleteAlert = v);
+                          _saveSettings();
+                        }
                       : null,
                 ),
                 _SwitchTile(
@@ -129,7 +180,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   subtitle: 'Alert on unknown animal detection',
                   value: _unrecognizedAnimalAlert,
                   onChanged: _notificationsEnabled
-                      ? (v) => setState(() => _unrecognizedAnimalAlert = v)
+                      ? (v) {
+                          setState(() => _unrecognizedAnimalAlert = v);
+                          _saveSettings();
+                        }
                       : null,
                 ),
                 _SwitchTile(
@@ -140,7 +194,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   subtitle: 'Alert when feeder disconnects',
                   value: _deviceOfflineAlert,
                   onChanged: _notificationsEnabled
-                      ? (v) => setState(() => _deviceOfflineAlert = v)
+                      ? (v) {
+                          setState(() => _deviceOfflineAlert = v);
+                          _saveSettings();
+                        }
                       : null,
                 ),
               ],
@@ -267,7 +324,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
               min: 10,
               max: 100,
               divisions: 18,
-              onChanged: (v) => setState(() => _defaultPortion = v),
+              onChanged: (v) {
+                setState(() => _defaultPortion = v);
+                _saveSettings();
+              },
             ),
           ),
           Row(
