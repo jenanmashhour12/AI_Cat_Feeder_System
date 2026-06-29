@@ -10,7 +10,9 @@ import '../../services/firebase_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({super.key});
+  final ValueChanged<int>? onNavigate;
+
+  const DashboardScreen({super.key, this.onNavigate});
   static final FirebaseService _firebaseService = FirebaseService();
 
   @override
@@ -38,7 +40,7 @@ class DashboardScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: AppSpacing.xl),
-                  _buildHeader(),
+                  _buildHeader(context),
                   const SizedBox(height: AppSpacing.xxl),
                   _buildSystemStatusBanner(status),
                   const SizedBox(height: AppSpacing.xxl),
@@ -55,7 +57,7 @@ class DashboardScreen extends StatelessWidget {
                   const SizedBox(height: AppSpacing.xxl),
                   const SectionHeader(title: 'Quick Actions'),
                   const SizedBox(height: AppSpacing.md),
-                  _buildQuickActions(context),
+                  _buildQuickActions(),
                   const SizedBox(height: AppSpacing.xxl),
                   SectionHeader(
                     title: 'Latest Activity',
@@ -74,7 +76,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -83,21 +85,33 @@ class DashboardScreen extends StatelessWidget {
           children: [
             Text('Good Morning,', style: AppTextStyles.bodyMedium),
             const SizedBox(height: 2),
-            Text('Cat Feeder', style: AppTextStyles.displayMedium),
+            StreamBuilder<Map<String, dynamic>>(
+              stream: _firebaseService.watchCatSettings(),
+              builder: (context, snapshot) {
+                final name = snapshot.data?['name'] ?? 'Cat Feeder';
+                return Text(name, style: AppTextStyles.displayMedium);
+              },
+            ),
           ],
         ),
-        Container(
-          width: 44,
-          height: 44,
-          decoration: BoxDecoration(
-            color: AppColors.surface,
-            borderRadius: BorderRadius.circular(AppSpacing.iconRadius),
-            border: Border.all(color: AppColors.cardBorder, width: 1),
-          ),
-          child: const Icon(
-            Icons.notifications_outlined,
-            color: AppColors.textPrimary,
-            size: 22,
+        GestureDetector(
+          onTap: () => onNavigate?.call(3),
+          child: Container(
+            width: 44,
+            height: 44,
+            decoration: BoxDecoration(
+              color: AppColors.surface,
+              borderRadius: BorderRadius.circular(AppSpacing.iconRadius),
+              border: Border.all(
+                color: AppColors.cardBorder,
+                width: 1,
+              ),
+            ),
+            child: const Icon(
+              Icons.notifications_outlined,
+              color: AppColors.textPrimary,
+              size: 22,
+            ),
           ),
         ),
       ],
@@ -293,26 +307,16 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildQuickActions(BuildContext context) {
+  Widget _buildQuickActions() {
     return Row(
       children: [
-        Expanded(
-          child: _QuickActionButton(
-            label: 'Feed Now',
-            icon: Icons.play_circle_outline,
-            color: AppColors.primary,
-            background: AppColors.primaryLight,
-            onTap: () => _showFeedConfirmation(context),
-          ),
-        ),
-        const SizedBox(width: AppSpacing.md),
         Expanded(
           child: _QuickActionButton(
             label: 'Schedule',
             icon: Icons.calendar_today_outlined,
             color: AppColors.warning,
             background: AppColors.warningLight,
-            onTap: () {},
+            onTap: () => onNavigate?.call(1),
           ),
         ),
         const SizedBox(width: AppSpacing.md),
@@ -322,41 +326,10 @@ class DashboardScreen extends StatelessWidget {
             icon: Icons.list_alt_outlined,
             color: AppColors.success,
             background: AppColors.successLight,
-            onTap: () {},
+            onTap: () => onNavigate?.call(2),
           ),
         ),
       ],
-    );
-  }
-
-  void _showFeedConfirmation(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        backgroundColor: AppColors.surface,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
-        ),
-        title: Text('Manual Feeding', style: AppTextStyles.headlineMedium),
-        content: Text(
-          'Dispense food now? This will trigger an immediate feeding cycle.',
-          style: AppTextStyles.bodyMedium,
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(),
-            child: Text(
-              'Cancel',
-              style: AppTextStyles.bodyMedium
-                  .copyWith(color: AppColors.textSecondary),
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Feed Now'),
-          ),
-        ],
-      ),
     );
   }
 

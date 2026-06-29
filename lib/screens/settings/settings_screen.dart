@@ -1,3 +1,7 @@
+import 'dart:io';
+import 'package:file_picker/file_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:flutter/material.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_spacing.dart';
@@ -19,6 +23,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool _unrecognizedAnimalAlert = true;
   bool _deviceOfflineAlert = true;
   double _defaultPortion = 30;
+  String? _callSoundUrl;
+  bool _isUploadingSound = false;
+  final AudioPlayer _audioPlayer = AudioPlayer();
 
   final _settingsRef =
       FirebaseFirestore.instance.collection('settings').doc('app');
@@ -37,6 +44,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       _unrecognizedAnimalAlert = data['unrecognized_animal_alert'] ?? true;
       _deviceOfflineAlert = data['device_offline_alert'] ?? true;
       _defaultPortion = (data['default_portion'] ?? 30).toDouble();
+      _callSoundUrl = data['call_sound_url'];
     });
   }
 
@@ -49,7 +57,58 @@ class _SettingsScreenState extends State<SettingsScreen> {
       'unrecognized_animal_alert': _unrecognizedAnimalAlert,
       'device_offline_alert': _deviceOfflineAlert,
       'default_portion': _defaultPortion,
+      'call_sound_url': _callSoundUrl,
     });
+  }
+
+  Future<void> _uploadCallSound() async {
+    final result = await FilePicker.platform.pickFiles(
+      type: FileType.audio,
+    );
+
+    if (result == null) return;
+
+    setState(() => _isUploadingSound = true);
+
+    try {
+      final file = File(result.files.single.path!);
+
+      final ref =
+          FirebaseStorage.instance.ref().child('cat_sounds/call_sound.mp3');
+
+      await ref.putFile(file);
+
+      final url = await ref.getDownloadURL();
+
+      await _settingsRef.set({
+        'call_sound_url': url,
+      }, SetOptions(merge: true));
+
+      setState(() {
+        _callSoundUrl = url;
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Sound uploaded successfully'),
+        ),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Upload failed: $e'),
+        ),
+      );
+    }
+
+    setState(() => _isUploadingSound = false);
+  }
+
+  Future<void> _previewSound() async {
+    if (_callSoundUrl == null) return;
+
+    await _audioPlayer.setUrl(_callSoundUrl!);
+    await _audioPlayer.play();
   }
 
   @override
@@ -207,6 +266,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               title: 'Feeding Preferences',
               children: [
                 _buildPortionTile(),
+                _buildCallSoundTile(),
                 const _SettingsTile(
                   icon: Icons.pets,
                   iconColor: AppColors.primary,
@@ -252,6 +312,61 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: AppSpacing.xxxl),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildCallSoundTile() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppSpacing.md,
+        vertical: AppSpacing.md,
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 36,
+            height: 36,
+            decoration: BoxDecoration(
+              color: AppColors.primaryLight,
+              borderRadius: BorderRadius.circular(AppSpacing.iconRadius - 2),
+            ),
+            child: const Icon(
+              Icons.volume_up_outlined,
+              color: AppColors.primary,
+              size: 18,
+            ),
+          ),
+          const SizedBox(width: AppSpacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Cat Call Sound',
+                  style: AppTextStyles.titleSmall,
+                ),
+                Text(
+                  _callSoundUrl == null
+                      ? 'No sound uploaded'
+                      : 'Custom sound uploaded',
+                  style: AppTextStyles.bodySmall,
+                ),
+              ],
+            ),
+          ),
+          if (_callSoundUrl != null)
+            IconButton(
+              onPressed: _previewSound,
+              icon: const Icon(Icons.play_arrow),
+            ),
+          TextButton(
+            onPressed: _isUploadingSound ? null : _uploadCallSound,
+            child: Text(
+              _isUploadingSound ? 'Uploading...' : 'Upload',
+            ),
+          ),
+        ],
       ),
     );
   }

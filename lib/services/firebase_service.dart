@@ -34,6 +34,12 @@ class FirebaseService {
     await _db.collection('notifications').doc(id).delete();
   }
 
+  Stream<Map<String, dynamic>> watchCatSettings() {
+    return _db.collection('settings').doc('cat_001').snapshots().map(
+          (doc) => doc.data() ?? {},
+        );
+  }
+
   Stream<QuerySnapshot<Map<String, dynamic>>> watchLatestFeedings() {
     return _db
         .collection('feedings')

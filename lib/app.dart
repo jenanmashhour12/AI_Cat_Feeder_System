@@ -3,7 +3,6 @@ import 'core/theme/app_theme.dart';
 import 'core/constants/app_colors.dart';
 import 'screens/dashboard/dashboard_screen.dart';
 import 'screens/schedule/schedule_screen.dart';
-import 'screens/manual_control/manual_control_screen.dart';
 import 'screens/activity_logs/activity_logs_screen.dart';
 import 'screens/notifications/notifications_screen.dart';
 import 'screens/settings/settings_screen.dart';
@@ -32,13 +31,14 @@ class MainShell extends StatefulWidget {
 class _MainShellState extends State<MainShell> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = const [
-    DashboardScreen(),
-    ScheduleScreen(),
-    ManualControlScreen(),
-    ActivityLogsScreen(),
-    NotificationsScreen(),
-    SettingsScreen(),
+  late final List<Widget> _screens = [
+    DashboardScreen(
+      onNavigate: (index) => setState(() => _selectedIndex = index),
+    ),
+    const ScheduleScreen(),
+    const ActivityLogsScreen(),
+    const NotificationsScreen(),
+    const SettingsScreen(),
   ];
 
   final List<NavigationDestination> _destinations = const [
@@ -51,11 +51,6 @@ class _MainShellState extends State<MainShell> {
       icon: Icon(Icons.calendar_month_outlined),
       selectedIcon: Icon(Icons.calendar_month_rounded),
       label: 'Schedule',
-    ),
-    NavigationDestination(
-      icon: Icon(Icons.touch_app_outlined),
-      selectedIcon: Icon(Icons.touch_app_rounded),
-      label: 'Control',
     ),
     NavigationDestination(
       icon: Icon(Icons.list_alt_outlined),
