@@ -6,6 +6,7 @@ class FeedingSchedule {
   final double portionGrams;
   final bool isEnabled;
   final List<bool> activeDays;
+  final String catId;
 
   const FeedingSchedule({
     required this.id,
@@ -15,6 +16,7 @@ class FeedingSchedule {
     required this.portionGrams,
     required this.isEnabled,
     required this.activeDays,
+    this.catId = 'cat_001',
   });
 
   String get formattedTime {
@@ -27,17 +29,23 @@ class FeedingSchedule {
   String get activeDaysLabel {
     const names = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     final selected = <String>[];
+
     for (int i = 0; i < 7; i++) {
       if (activeDays[i]) selected.add(names[i]);
     }
+
     if (selected.length == 7) return 'Every day';
+
     if (selected.length == 5 && !activeDays[5] && !activeDays[6]) {
       return 'Weekdays';
     }
+
     if (selected.length == 2 && activeDays[5] && activeDays[6]) {
       return 'Weekends';
     }
+
     if (selected.isEmpty) return 'No days selected';
+
     return selected.join(', ');
   }
 
@@ -49,6 +57,7 @@ class FeedingSchedule {
     double? portionGrams,
     bool? isEnabled,
     List<bool>? activeDays,
+    String? catId,
   }) {
     return FeedingSchedule(
       id: id ?? this.id,
@@ -58,6 +67,7 @@ class FeedingSchedule {
       portionGrams: portionGrams ?? this.portionGrams,
       isEnabled: isEnabled ?? this.isEnabled,
       activeDays: activeDays ?? this.activeDays,
+      catId: catId ?? this.catId,
     );
   }
 
@@ -72,6 +82,7 @@ class FeedingSchedule {
       activeDays: List<bool>.from(
         map['active_days'] ?? [true, true, true, true, true, true, true],
       ),
+      catId: map['cat_id'] ?? 'cat_001',
     );
   }
 
@@ -83,6 +94,7 @@ class FeedingSchedule {
       'portion_g': portionGrams,
       'enabled': isEnabled,
       'active_days': activeDays,
+      'cat_id': catId,
     };
   }
 }

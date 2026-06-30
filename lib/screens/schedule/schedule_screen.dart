@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_spacing.dart';
 import '../../core/constants/app_text_styles.dart';
+import '../../core/cat_session.dart';
 import '../../models/feeding_schedule.dart';
 import '../../services/firebase_service.dart';
 import 'widgets/schedule_card.dart';
@@ -17,20 +18,21 @@ class ScheduleScreen extends StatefulWidget {
 class _ScheduleScreenState extends State<ScheduleScreen> {
   final FirebaseService _firebaseService = FirebaseService();
 
-  void _openAddSheet() {
+  void _openAddSheet(String catId) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (_) => ScheduleFormSheet(
         onSave: (schedule) async {
-          await _firebaseService.saveSchedule(schedule);
+          final scheduleWithCat = schedule.copyWith(catId: catId);
+          await _firebaseService.saveSchedule(scheduleWithCat);
         },
       ),
     );
   }
 
-  void _openEditSheet(FeedingSchedule schedule) {
+  void _openEditSheet(FeedingSchedule schedule, String catId) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -38,14 +40,19 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       builder: (_) => ScheduleFormSheet(
         existing: schedule,
         onSave: (updated) async {
-          await _firebaseService.saveSchedule(updated);
+          final updatedWithCat = updated.copyWith(catId: catId);
+          await _firebaseService.saveSchedule(updatedWithCat);
         },
       ),
     );
   }
 
-  Future<void> _toggleSchedule(FeedingSchedule schedule) async {
-    final updated = schedule.copyWith(isEnabled: !schedule.isEnabled);
+  Future<void> _toggleSchedule(FeedingSchedule schedule, String catId) async {
+    final updated = schedule.copyWith(
+      isEnabled: !schedule.isEnabled,
+      catId: catId,
+    );
+
     await _firebaseService.saveSchedule(updated);
   }
 
@@ -67,8 +74,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
             onPressed: () => Navigator.of(ctx).pop(),
             child: Text(
               'Cancel',
-              style: AppTextStyles.bodyMedium
-                  .copyWith(color: AppColors.textSecondary),
+              style: AppTextStyles.bodyMedium.copyWith(
+                color: AppColors.textSecondary,
+              ),
             ),
           ),
           ElevatedButton(
@@ -86,8 +94,18 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final session = CatSessionScope.of(context);
+    final catId = session.currentCatId;
+
+    if (catId == null) {
+      return const Scaffold(
+        backgroundColor: AppColors.background,
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
+
     return StreamBuilder<List<FeedingSchedule>>(
-      stream: _firebaseService.watchSchedules(),
+      stream: _firebaseService.watchSchedules(catId),
       builder: (context, snapshot) {
         final schedules = snapshot.data ?? [];
         final enabledCount = schedules.where((s) => s.isEnabled).length;
@@ -99,7 +117,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
             actions: [
               IconButton(
                 icon: const Icon(Icons.add),
-                onPressed: _openAddSheet,
+                onPressed: () => _openAddSheet(catId),
                 tooltip: 'Add Schedule',
               ),
             ],
@@ -119,10 +137,13 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                                 const SizedBox(height: AppSpacing.md),
                             itemBuilder: (context, index) {
                               final schedule = schedules[index];
+
                               return ScheduleCard(
                                 schedule: schedule,
-                                onToggle: () => _toggleSchedule(schedule),
-                                onEdit: () => _openEditSheet(schedule),
+                                onToggle: () =>
+                                    _toggleSchedule(schedule, catId),
+                                onEdit: () =>
+                                    _openEditSheet(schedule, catId),
                                 onDelete: () => _deleteSchedule(schedule),
                               );
                             },
@@ -131,7 +152,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
             ],
           ),
           floatingActionButton: FloatingActionButton.extended(
-            onPressed: _openAddSheet,
+            onPressed: () => _openAddSheet(catId),
             backgroundColor: AppColors.primary,
             foregroundColor: Colors.white,
             icon: const Icon(Icons.add),
@@ -165,14 +186,16 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           Expanded(
             child: Text(
               '$enabled of $total schedules active',
-              style:
-                  AppTextStyles.titleSmall.copyWith(color: AppColors.primary),
+              style: AppTextStyles.titleSmall.copyWith(
+                color: AppColors.primary,
+              ),
             ),
           ),
           Text(
             'Total: $total schedules',
-            style: AppTextStyles.labelMedium
-                .copyWith(color: AppColors.primaryDark),
+            style: AppTextStyles.labelMedium.copyWith(
+              color: AppColors.primaryDark,
+            ),
           ),
         ],
       ),

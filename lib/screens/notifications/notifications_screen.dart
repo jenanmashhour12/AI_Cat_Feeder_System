@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_spacing.dart';
 import '../../core/constants/app_text_styles.dart';
+import '../../core/cat_session.dart';
 import '../../models/notification_item.dart';
 import '../../services/firebase_service.dart';
 
@@ -61,8 +62,18 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final session = CatSessionScope.of(context);
+    final catId = session.currentCatId;
+
+    if (catId == null) {
+      return const Scaffold(
+        backgroundColor: AppColors.background,
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
+
     return StreamBuilder<List<NotificationItem>>(
-      stream: _firebaseService.watchNotifications(),
+      stream: _firebaseService.watchNotifications(catId),
       builder: (context, snapshot) {
         final notifications = snapshot.data ?? [];
         final unreadCount = notifications.where((n) => !n.isRead).length;

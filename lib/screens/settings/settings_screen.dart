@@ -6,6 +6,10 @@ import 'package:flutter/material.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_spacing.dart';
 import '../../core/constants/app_text_styles.dart';
+import '../../core/cat_session.dart';
+import '../../models/cat_profile.dart';
+import '../../services/firebase_service.dart';
+import '../../widgets/cat_switcher.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -26,13 +30,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
   String? _callSoundUrl;
   bool _isUploadingSound = false;
   final AudioPlayer _audioPlayer = AudioPlayer();
+  final FirebaseService _firebaseService = FirebaseService();
 
-  final _settingsRef =
-      FirebaseFirestore.instance.collection('settings').doc('app');
-  Future<void> _loadSettings() async {
-    final doc = await _settingsRef.get();
+  String? _catId;
+
+  /// Re-loads settings whenever the selected cat changes (this also fires
+  /// once right after initState with the initial selection).
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final session = CatSessionScope.of(context);
+    final newCatId = session.currentCatId;
+
+    if (newCatId != _catId) {
+      _catId = newCatId;
+      if (_catId != null) _loadSettings(_catId!);
+    }
+  }
+
+  Future<void> _loadSettings(String catId) async {
+    final doc =
+        await FirebaseFirestore.instance.collection('settings').doc(catId).get();
 
     if (!doc.exists) return;
+    if (!mounted || _catId != catId) return;
 
     final data = doc.data()!;
 
@@ -49,7 +70,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _saveSettings() async {
-    await _settingsRef.set({
+    final catId = _catId;
+    if (catId == null) return;
+
+    await _firebaseService.updateCatSettings(catId, {
       'notifications_enabled': _notificationsEnabled,
       'low_food_alert': _lowFoodAlert,
       'low_water_alert': _lowWaterAlert,
@@ -62,6 +86,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _uploadCallSound() async {
+    final catId = _catId;
+    if (catId == null) return;
+
     final result = await FilePicker.platform.pickFiles(
       type: FileType.audio,
     );
@@ -74,16 +101,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
       final file = File(result.files.single.path!);
 
       final ref =
-          FirebaseStorage.instance.ref().child('cat_sounds/call_sound.mp3');
+          FirebaseStorage.instance.ref().child('cat_sounds/$catId.mp3');
 
       await ref.putFile(file);
 
       final url = await ref.getDownloadURL();
 
-      await _settingsRef.set({
+      await _firebaseService.updateCatSettings(catId, {
         'call_sound_url': url,
-      }, SetOptions(merge: true));
+      });
 
+      if (!mounted) return;
       setState(() {
         _callSoundUrl = url;
       });
@@ -94,6 +122,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       );
     } catch (e) {
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Upload failed: $e'),
@@ -101,7 +130,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       );
     }
 
-    setState(() => _isUploadingSound = false);
+    if (mounted) setState(() => _isUploadingSound = false);
   }
 
   Future<void> _previewSound() async {
@@ -112,9 +141,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    _loadSettings();
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
   }
 
   @override
@@ -267,15 +296,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               children: [
                 _buildPortionTile(),
                 _buildCallSoundTile(),
-                const _SettingsTile(
-                  icon: Icons.pets,
-                  iconColor: AppColors.primary,
-                  iconBg: AppColors.primaryLight,
-                  title: 'Registered Cats',
-                  subtitle: '1 cat registered',
-                  trailing: Icon(Icons.chevron_right,
-                      color: AppColors.textHint, size: 20),
-                ),
+                _buildRegisteredCatsTile(),
                 const _SettingsTile(
                   icon: Icons.history_outlined,
                   iconColor: AppColors.primary,
@@ -313,6 +334,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildRegisteredCatsTile() {
+    return StreamBuilder<List<CatProfile>>(
+      stream: _firebaseService.watchCats(),
+      builder: (context, snapshot) {
+        final count = snapshot.data?.length ?? 0;
+
+        return GestureDetector(
+          onTap: () => CatSwitcher.open(context, _firebaseService),
+          child: _SettingsTile(
+            icon: Icons.pets,
+            iconColor: AppColors.primary,
+            iconBg: AppColors.primaryLight,
+            title: 'Registered Cats',
+            subtitle: count == 1 ? '1 cat registered' : '$count cats registered',
+            trailing: const Icon(Icons.chevron_right,
+                color: AppColors.textHint, size: 20),
+          ),
+        );
+      },
     );
   }
 

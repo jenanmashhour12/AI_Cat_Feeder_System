@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_spacing.dart';
 import '../../core/constants/app_text_styles.dart';
+import '../../core/cat_session.dart';
 import '../../models/activity_log.dart';
 import '../../services/firebase_service.dart';
 
@@ -14,9 +15,13 @@ class ActivityLogsScreen extends StatefulWidget {
 
 class _ActivityLogsScreenState extends State<ActivityLogsScreen> {
   ActivityLogType? _selectedFilter;
+  final FirebaseService _firebaseService = FirebaseService();
 
   @override
   Widget build(BuildContext context) {
+    final session = CatSessionScope.of(context);
+    final catId = session.currentCatId;
+
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
@@ -38,47 +43,49 @@ class _ActivityLogsScreenState extends State<ActivityLogsScreen> {
           ),
         ],
       ),
-      body: StreamBuilder<List<ActivityLog>>(
-        stream: FirebaseService().watchFeedings(),
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
+      body: catId == null
+          ? const Center(child: CircularProgressIndicator())
+          : StreamBuilder<List<ActivityLog>>(
+              stream: _firebaseService.watchFeedings(catId),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
 
-          final logs = snapshot.data!;
+                final logs = snapshot.data!;
 
-          final filteredLogs = _selectedFilter == null
-              ? logs
-              : logs.where((l) => l.type == _selectedFilter).toList();
+                final filteredLogs = _selectedFilter == null
+                    ? logs
+                    : logs.where((l) => l.type == _selectedFilter).toList();
 
-          final total = logs.length;
-          final success = logs.where((l) => l.isSuccess).length;
-          final failed = total - success;
+                final total = logs.length;
+                final success = logs.where((l) => l.isSuccess).length;
+                final failed = total - success;
 
-          return Column(
-            children: [
-              _buildSummaryRow(total, success, failed),
-              Expanded(
-                child: filteredLogs.isEmpty
-                    ? _buildEmptyState()
-                    : ListView.separated(
-                        padding: const EdgeInsets.all(AppSpacing.lg),
-                        itemCount: filteredLogs.length,
-                        separatorBuilder: (_, __) =>
-                            const SizedBox(height: AppSpacing.md),
-                        itemBuilder: (context, index) {
-                          return _LogTile(
-                            log: filteredLogs[index],
-                          );
-                        },
-                      ),
-              ),
-            ],
-          );
-        },
-      ),
+                return Column(
+                  children: [
+                    _buildSummaryRow(total, success, failed),
+                    Expanded(
+                      child: filteredLogs.isEmpty
+                          ? _buildEmptyState()
+                          : ListView.separated(
+                              padding: const EdgeInsets.all(AppSpacing.lg),
+                              itemCount: filteredLogs.length,
+                              separatorBuilder: (_, __) =>
+                                  const SizedBox(height: AppSpacing.md),
+                              itemBuilder: (context, index) {
+                                return _LogTile(
+                                  log: filteredLogs[index],
+                                );
+                              },
+                            ),
+                    ),
+                  ],
+                );
+              },
+            ),
     );
   }
 

@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_spacing.dart';
 import '../../core/constants/app_text_styles.dart';
+import '../../core/cat_session.dart';
 import '../../widgets/status_card.dart';
 import '../../widgets/section_header.dart';
 import '../../widgets/info_chip.dart';
+import '../../widgets/cat_switcher.dart';
 import '../../models/system_status.dart';
 import '../../services/firebase_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -17,8 +19,18 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final session = CatSessionScope.of(context);
+    final catId = session.currentCatId;
+
+    if (catId == null) {
+      return const Scaffold(
+        backgroundColor: AppColors.background,
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
+
     return StreamBuilder<SystemStatus>(
-      stream: _firebaseService.watchSystemStatus(),
+      stream: _firebaseService.watchSystemStatus(catId),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return const Scaffold(
@@ -65,7 +77,7 @@ class DashboardScreen extends StatelessWidget {
                     onAction: () {},
                   ),
                   const SizedBox(height: AppSpacing.md),
-                  _buildActivityPreview(),
+                  _buildActivityPreview(catId),
                   const SizedBox(height: AppSpacing.xxxl),
                 ],
               ),
@@ -77,23 +89,26 @@ class DashboardScreen extends StatelessWidget {
   }
 
   Widget _buildHeader(BuildContext context) {
+    final session = CatSessionScope.of(context);
+    final catName = session.currentCat?.name ?? 'Cat Feeder';
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Good Morning,', style: AppTextStyles.bodyMedium),
-            const SizedBox(height: 2),
-            StreamBuilder<Map<String, dynamic>>(
-              stream: _firebaseService.watchCatSettings(),
-              builder: (context, snapshot) {
-                final name = snapshot.data?['name'] ?? 'Cat Feeder';
-                return Text(name, style: AppTextStyles.displayMedium);
-              },
-            ),
-          ],
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Good Morning,', style: AppTextStyles.bodyMedium),
+              const SizedBox(height: 2),
+              Text(catName, style: AppTextStyles.displayMedium),
+              const SizedBox(height: AppSpacing.sm),
+              CatSwitcher(firebaseService: _firebaseService),
+            ],
+          ),
         ),
+        const SizedBox(width: AppSpacing.md),
         GestureDetector(
           onTap: () => onNavigate?.call(3),
           child: Container(
@@ -333,9 +348,9 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildActivityPreview() {
+  Widget _buildActivityPreview(String catId) {
     return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-      stream: _firebaseService.watchLatestFeedings(),
+      stream: _firebaseService.watchLatestFeedings(catId),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
