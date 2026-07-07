@@ -1,0 +1,15 @@
+[Unit]
+Description=AI Smart Cat Feeder
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=raspberry
+WorkingDirectory=/home/raspberry/cat_feeder
+ExecStart=/usr/bin/python3 /home/raspberry/cat_feeder/main.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

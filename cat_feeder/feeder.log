@@ -1,0 +1,2282 @@
+2026-06-29 22:24:35 | INFO    | main         | building components...
+2026-06-29 22:24:37 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:24:37 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:24:37 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:24:37 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:24:43 | INFO    | cloud        | Firebase connected
+2026-06-29 22:24:43 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-29 22:24:43 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-29 22:25:48 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:25:48 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:25:48 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:25:48 | INFO    | fsm          | READY → SLEEP
+2026-06-29 22:25:49 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:25:49 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:25:49 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:26:20 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:26:20 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:26:20 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:26:51 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:26:51 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:26:51 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:27:37 | INFO    | main         | building components...
+2026-06-29 22:27:37 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:27:37 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:27:37 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:27:38 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:27:41 | INFO    | cloud        | Firebase connected
+2026-06-29 22:27:41 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-29 22:27:41 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-29 22:27:58 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:27:58 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:27:58 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:27:58 | INFO    | fsm          | READY → SLEEP
+2026-06-29 22:27:58 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:27:58 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:27:58 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:28:29 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:28:29 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:28:29 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:29:00 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:29:00 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:29:00 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:29:36 | INFO    | main         | building components...
+2026-06-29 22:29:37 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:29:37 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:29:37 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:29:37 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:29:41 | INFO    | cloud        | Firebase connected
+2026-06-29 22:29:41 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-29 22:29:41 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-29 22:29:58 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:29:58 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:29:58 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:29:58 | INFO    | fsm          | READY → SLEEP
+2026-06-29 22:29:58 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:29:58 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:29:58 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:30:30 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:30:30 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:30:30 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:30:55 | INFO    | main         | building components...
+2026-06-29 22:30:55 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:30:55 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:30:55 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:30:55 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:30:59 | INFO    | cloud        | Firebase connected
+2026-06-29 22:30:59 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-29 22:30:59 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-29 22:31:15 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:31:15 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:31:15 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:31:15 | INFO    | fsm          | READY → SLEEP
+2026-06-29 22:31:16 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:31:16 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:31:16 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:31:50 | INFO    | main         | building components...
+2026-06-29 22:31:51 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:31:51 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:31:51 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:31:51 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:31:54 | INFO    | cloud        | Firebase connected
+2026-06-29 22:31:54 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-29 22:31:54 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-29 22:32:11 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:32:11 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:32:11 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:32:11 | INFO    | fsm          | READY → SLEEP
+2026-06-29 22:32:12 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:32:12 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:32:12 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:38:39 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:38:39 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:38:39 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:38:39 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:38:42 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 22:38:43 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 22:38:44 | INFO    | gate         | Dispensing food
+2026-06-29 22:38:50 | INFO    | cloud        | Firebase connected
+2026-06-29 22:39:59 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:39:59 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:39:59 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:39:59 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:40:02 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 22:40:02 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 22:40:04 | INFO    | gate         | Dispensing food
+2026-06-29 22:40:08 | INFO    | cloud        | Firebase connected
+2026-06-29 22:40:58 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:40:58 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:40:58 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:40:58 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:41:00 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 22:41:00 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 22:41:02 | INFO    | gate         | Dispensing food
+2026-06-29 22:41:06 | INFO    | cloud        | Firebase connected
+2026-06-29 22:42:45 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:42:45 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:42:45 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:42:45 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:42:47 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 22:42:47 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 22:42:49 | INFO    | gate         | Dispensing food
+2026-06-29 22:42:53 | INFO    | cloud        | Firebase connected
+2026-06-29 22:43:18 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:43:18 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:43:18 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:43:18 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:43:20 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 22:43:21 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 22:43:22 | INFO    | gate         | Dispensing food
+2026-06-29 22:43:27 | INFO    | cloud        | Firebase connected
+2026-06-29 22:44:22 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:44:22 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:44:22 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:44:22 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:44:24 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 22:44:24 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 22:44:26 | INFO    | gate         | Dispensing food
+2026-06-29 22:44:31 | INFO    | cloud        | Firebase connected
+2026-06-29 22:44:48 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:44:48 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:44:48 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:44:48 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:44:50 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 22:44:51 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 22:44:52 | INFO    | gate         | Dispensing food
+2026-06-29 22:44:57 | INFO    | cloud        | Firebase connected
+2026-06-29 22:45:37 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:45:37 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:45:37 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:45:37 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:45:39 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 22:45:40 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 22:45:41 | INFO    | gate         | Dispensing food
+2026-06-29 22:45:46 | INFO    | cloud        | Firebase connected
+2026-06-29 22:45:59 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:45:59 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:45:59 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:45:59 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:46:01 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 22:46:02 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 22:46:04 | INFO    | gate         | Dispensing food
+2026-06-29 22:46:08 | INFO    | cloud        | Firebase connected
+2026-06-29 22:46:30 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:46:30 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:46:30 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:46:30 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:46:32 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 22:46:33 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 22:46:34 | INFO    | gate         | Dispensing food
+2026-06-29 22:46:39 | INFO    | cloud        | Firebase connected
+2026-06-29 22:48:39 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:48:39 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:48:39 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:48:39 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:48:41 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 22:48:42 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 22:48:43 | INFO    | gate         | Dispensing food
+2026-06-29 22:48:48 | INFO    | cloud        | Firebase connected
+2026-06-29 22:49:16 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:49:16 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:49:16 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:49:16 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:49:18 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 22:49:18 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 22:49:20 | INFO    | gate         | Dispensing food
+2026-06-29 22:49:25 | INFO    | cloud        | Firebase connected
+2026-06-29 22:49:58 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:49:58 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:49:58 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:49:58 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:50:00 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 22:50:01 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 22:50:03 | INFO    | gate         | Dispensing food
+2026-06-29 22:50:07 | INFO    | cloud        | Firebase connected
+2026-06-29 22:54:11 | INFO    | main         | building components...
+2026-06-29 22:54:12 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:54:12 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:54:12 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:54:12 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:54:15 | INFO    | cloud        | Firebase connected
+2026-06-29 22:54:15 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-29 22:54:15 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-29 22:54:38 | INFO    | fsm          | levels → food 100% | water 0%
+2026-06-29 22:54:38 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:54:38 | INFO    | fsm          | READY → SLEEP
+2026-06-29 22:54:39 | INFO    | fsm          | levels → food 100% | water 100%
+2026-06-29 22:55:11 | INFO    | fsm          | levels → food 100% | water 100%
+2026-06-29 22:55:28 | INFO    | main         | building components...
+2026-06-29 22:55:28 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:55:28 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:55:28 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:55:28 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:55:32 | INFO    | cloud        | Firebase connected
+2026-06-29 22:55:32 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-29 22:55:32 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-29 22:56:46 | INFO    | main         | building components...
+2026-06-29 22:56:47 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:56:47 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:56:47 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:56:47 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:56:51 | INFO    | cloud        | Firebase connected
+2026-06-29 22:56:51 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-29 22:56:51 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-29 22:57:35 | INFO    | main         | building components...
+2026-06-29 22:57:36 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:57:36 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:57:36 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:57:36 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:57:39 | INFO    | cloud        | Firebase connected
+2026-06-29 22:57:39 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-29 22:57:39 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-29 22:57:56 | INFO    | fsm          | levels → food 86% | water 0%
+2026-06-29 22:57:56 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:57:56 | INFO    | fsm          | READY → SLEEP
+2026-06-29 22:57:57 | INFO    | fsm          | levels → food 89% | water 0%
+2026-06-29 22:57:57 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:58:25 | INFO    | main         | building components...
+2026-06-29 22:58:26 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 22:58:26 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 22:58:26 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 22:58:26 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 22:58:30 | INFO    | cloud        | Firebase connected
+2026-06-29 22:58:30 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-29 22:58:30 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-29 22:58:46 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:58:46 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:58:46 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:58:46 | INFO    | fsm          | READY → SLEEP
+2026-06-29 22:58:47 | INFO    | fsm          | levels → food 49% | water 0%
+2026-06-29 22:58:47 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:59:18 | INFO    | fsm          | levels → food 98% | water 0%
+2026-06-29 22:59:18 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 22:59:50 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 22:59:50 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 22:59:50 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:00:21 | INFO    | fsm          | levels → food 0% | water 100%
+2026-06-29 23:00:21 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:00:53 | INFO    | fsm          | levels → food 30% | water 44%
+2026-06-29 23:01:25 | INFO    | fsm          | levels → food 0% | water 100%
+2026-06-29 23:01:25 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:01:56 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:01:56 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:01:56 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:02:28 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:02:28 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:02:28 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:02:59 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:02:59 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:02:59 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:03:31 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:03:31 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:03:31 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:04:02 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:04:02 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:04:02 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:04:34 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:04:34 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:04:34 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:05:05 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:05:05 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:05:05 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:05:37 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:05:37 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:05:37 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:06:08 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:06:08 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:06:08 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:06:39 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:06:39 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:06:39 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:07:10 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:07:10 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:07:10 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:07:42 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:07:42 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:07:42 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:08:13 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:08:13 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:08:13 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:08:45 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:08:45 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:08:45 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:09:16 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:09:16 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:09:16 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:09:48 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:09:48 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:09:48 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:10:20 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:10:20 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:10:20 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:10:51 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:10:51 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:10:51 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:11:23 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:11:23 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:11:23 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:11:54 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:11:54 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:11:54 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:13:21 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 23:13:21 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 23:13:21 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 23:13:21 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 23:13:24 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 23:13:24 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 23:13:26 | INFO    | gate         | Dispensing food
+2026-06-29 23:13:30 | INFO    | cloud        | Firebase connected
+2026-06-29 23:23:39 | INFO    | main         | building components...
+2026-06-29 23:23:40 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 23:23:40 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 23:23:40 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 23:23:40 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 23:23:44 | INFO    | cloud        | Firebase connected
+2026-06-29 23:23:44 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-29 23:23:44 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-29 23:24:00 | INFO    | fsm          | levels → food 100% | water 0%
+2026-06-29 23:24:00 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:24:00 | INFO    | fsm          | READY → SLEEP
+2026-06-29 23:24:01 | INFO    | fsm          | levels → food 100% | water 0%
+2026-06-29 23:24:01 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:24:32 | INFO    | fsm          | levels → food 92% | water 0%
+2026-06-29 23:24:32 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:25:03 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:25:03 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:25:03 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:25:35 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:25:35 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:25:35 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:26:06 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:26:06 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:26:06 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:26:38 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:26:38 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:26:38 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:27:09 | INFO    | fsm          | levels → food 0% | water 98%
+2026-06-29 23:27:09 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:27:40 | INFO    | fsm          | levels → food 0% | water 98%
+2026-06-29 23:27:40 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:28:10 | INFO    | fsm          | levels → food 0% | water 98%
+2026-06-29 23:28:10 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:28:42 | INFO    | fsm          | levels → food 0% | water 98%
+2026-06-29 23:28:42 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:29:13 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:29:13 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:29:13 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:29:44 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:29:44 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:29:44 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:30:15 | INFO    | fsm          | levels → food 95% | water 0%
+2026-06-29 23:30:15 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:30:46 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:30:46 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:30:46 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:31:17 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:31:17 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:31:17 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:31:48 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:31:48 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:31:48 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:32:19 | INFO    | fsm          | levels → food 92% | water 100%
+2026-06-29 23:32:50 | INFO    | fsm          | levels → food 0% | water 100%
+2026-06-29 23:32:50 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:33:20 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:33:20 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:33:20 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:33:51 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:33:51 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:33:51 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:34:22 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:34:22 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:34:22 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:34:53 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:34:53 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:34:53 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:35:24 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:35:24 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:35:24 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:35:55 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:35:55 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:35:55 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:36:26 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:36:26 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:36:26 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:36:57 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:36:57 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:36:57 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:37:28 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:37:28 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:37:28 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:37:59 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:37:59 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:37:59 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:38:29 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:38:29 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:38:29 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:39:00 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:39:00 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:39:00 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:39:31 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:39:31 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:39:31 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:39:43 | INFO    | main         | building components...
+2026-06-29 23:39:43 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 23:39:43 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 23:39:43 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 23:39:43 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 23:39:47 | INFO    | cloud        | Firebase connected
+2026-06-29 23:39:47 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-29 23:39:47 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-29 23:40:04 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:40:04 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:40:04 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:40:04 | INFO    | fsm          | READY → SLEEP
+2026-06-29 23:40:04 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:40:04 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:40:04 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:40:36 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:40:36 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:40:36 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:41:07 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:41:07 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:41:07 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:41:39 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:41:39 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:41:39 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:42:11 | INFO    | fsm          | levels → food 100% | water 100%
+2026-06-29 23:42:42 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:42:42 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:42:42 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:43:13 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:43:13 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:43:13 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:43:45 | INFO    | fsm          | levels → food 100% | water 0%
+2026-06-29 23:43:45 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:44:16 | INFO    | fsm          | levels → food 0% | water 83%
+2026-06-29 23:44:16 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:44:48 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:44:48 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:44:48 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:45:19 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:45:19 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:45:19 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:45:22 | INFO    | main         | building components...
+2026-06-29 23:45:23 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 23:45:23 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 23:45:23 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 23:45:23 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 23:45:26 | INFO    | cloud        | Firebase connected
+2026-06-29 23:45:26 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-29 23:45:26 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-29 23:45:43 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:45:43 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:45:43 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:45:43 | INFO    | fsm          | READY → SLEEP
+2026-06-29 23:45:43 | INFO    | fsm          | levels → food 0% | water 87%
+2026-06-29 23:45:43 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:46:15 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:46:15 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:46:15 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:46:47 | INFO    | fsm          | levels → food 0% | water 0%
+2026-06-29 23:46:47 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-29 23:46:47 | WARNING | fsm          | LOW WATER: 0%
+2026-06-29 23:47:25 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-29 23:47:25 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-29 23:47:25 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-29 23:47:25 | INFO    | picamera2.picamera2 | Camera started
+2026-06-29 23:47:27 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-29 23:47:27 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-29 23:47:29 | INFO    | gate         | Dispensing food
+2026-06-29 23:47:33 | INFO    | cloud        | Firebase connected
+2026-06-30 12:59:22 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 12:59:22 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 12:59:22 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 12:59:22 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 12:59:25 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 12:59:25 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-30 12:59:30 | INFO    | cloud        | Firebase connected
+2026-06-30 13:05:50 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 13:05:50 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 13:05:50 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 13:05:50 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 13:05:53 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 13:05:53 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-30 13:05:55 | INFO    | gate         | Dispensing food
+2026-06-30 13:06:00 | INFO    | cloud        | Firebase connected
+2026-06-30 13:08:32 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 13:08:32 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 13:08:32 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 13:08:32 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 13:08:34 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 13:08:35 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-30 13:08:37 | INFO    | gate         | Dispensing food
+2026-06-30 13:08:42 | INFO    | cloud        | Firebase connected
+2026-06-30 13:44:05 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 13:44:05 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 13:44:05 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 13:44:05 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 13:44:08 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 13:44:08 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-30 13:44:10 | INFO    | gate         | Dispensing food
+2026-06-30 13:44:16 | INFO    | cloud        | Firebase connected
+2026-06-30 13:46:24 | INFO    | cloud        | Firebase connected
+2026-06-30 13:52:01 | INFO    | cloud        | Firebase connected
+2026-06-30 13:58:46 | INFO    | main         | building components...
+2026-06-30 13:58:46 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 13:58:46 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 13:58:46 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 13:58:46 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 13:58:50 | INFO    | cloud        | Firebase connected
+2026-06-30 13:58:50 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-30 13:58:50 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-30 13:59:06 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-06-30 13:59:08 | INFO    | fsm          | levels -> food 100% | water 100%
+2026-06-30 13:59:08 | INFO    | fsm          | READY -> SLEEP
+2026-06-30 13:59:09 | INFO    | fsm          | levels -> food 100% | water 100%
+2026-06-30 13:59:09 | INFO    | fsm          | MANUAL feed from app -> nana portion=30g
+2026-06-30 13:59:09 | INFO    | pump         | Dispensing water for 3.0s
+2026-06-30 13:59:12 | INFO    | gate         | Dispensing food
+2026-06-30 13:59:16 | INFO    | fsm          | levels -> food 100% | water 100%
+2026-06-30 13:59:48 | INFO    | fsm          | levels -> food 99% | water 100%
+2026-06-30 14:00:01 | INFO    | main         | stopped by user (Ctrl+C)
+2026-06-30 14:00:01 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 14:14:03 | INFO    | main         | building components...
+2026-06-30 14:14:04 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 14:14:04 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 14:14:04 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 14:14:04 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 14:14:08 | INFO    | cloud        | Firebase connected
+2026-06-30 14:14:08 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-30 14:14:08 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-30 14:14:24 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-06-30 14:14:25 | INFO    | fsm          | levels -> food 100% | water 0%
+2026-06-30 14:14:25 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 14:14:25 | INFO    | fsm          | READY -> SLEEP
+2026-06-30 14:14:26 | INFO    | fsm          | levels -> food 100% | water 0%
+2026-06-30 14:14:26 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 14:14:59 | INFO    | fsm          | levels -> food 0% | water 0%
+2026-06-30 14:14:59 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 14:14:59 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 14:15:00 | INFO    | fsm          | [14:15] LIVE TEST for nana -> CALL_CAT
+2026-06-30 14:15:00 | INFO    | fsm          | WAIT_FOR_MOTION (timeout 60s)
+2026-06-30 14:15:19 | INFO    | fsm          | motion detected -> VERIFY (expecting nana)
+2026-06-30 14:16:14 | INFO    | main         | stopped by user (Ctrl+C)
+2026-06-30 14:16:14 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 14:22:53 | INFO    | main         | building components...
+2026-06-30 14:22:54 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 14:22:54 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 14:22:54 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 14:22:54 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 14:22:58 | INFO    | cloud        | Firebase connected
+2026-06-30 14:22:58 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-30 14:22:58 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-30 14:23:14 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-06-30 14:23:15 | INFO    | main         | stopped by user (Ctrl+C)
+2026-06-30 14:23:15 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 14:23:16 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-30 14:23:16 | INFO    | main         | cleanup complete — goodbye
+2026-06-30 14:36:02 | INFO    | main         | building components...
+2026-06-30 14:36:03 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 14:36:03 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 14:36:03 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 14:36:03 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 14:36:08 | INFO    | cloud        | Firebase connected
+2026-06-30 14:36:08 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-30 14:36:08 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-30 14:36:24 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-06-30 14:36:25 | INFO    | fsm          | levels -> food 0% | water 0%
+2026-06-30 14:36:25 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 14:36:26 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 14:36:26 | INFO    | fsm          | READY -> SLEEP
+2026-06-30 14:36:27 | INFO    | fsm          | levels -> food 0% | water 0%
+2026-06-30 14:36:27 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 14:36:27 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 14:37:00 | INFO    | fsm          | levels -> food 0% | water 0%
+2026-06-30 14:37:00 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 14:37:00 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 14:37:01 | INFO    | fsm          | [14:37] LIVE TEST for nana -> CALL_CAT
+2026-06-30 14:37:01 | INFO    | fsm          | WAIT_FOR_MOTION (timeout 60s)
+2026-06-30 14:37:03 | INFO    | fsm          | motion detected -> VERIFY (expecting nana)
+2026-06-30 14:38:11 | INFO    | ai           | decision: authorized=True identity=cat_001 confidence=0.8117 (Authorized)
+2026-06-30 14:38:11 | INFO    | fsm          | AUTHORIZED: nana (conf=0.8117) -> DISPENSE
+2026-06-30 14:38:11 | INFO    | pump         | Dispensing water for 3.0s
+2026-06-30 14:38:14 | INFO    | gate         | Dispensing food
+2026-06-30 14:38:18 | INFO    | fsm          | levels -> food 7% | water 100%
+2026-06-30 14:38:18 | WARNING | fsm          | LOW FOOD: 7%
+2026-06-30 14:38:19 | INFO    | fsm          | feeding logged for nana
+2026-06-30 14:38:19 | INFO    | fsm          | cooldown 10s -> SLEEP
+2026-06-30 14:38:30 | INFO    | fsm          | levels -> food 0% | water 100%
+2026-06-30 14:38:30 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 14:38:32 | INFO    | main         | stopped by user (Ctrl+C)
+2026-06-30 14:38:32 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 15:13:36 | INFO    | main         | building components...
+2026-06-30 15:13:37 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 15:13:37 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 15:13:37 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 15:13:37 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 15:13:41 | INFO    | cloud        | Firebase connected
+2026-06-30 15:13:41 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-30 15:13:41 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-30 15:13:58 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-06-30 15:13:59 | INFO    | fsm          | levels -> food 1% | water 83%
+2026-06-30 15:13:59 | WARNING | fsm          | LOW FOOD: 1%
+2026-06-30 15:13:59 | INFO    | fsm          | READY -> SLEEP
+2026-06-30 15:14:00 | INFO    | fsm          | levels -> food 0% | water 83%
+2026-06-30 15:14:00 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 15:14:01 | INFO    | fsm          | [15:14] LIVE TEST for nana -> CALL_CAT
+2026-06-30 15:14:01 | INFO    | fsm          | WAIT_FOR_MOTION (timeout 60s)
+2026-06-30 15:14:05 | INFO    | fsm          | motion detected -> VERIFY (expecting nana)
+2026-06-30 15:14:05 | INFO    | ai           |   Frame 1: no face detected
+2026-06-30 15:14:05 | INFO    | ai           |   Frame 2: no face detected
+2026-06-30 15:14:05 | INFO    | ai           |   Frame 3: no face detected
+2026-06-30 15:14:05 | INFO    | ai           |   Frame 4: no face detected
+2026-06-30 15:14:06 | INFO    | ai           |   Frame 5: no face detected
+2026-06-30 15:14:06 | INFO    | ai           |   Frame 6: no face detected
+2026-06-30 15:14:06 | INFO    | ai           |   Frame 7: no face detected
+2026-06-30 15:14:06 | INFO    | ai           |   Frame 8: no face detected
+2026-06-30 15:14:06 | INFO    | ai           |   Frame 9: no face detected
+2026-06-30 15:14:06 | INFO    | ai           |   Frame 10: no face detected
+2026-06-30 15:14:07 | INFO    | ai           |   Frame 11: no face detected
+2026-06-30 15:14:07 | INFO    | ai           |   Frame 12: no face detected
+2026-06-30 15:14:07 | INFO    | ai           |   Frame 13: no face detected
+2026-06-30 15:14:07 | INFO    | ai           |   Frame 14: no face detected
+2026-06-30 15:14:07 | INFO    | ai           |   Frame 15: no face detected
+2026-06-30 15:14:07 | INFO    | ai           |   Frame 16: no face detected
+2026-06-30 15:14:07 | INFO    | ai           |   Frame 17: no face detected
+2026-06-30 15:14:08 | INFO    | ai           |   Frame 18: no face detected
+2026-06-30 15:14:08 | INFO    | ai           |   Frame 19: no face detected
+2026-06-30 15:14:08 | INFO    | ai           |   Frame 20: no face detected
+2026-06-30 15:14:08 | INFO    | ai           |   Frame 21: no face detected
+2026-06-30 15:14:08 | INFO    | ai           |   Frame 22: no face detected
+2026-06-30 15:14:08 | INFO    | ai           |   Frame 23: no face detected
+2026-06-30 15:14:09 | INFO    | ai           |   Frame 24: no face detected
+2026-06-30 15:14:09 | INFO    | ai           |   Frame 25: no face detected
+2026-06-30 15:14:09 | INFO    | ai           |   Frame 26: no face detected
+2026-06-30 15:14:09 | INFO    | ai           |   Frame 27: no face detected
+2026-06-30 15:14:09 | INFO    | ai           |   Frame 28: no face detected
+2026-06-30 15:14:09 | INFO    | ai           |   Frame 29: no face detected
+2026-06-30 15:14:10 | INFO    | ai           |   Frame 30: no face detected
+2026-06-30 15:14:10 | INFO    | ai           |   Frame 31: no face detected
+2026-06-30 15:14:10 | INFO    | ai           |   Frame 32: no face detected
+2026-06-30 15:14:10 | INFO    | ai           |   Frame 33: no face detected
+2026-06-30 15:14:10 | INFO    | ai           |   Frame 34: no face detected
+2026-06-30 15:14:10 | INFO    | ai           |   Frame 35: no face detected
+2026-06-30 15:14:10 | INFO    | ai           |   Frame 36: no face detected
+2026-06-30 15:14:11 | INFO    | ai           |   Frame 37: no face detected
+2026-06-30 15:14:11 | INFO    | ai           |   Frame 38: no face detected
+2026-06-30 15:14:11 | INFO    | ai           |   Frame 39: no face detected
+2026-06-30 15:14:11 | INFO    | ai           |   Frame 40: no face detected
+2026-06-30 15:14:11 | INFO    | ai           |   Frame 41: no face detected
+2026-06-30 15:14:11 | INFO    | ai           |   Frame 42: no face detected
+2026-06-30 15:14:11 | INFO    | ai           |   Frame 43: no face detected
+2026-06-30 15:14:12 | INFO    | ai           |   Frame 44: no face detected
+2026-06-30 15:14:12 | INFO    | ai           |   Frame 45: no face detected
+2026-06-30 15:14:12 | INFO    | ai           |   Frame 46: no face detected
+2026-06-30 15:14:12 | INFO    | ai           |   Frame 47: no face detected
+2026-06-30 15:14:12 | INFO    | ai           |   Frame 48: no face detected
+2026-06-30 15:14:12 | INFO    | ai           |   Frame 49: no face detected
+2026-06-30 15:14:13 | INFO    | ai           |   Frame 50: no face detected
+2026-06-30 15:14:13 | INFO    | ai           |   Frame 51: no face detected
+2026-06-30 15:14:13 | INFO    | ai           |   Frame 52: no face detected
+2026-06-30 15:14:13 | INFO    | ai           |   Frame 53: no face detected
+2026-06-30 15:14:13 | INFO    | ai           |   Frame 54: no face detected
+2026-06-30 15:14:13 | INFO    | ai           |   Frame 55: no face detected
+2026-06-30 15:14:14 | INFO    | ai           |   Frame 56: no face detected
+2026-06-30 15:14:14 | INFO    | ai           |   Frame 57: no face detected
+2026-06-30 15:14:14 | INFO    | ai           |   Frame 58: no face detected
+2026-06-30 15:14:14 | INFO    | ai           |   Frame 59: no face detected
+2026-06-30 15:14:14 | INFO    | ai           |   Frame 60: no face detected
+2026-06-30 15:14:14 | INFO    | ai           |   Frame 61: no face detected
+2026-06-30 15:14:14 | INFO    | ai           |   Frame 62: no face detected
+2026-06-30 15:14:15 | INFO    | ai           |   Frame 63: no face detected
+2026-06-30 15:14:15 | INFO    | ai           |   Frame 64: no face detected
+2026-06-30 15:14:15 | INFO    | ai           |   Frame 65: no face detected
+2026-06-30 15:14:15 | INFO    | ai           |   Frame 66: no face detected
+2026-06-30 15:14:15 | INFO    | ai           |   Frame 67: no face detected
+2026-06-30 15:14:15 | INFO    | ai           |   Frame 68: no face detected
+2026-06-30 15:14:16 | INFO    | ai           |   Frame 69: no face detected
+2026-06-30 15:14:16 | INFO    | ai           |   Frame 70: no face detected
+2026-06-30 15:14:16 | INFO    | ai           |   Frame 71: no face detected
+2026-06-30 15:14:16 | INFO    | ai           |   Frame 72: no face detected
+2026-06-30 15:14:16 | INFO    | ai           |   Frame 73: no face detected
+2026-06-30 15:14:17 | INFO    | ai           |   Frame 1: cat_001 | score: 0.722
+2026-06-30 15:14:17 | INFO    | ai           |   Frame 2: cat_001 | score: 0.6804
+2026-06-30 15:14:18 | INFO    | ai           |   Frame 3: cat_001 | score: 0.8157
+2026-06-30 15:14:18 | INFO    | ai           |   Frame 4: cat_001 | score: 0.7505
+2026-06-30 15:14:18 | INFO    | ai           |   Frame 5: cat_001 | score: 0.8117
+2026-06-30 15:14:18 | INFO    | ai           |   Frame 6: cat_001 | score: 0.6905
+2026-06-30 15:14:19 | INFO    | ai           |   Frame 7: cat_001 | score: 0.7751
+2026-06-30 15:14:19 | INFO    | ai           |   Frame 8: cat_001 | score: 0.8317
+2026-06-30 15:14:19 | INFO    | ai           |   Frame 9: cat_001 | score: 0.7481
+2026-06-30 15:14:19 | INFO    | ai           |   Frame 10: cat_001 | score: 0.7504
+2026-06-30 15:14:20 | INFO    | ai           |   Frame 11: cat_001 | score: 0.8491
+2026-06-30 15:14:20 | INFO    | ai           |   Frame 12: cat_001 | score: 0.8186
+2026-06-30 15:14:20 | INFO    | ai           |   Frame 13: cat_001 | score: 0.8163
+2026-06-30 15:14:20 | INFO    | ai           |   Frame 14: cat_001 | score: 0.8254
+2026-06-30 15:14:21 | INFO    | ai           |   Frame 15: cat_001 | score: 0.7966
+2026-06-30 15:14:21 | INFO    | ai           |   Frame 16: cat_001 | score: 0.8374
+2026-06-30 15:14:21 | INFO    | ai           |   Frame 17: cat_001 | score: 0.8374
+2026-06-30 15:14:21 | INFO    | ai           |   Frame 18: cat_001 | score: 0.856
+2026-06-30 15:14:22 | INFO    | ai           |   Frame 19: cat_001 | score: 0.8684
+2026-06-30 15:14:22 | INFO    | ai           |   Frame 20: cat_001 | score: 0.8384
+2026-06-30 15:14:22 | INFO    | ai           | FINAL: authorized=True identity=cat_001 confidence=0.796 reason=Authorized
+2026-06-30 15:14:22 | INFO    | fsm          | AUTHORIZED: nana (conf=0.7960) -> DISPENSE
+2026-06-30 15:14:22 | INFO    | pump         | Dispensing water for 2.0s
+2026-06-30 15:14:24 | INFO    | gate         | Opening gate...
+2026-06-30 15:14:27 | INFO    | gate         | Closing gate...
+2026-06-30 15:14:27 | INFO    | gate         | Gate closed, servo detached.
+2026-06-30 15:14:28 | INFO    | fsm          | levels -> food 40% | water 35%
+2026-06-30 15:14:29 | INFO    | fsm          | feeding logged for nana
+2026-06-30 15:14:29 | INFO    | fsm          | cooldown 10s -> SLEEP
+2026-06-30 15:14:40 | INFO    | fsm          | levels -> food 0% | water 82%
+2026-06-30 15:14:40 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 15:15:13 | INFO    | fsm          | levels -> food 100% | water 100%
+2026-06-30 15:15:44 | INFO    | fsm          | levels -> food 81% | water 100%
+2026-06-30 15:16:09 | INFO    | main         | stopped by user (Ctrl+C)
+2026-06-30 15:16:09 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 15:16:09 | INFO    | main         | cleanup complete — goodbye
+2026-06-30 15:32:00 | INFO    | main         | building components...
+2026-06-30 15:32:02 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 15:32:02 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 15:32:02 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 15:32:02 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 15:32:08 | INFO    | main         | stopped by user (Ctrl+C)
+2026-06-30 15:32:08 | INFO    | main         | cleanup complete — goodbye
+2026-06-30 15:32:08 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 15:32:08 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-30 15:32:32 | INFO    | main         | building components...
+2026-06-30 15:32:33 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 15:32:33 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 15:32:33 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 15:32:33 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 15:32:37 | INFO    | cloud        | Firebase connected
+2026-06-30 15:32:37 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-30 15:32:37 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-30 15:32:53 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-06-30 15:32:54 | INFO    | fsm          | levels -> food 65% | water 0%
+2026-06-30 15:32:54 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 15:32:54 | INFO    | fsm          | READY -> SLEEP
+2026-06-30 15:32:55 | INFO    | fsm          | levels -> food 65% | water 0%
+2026-06-30 15:32:55 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 15:33:00 | INFO    | fsm          | [15:33] LIVE TEST for nana -> CALL_CAT
+2026-06-30 15:33:00 | INFO    | fsm          | WAIT_FOR_MOTION (timeout 60s)
+2026-06-30 15:33:02 | INFO    | fsm          | motion detected -> VERIFY (expecting nana)
+2026-06-30 15:33:02 | INFO    | ai           |   Frame 1: no face detected
+2026-06-30 15:33:02 | INFO    | ai           |   Frame 2: no face detected
+2026-06-30 15:33:02 | INFO    | ai           |   Frame 3: no face detected
+2026-06-30 15:33:02 | INFO    | ai           |   Frame 4: no face detected
+2026-06-30 15:33:03 | INFO    | ai           |   Frame 5: no face detected
+2026-06-30 15:33:03 | INFO    | ai           |   Frame 6: no face detected
+2026-06-30 15:33:03 | INFO    | ai           |   Frame 7: no face detected
+2026-06-30 15:33:03 | INFO    | ai           |   Frame 8: no face detected
+2026-06-30 15:33:03 | INFO    | ai           |   Frame 9: no face detected
+2026-06-30 15:33:03 | INFO    | ai           |   Frame 10: no face detected
+2026-06-30 15:33:04 | INFO    | ai           |   Frame 11: no face detected
+2026-06-30 15:33:04 | INFO    | ai           |   Frame 12: no face detected
+2026-06-30 15:33:04 | INFO    | ai           |   Frame 13: no face detected
+2026-06-30 15:33:04 | INFO    | ai           |   Frame 14: no face detected
+2026-06-30 15:33:04 | INFO    | ai           |   Frame 15: no face detected
+2026-06-30 15:33:04 | INFO    | ai           |   Frame 16: no face detected
+2026-06-30 15:33:05 | INFO    | ai           |   Frame 17: no face detected
+2026-06-30 15:33:05 | INFO    | ai           |   Frame 18: no face detected
+2026-06-30 15:33:05 | INFO    | ai           |   Frame 19: no face detected
+2026-06-30 15:33:05 | INFO    | ai           |   Frame 20: no face detected
+2026-06-30 15:33:05 | INFO    | ai           |   Frame 21: no face detected
+2026-06-30 15:33:06 | INFO    | ai           |   Frame 22: no face detected
+2026-06-30 15:33:06 | INFO    | ai           |   Frame 23: no face detected
+2026-06-30 15:33:06 | INFO    | ai           |   Frame 24: no face detected
+2026-06-30 15:33:06 | INFO    | ai           |   Frame 25: no face detected
+2026-06-30 15:33:06 | INFO    | ai           |   Frame 26: no face detected
+2026-06-30 15:33:06 | INFO    | ai           |   Frame 27: no face detected
+2026-06-30 15:33:07 | INFO    | ai           |   Frame 28: no face detected
+2026-06-30 15:33:07 | INFO    | ai           |   Frame 29: no face detected
+2026-06-30 15:33:07 | INFO    | ai           |   Frame 30: no face detected
+2026-06-30 15:33:07 | INFO    | ai           |   Frame 31: no face detected
+2026-06-30 15:33:07 | INFO    | ai           |   Frame 32: no face detected
+2026-06-30 15:33:07 | INFO    | ai           |   Frame 33: no face detected
+2026-06-30 15:33:08 | INFO    | ai           |   Frame 34: no face detected
+2026-06-30 15:33:08 | INFO    | ai           |   Frame 35: no face detected
+2026-06-30 15:33:08 | INFO    | ai           |   Frame 36: no face detected
+2026-06-30 15:33:08 | INFO    | ai           |   Frame 37: no face detected
+2026-06-30 15:33:08 | INFO    | ai           |   Frame 38: no face detected
+2026-06-30 15:33:08 | INFO    | ai           |   Frame 39: no face detected
+2026-06-30 15:33:09 | INFO    | ai           |   Frame 40: no face detected
+2026-06-30 15:33:09 | INFO    | ai           |   Frame 41: no face detected
+2026-06-30 15:33:09 | INFO    | ai           |   Frame 42: no face detected
+2026-06-30 15:33:09 | INFO    | ai           |   Frame 43: no face detected
+2026-06-30 15:33:09 | INFO    | ai           |   Frame 44: no face detected
+2026-06-30 15:33:09 | INFO    | ai           |   Frame 45: no face detected
+2026-06-30 15:33:10 | INFO    | ai           |   Frame 46: no face detected
+2026-06-30 15:33:10 | INFO    | ai           |   Frame 47: no face detected
+2026-06-30 15:33:10 | INFO    | ai           |   Frame 48: no face detected
+2026-06-30 15:33:10 | INFO    | ai           |   Frame 49: no face detected
+2026-06-30 15:33:10 | INFO    | ai           |   Frame 50: no face detected
+2026-06-30 15:33:11 | INFO    | ai           |   Frame 51: no face detected
+2026-06-30 15:33:11 | INFO    | ai           |   Frame 52: no face detected
+2026-06-30 15:33:11 | INFO    | ai           |   Frame 53: no face detected
+2026-06-30 15:33:11 | INFO    | ai           |   Frame 54: no face detected
+2026-06-30 15:33:11 | INFO    | ai           |   Frame 55: no face detected
+2026-06-30 15:33:12 | INFO    | ai           |   Frame 56: no face detected
+2026-06-30 15:33:12 | INFO    | ai           |   Frame 57: no face detected
+2026-06-30 15:33:12 | INFO    | ai           |   Frame 58: no face detected
+2026-06-30 15:33:12 | INFO    | ai           |   Frame 59: no face detected
+2026-06-30 15:33:12 | INFO    | ai           |   Frame 60: no face detected
+2026-06-30 15:33:12 | INFO    | ai           |   Frame 61: no face detected
+2026-06-30 15:33:13 | INFO    | ai           |   Frame 62: no face detected
+2026-06-30 15:33:13 | INFO    | ai           |   Frame 63: no face detected
+2026-06-30 15:33:13 | INFO    | ai           |   Frame 64: no face detected
+2026-06-30 15:33:13 | INFO    | ai           |   Frame 65: no face detected
+2026-06-30 15:33:13 | INFO    | ai           |   Frame 66: no face detected
+2026-06-30 15:33:14 | INFO    | ai           |   Frame 67: no face detected
+2026-06-30 15:33:14 | INFO    | ai           |   Frame 68: no face detected
+2026-06-30 15:33:15 | INFO    | ai           |   Frame 1: cat_001 | score: 0.5558
+2026-06-30 15:33:15 | INFO    | ai           |   Frame 2: cat_001 | score: 0.8814
+2026-06-30 15:33:15 | INFO    | ai           |   Frame 3: cat_001 | score: 0.9005
+2026-06-30 15:33:16 | INFO    | ai           |   Frame 4: cat_001 | score: 0.8623
+2026-06-30 15:33:16 | INFO    | ai           |   Frame 5: cat_001 | score: 0.885
+2026-06-30 15:33:16 | INFO    | ai           |   Frame 6: cat_001 | score: 0.8748
+2026-06-30 15:33:16 | INFO    | ai           |   Frame 7: cat_001 | score: 0.8954
+2026-06-30 15:33:17 | INFO    | ai           |   Frame 8: cat_001 | score: 0.8819
+2026-06-30 15:33:17 | INFO    | ai           |   Frame 9: cat_001 | score: 0.8699
+2026-06-30 15:33:17 | INFO    | ai           |   Frame 10: cat_001 | score: 0.8615
+2026-06-30 15:33:17 | INFO    | ai           |   Frame 11: cat_001 | score: 0.8777
+2026-06-30 15:33:18 | INFO    | ai           |   Frame 12: cat_001 | score: 0.8935
+2026-06-30 15:33:18 | INFO    | ai           |   Frame 13: cat_001 | score: 0.8936
+2026-06-30 15:33:18 | INFO    | ai           |   Frame 14: cat_001 | score: 0.8841
+2026-06-30 15:33:18 | INFO    | ai           |   Frame 15: cat_001 | score: 0.8756
+2026-06-30 15:33:19 | INFO    | ai           |   Frame 16: cat_001 | score: 0.8659
+2026-06-30 15:33:19 | INFO    | ai           |   Frame 17: cat_001 | score: 0.8582
+2026-06-30 15:33:19 | INFO    | ai           |   Frame 18: cat_001 | score: 0.8797
+2026-06-30 15:33:19 | INFO    | ai           |   Frame 19: cat_001 | score: 0.8776
+2026-06-30 15:33:20 | INFO    | ai           |   Frame 20: cat_001 | score: 0.8802
+2026-06-30 15:33:20 | INFO    | ai           | FINAL: authorized=True identity=cat_001 confidence=0.8627 reason=Authorized
+2026-06-30 15:33:20 | INFO    | fsm          | AUTHORIZED: nana (conf=0.8627) -> DISPENSE
+2026-06-30 15:33:20 | INFO    | pump         | Dispensing water for 2.0s
+2026-06-30 15:33:22 | INFO    | gate         | Opening gate...
+2026-06-30 15:33:25 | INFO    | gate         | Closing gate...
+2026-06-30 15:33:25 | INFO    | gate         | Gate closed, servo detached.
+2026-06-30 15:33:26 | INFO    | fsm          | levels -> food 0% | water 100%
+2026-06-30 15:33:26 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 15:33:27 | INFO    | fsm          | feeding logged for nana
+2026-06-30 15:33:27 | INFO    | fsm          | cooldown 10s -> SLEEP
+2026-06-30 15:33:35 | INFO    | main         | stopped by user (Ctrl+C)
+2026-06-30 15:33:35 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 15:33:35 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-30 15:33:36 | INFO    | main         | cleanup complete — goodbye
+2026-06-30 16:02:25 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 16:02:25 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 16:02:25 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 16:02:26 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 16:02:28 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 16:02:29 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-30 16:02:30 | INFO    | gate         | Opening gate...
+2026-06-30 16:02:33 | INFO    | gate         | Closing gate...
+2026-06-30 16:02:34 | INFO    | gate         | Gate closed, servo detached.
+2026-06-30 16:02:37 | INFO    | cloud        | Firebase connected
+2026-06-30 16:06:45 | INFO    | main         | building components...
+2026-06-30 16:06:46 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 16:06:46 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 16:06:46 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 16:06:46 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 16:06:50 | INFO    | cloud        | Firebase connected
+2026-06-30 16:06:50 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-30 16:06:50 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-30 16:07:06 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-06-30 16:07:07 | INFO    | fsm          | levels -> food 0% | water 0%
+2026-06-30 16:07:07 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:07:07 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 16:07:08 | INFO    | fsm          | READY -> SLEEP
+2026-06-30 16:07:09 | INFO    | fsm          | levels -> food 0% | water 0%
+2026-06-30 16:07:09 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:07:09 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 16:07:10 | INFO    | fsm          | [16:07] LIVE TEST for nana -> CALL_CAT
+2026-06-30 16:07:10 | INFO    | fsm          | WAIT_FOR_MOTION (timeout 60s)
+2026-06-30 16:07:15 | INFO    | fsm          | motion detected -> VERIFY (expecting nana)
+2026-06-30 16:07:15 | INFO    | ai           |   Frame 1: no face detected
+2026-06-30 16:07:16 | INFO    | ai           |   Frame 2: no face detected
+2026-06-30 16:07:16 | INFO    | ai           |   Frame 3: no face detected
+2026-06-30 16:07:16 | INFO    | ai           |   Frame 4: no face detected
+2026-06-30 16:07:16 | INFO    | ai           |   Frame 5: no face detected
+2026-06-30 16:07:16 | INFO    | ai           |   Frame 6: no face detected
+2026-06-30 16:07:17 | INFO    | ai           |   Frame 7: no face detected
+2026-06-30 16:07:17 | INFO    | ai           |   Frame 8: no face detected
+2026-06-30 16:07:17 | INFO    | ai           |   Frame 9: no face detected
+2026-06-30 16:07:17 | INFO    | ai           |   Frame 10: no face detected
+2026-06-30 16:07:17 | INFO    | ai           |   Frame 11: no face detected
+2026-06-30 16:07:17 | INFO    | ai           |   Frame 12: no face detected
+2026-06-30 16:07:18 | INFO    | ai           |   Frame 13: no face detected
+2026-06-30 16:07:18 | INFO    | ai           |   Frame 14: no face detected
+2026-06-30 16:07:19 | INFO    | ai           |   Frame 1: cat_001 | score: 0.8555
+2026-06-30 16:07:19 | INFO    | ai           |   Frame 16: no face detected
+2026-06-30 16:07:19 | INFO    | ai           |   Frame 17: no face detected
+2026-06-30 16:07:19 | INFO    | ai           |   Frame 18: no face detected
+2026-06-30 16:07:20 | INFO    | ai           |   Frame 19: no face detected
+2026-06-30 16:07:20 | INFO    | ai           |   Frame 20: no face detected
+2026-06-30 16:07:20 | INFO    | ai           |   Frame 21: no face detected
+2026-06-30 16:07:20 | INFO    | ai           |   Frame 22: no face detected
+2026-06-30 16:07:20 | INFO    | ai           |   Frame 23: no face detected
+2026-06-30 16:07:21 | INFO    | ai           |   Frame 24: no face detected
+2026-06-30 16:07:21 | INFO    | ai           |   Frame 25: no face detected
+2026-06-30 16:07:21 | INFO    | ai           |   Frame 26: no face detected
+2026-06-30 16:07:21 | INFO    | ai           |   Frame 27: no face detected
+2026-06-30 16:07:21 | INFO    | ai           |   Frame 28: no face detected
+2026-06-30 16:07:21 | INFO    | ai           |   Frame 29: no face detected
+2026-06-30 16:07:22 | INFO    | ai           |   Frame 2: cat_001 | score: 0.888
+2026-06-30 16:07:22 | INFO    | ai           |   Frame 31: no face detected
+2026-06-30 16:07:22 | INFO    | ai           |   Frame 32: no face detected
+2026-06-30 16:07:22 | INFO    | ai           |   Frame 3: cat_001 | score: 0.9001
+2026-06-30 16:07:22 | INFO    | ai           |   Frame 4: cat_001 | score: 0.8668
+2026-06-30 16:07:23 | INFO    | ai           |   Frame 5: cat_001 | score: 0.8887
+2026-06-30 16:07:23 | INFO    | ai           |   Frame 6: cat_001 | score: 0.8715
+2026-06-30 16:07:23 | INFO    | ai           |   Frame 7: cat_001 | score: 0.8883
+2026-06-30 16:07:23 | INFO    | ai           |   Frame 8: cat_001 | score: 0.8816
+2026-06-30 16:07:24 | INFO    | ai           |   Frame 9: cat_001 | score: 0.8863
+2026-06-30 16:07:24 | INFO    | ai           |   Frame 10: cat_001 | score: 0.8673
+2026-06-30 16:07:24 | INFO    | ai           |   Frame 11: cat_001 | score: 0.8634
+2026-06-30 16:07:24 | INFO    | ai           |   Frame 12: cat_001 | score: 0.8609
+2026-06-30 16:07:25 | INFO    | ai           |   Frame 13: cat_001 | score: 0.8782
+2026-06-30 16:07:25 | INFO    | ai           |   Frame 14: cat_001 | score: 0.8806
+2026-06-30 16:07:25 | INFO    | ai           |   Frame 15: cat_001 | score: 0.8896
+2026-06-30 16:07:25 | INFO    | ai           |   Frame 16: cat_001 | score: 0.8769
+2026-06-30 16:07:26 | INFO    | ai           |   Frame 17: cat_001 | score: 0.8971
+2026-06-30 16:07:26 | INFO    | ai           |   Frame 18: cat_001 | score: 0.8449
+2026-06-30 16:07:26 | INFO    | ai           |   Frame 19: cat_001 | score: 0.8617
+2026-06-30 16:07:26 | INFO    | ai           |   Frame 20: cat_001 | score: 0.8675
+2026-06-30 16:07:27 | INFO    | ai           | FINAL: authorized=True identity=cat_001 confidence=0.8758 reason=Authorized
+2026-06-30 16:07:27 | INFO    | fsm          | AUTHORIZED: nana (conf=0.8758) -> DISPENSE
+2026-06-30 16:07:27 | INFO    | pump         | Dispensing water for 2.0s
+2026-06-30 16:07:27 | INFO    | pump         | Pump pin held -> pump ON
+2026-06-30 16:07:29 | INFO    | pump         | Pump pin released -> pump OFF
+2026-06-30 16:07:29 | INFO    | gate         | Opening gate...
+2026-06-30 16:07:32 | INFO    | gate         | Closing gate...
+2026-06-30 16:07:32 | INFO    | gate         | Gate closed, servo detached.
+2026-06-30 16:07:33 | INFO    | fsm          | levels -> food 0% | water 0%
+2026-06-30 16:07:33 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:07:33 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 16:07:34 | INFO    | fsm          | feeding logged for nana
+2026-06-30 16:07:34 | INFO    | fsm          | cooldown 10s -> SLEEP
+2026-06-30 16:07:45 | INFO    | main         | stopped by user (Ctrl+C)
+2026-06-30 16:07:45 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 16:07:45 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-30 16:07:46 | INFO    | main         | cleanup complete — goodbye
+2026-06-30 16:12:09 | INFO    | main         | building components...
+2026-06-30 16:12:10 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 16:12:10 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 16:12:10 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 16:12:10 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 16:12:15 | INFO    | cloud        | Firebase connected
+2026-06-30 16:12:15 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-30 16:12:15 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-30 16:12:31 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-06-30 16:12:32 | INFO    | fsm          | levels -> food 0% | water 0%
+2026-06-30 16:12:32 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:12:33 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 16:12:33 | INFO    | fsm          | READY -> SLEEP
+2026-06-30 16:12:34 | INFO    | fsm          | levels -> food 0% | water 0%
+2026-06-30 16:12:34 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:12:34 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 16:13:00 | INFO    | fsm          | [16:13] LIVE TEST for nana -> CALL_CAT
+2026-06-30 16:13:00 | INFO    | fsm          | WAIT_FOR_MOTION (timeout 60s)
+2026-06-30 16:13:10 | INFO    | fsm          | motion detected -> VERIFY (expecting nana)
+2026-06-30 16:13:10 | INFO    | ai           | Frame 1: no face
+2026-06-30 16:13:10 | INFO    | ai           | Frame 2: no face
+2026-06-30 16:13:10 | INFO    | ai           | Frame 3: no face
+2026-06-30 16:13:11 | INFO    | ai           | Frame 4: no face
+2026-06-30 16:13:11 | INFO    | ai           | Frame 5: no face
+2026-06-30 16:13:11 | INFO    | ai           | Frame 6: no face
+2026-06-30 16:13:11 | INFO    | ai           | Frame 7: no face
+2026-06-30 16:13:11 | INFO    | ai           | Frame 8: no face
+2026-06-30 16:13:11 | INFO    | ai           | Frame 9: no face
+2026-06-30 16:13:12 | INFO    | ai           | Frame 10: no face
+2026-06-30 16:13:12 | INFO    | ai           | Frame 11: no face
+2026-06-30 16:13:12 | INFO    | ai           | Frame 12: no face
+2026-06-30 16:13:12 | INFO    | ai           | Frame 13: no face
+2026-06-30 16:13:12 | INFO    | ai           | Frame 14: no face
+2026-06-30 16:13:13 | INFO    | ai           | Frame 15: no face
+2026-06-30 16:13:13 | INFO    | ai           | Frame 16: no face
+2026-06-30 16:13:13 | INFO    | ai           | Frame 17: no face
+2026-06-30 16:13:13 | INFO    | ai           | Frame 18: no face
+2026-06-30 16:13:13 | INFO    | ai           | Frame 19: no face
+2026-06-30 16:13:13 | INFO    | ai           | Frame 20: no face
+2026-06-30 16:13:14 | INFO    | ai           | Frame 21: no face
+2026-06-30 16:13:14 | INFO    | ai           | Frame 22: no face
+2026-06-30 16:13:14 | INFO    | ai           | Frame 23: no face
+2026-06-30 16:13:14 | INFO    | ai           | Frame 24: no face
+2026-06-30 16:13:14 | INFO    | ai           | Frame 25: no face
+2026-06-30 16:13:14 | INFO    | ai           | Frame 26: no face
+2026-06-30 16:13:15 | INFO    | ai           | Frame 27: no face
+2026-06-30 16:13:15 | INFO    | ai           | Frame 28: no face
+2026-06-30 16:13:15 | INFO    | ai           | Frame 29: no face
+2026-06-30 16:13:15 | INFO    | ai           | Frame 30: no face
+2026-06-30 16:13:15 | INFO    | ai           | Frame 31: no face
+2026-06-30 16:13:15 | INFO    | ai           | Frame 32: no face
+2026-06-30 16:13:16 | INFO    | ai           | Frame 33: no face
+2026-06-30 16:13:16 | INFO    | ai           | Frame 34: no face
+2026-06-30 16:13:16 | INFO    | ai           | Frame 35: no face
+2026-06-30 16:13:16 | INFO    | ai           | Frame 36: no face
+2026-06-30 16:13:16 | INFO    | ai           | Frame 37: no face
+2026-06-30 16:13:17 | INFO    | ai           | Frame 38: no face
+2026-06-30 16:13:17 | INFO    | ai           | Frame 39: no face
+2026-06-30 16:13:17 | INFO    | ai           | Frame 40: no face
+2026-06-30 16:13:17 | INFO    | ai           | Frame 41: no face
+2026-06-30 16:13:17 | INFO    | ai           | Frame 42: no face
+2026-06-30 16:13:17 | INFO    | ai           | Frame 43: no face
+2026-06-30 16:13:18 | INFO    | ai           | Frame 44: no face
+2026-06-30 16:13:18 | INFO    | ai           | Frame 45: no face
+2026-06-30 16:13:18 | INFO    | ai           | Frame 46: no face
+2026-06-30 16:13:18 | INFO    | ai           | Frame 47: no face
+2026-06-30 16:13:18 | INFO    | ai           | Frame 48: no face
+2026-06-30 16:13:18 | INFO    | ai           | Frame 49: no face
+2026-06-30 16:13:19 | INFO    | ai           | Frame 50: no face
+2026-06-30 16:13:19 | INFO    | ai           | Frame 51: no face
+2026-06-30 16:13:19 | INFO    | ai           | Frame 52: no face
+2026-06-30 16:13:19 | INFO    | ai           | Frame 53: no face
+2026-06-30 16:13:19 | INFO    | ai           | Frame 54: no face
+2026-06-30 16:13:20 | INFO    | ai           | Frame 55: no face
+2026-06-30 16:13:20 | INFO    | ai           | Frame 56: no face
+2026-06-30 16:13:20 | INFO    | ai           | Frame 57: no face
+2026-06-30 16:13:20 | INFO    | ai           | Frame 58: no face
+2026-06-30 16:13:21 | INFO    | ai           | Frame 59: cat_001 | score: 0.2916
+2026-06-30 16:13:21 | INFO    | ai           | Frame 60: no face
+2026-06-30 16:13:22 | INFO    | ai           | Frame 61: no face
+2026-06-30 16:13:22 | INFO    | ai           | Frame 62: no face
+2026-06-30 16:13:22 | INFO    | ai           | Frame 63: no face
+2026-06-30 16:13:22 | INFO    | ai           | Frame 64: no face
+2026-06-30 16:13:22 | INFO    | ai           | Frame 65: no face
+2026-06-30 16:13:22 | INFO    | ai           | Frame 66: no face
+2026-06-30 16:13:22 | INFO    | ai           | Frame 67: no face
+2026-06-30 16:13:23 | INFO    | ai           | Frame 68: no face
+2026-06-30 16:13:23 | INFO    | ai           | Frame 69: no face
+2026-06-30 16:13:23 | INFO    | ai           | Frame 70: no face
+2026-06-30 16:13:23 | INFO    | ai           | Frame 71: no face
+2026-06-30 16:13:23 | INFO    | ai           | Frame 72: no face
+2026-06-30 16:13:23 | INFO    | ai           | Frame 73: no face
+2026-06-30 16:13:23 | INFO    | ai           | Frame 74: no face
+2026-06-30 16:13:24 | INFO    | ai           | Frame 75: no face
+2026-06-30 16:13:24 | INFO    | ai           | Frame 76: no face
+2026-06-30 16:13:24 | INFO    | ai           | Frame 77: no face
+2026-06-30 16:13:24 | INFO    | ai           | Frame 78: no face
+2026-06-30 16:13:24 | INFO    | ai           | Frame 79: no face
+2026-06-30 16:13:24 | INFO    | ai           | Frame 80: no face
+2026-06-30 16:13:25 | INFO    | ai           | Frame 81: no face
+2026-06-30 16:13:25 | INFO    | ai           | Frame 82: no face
+2026-06-30 16:13:25 | INFO    | ai           | Frame 83: no face
+2026-06-30 16:13:25 | INFO    | ai           | Frame 84: no face
+2026-06-30 16:13:25 | INFO    | ai           | Frame 85: no face
+2026-06-30 16:13:25 | INFO    | ai           | Frame 86: no face
+2026-06-30 16:13:26 | INFO    | ai           | Frame 87: no face
+2026-06-30 16:13:26 | INFO    | ai           | Frame 88: no face
+2026-06-30 16:13:26 | INFO    | ai           | Frame 89: no face
+2026-06-30 16:13:26 | INFO    | ai           | Frame 90: no face
+2026-06-30 16:13:26 | INFO    | ai           | Frame 91: no face
+2026-06-30 16:13:27 | INFO    | ai           | Frame 92: no face
+2026-06-30 16:13:27 | INFO    | ai           | Frame 93: no face
+2026-06-30 16:13:27 | INFO    | ai           | Frame 94: no face
+2026-06-30 16:13:27 | INFO    | ai           | Frame 95: no face
+2026-06-30 16:13:27 | INFO    | ai           | Frame 96: no face
+2026-06-30 16:13:27 | INFO    | ai           | Frame 97: no face
+2026-06-30 16:13:28 | INFO    | ai           | Frame 98: cat_001 | score: 0.8021
+2026-06-30 16:13:28 | INFO    | ai           | Frame 99: cat_001 | score: 0.643
+2026-06-30 16:13:28 | INFO    | ai           | Frame 100: no face
+2026-06-30 16:13:28 | INFO    | ai           | Frame 101: cat_001 | score: 0.4842
+2026-06-30 16:13:29 | INFO    | ai           | Frame 102: cat_001 | score: 0.8662
+2026-06-30 16:13:29 | INFO    | ai           | Frame 103: cat_001 | score: 0.8807
+2026-06-30 16:13:29 | INFO    | ai           | Frame 104: cat_001 | score: 0.8634
+2026-06-30 16:13:29 | INFO    | ai           | Frame 105: cat_001 | score: 0.8819
+2026-06-30 16:13:30 | INFO    | ai           | Frame 106: cat_001 | score: 0.8842
+2026-06-30 16:13:30 | INFO    | ai           | Frame 107: cat_001 | score: 0.8474
+2026-06-30 16:13:30 | INFO    | ai           | Frame 108: cat_001 | score: 0.8909
+2026-06-30 16:13:30 | INFO    | ai           | Frame 109: cat_001 | score: 0.889
+2026-06-30 16:13:31 | INFO    | ai           | Frame 110: cat_001 | score: 0.8824
+2026-06-30 16:13:31 | INFO    | ai           | Frame 111: cat_001 | score: 0.8826
+2026-06-30 16:13:31 | INFO    | ai           | Frame 112: cat_001 | score: 0.897
+2026-06-30 16:13:31 | INFO    | ai           | Frame 113: cat_001 | score: 0.8736
+2026-06-30 16:13:32 | INFO    | ai           | Frame 114: cat_001 | score: 0.8567
+2026-06-30 16:13:32 | INFO    | ai           | Frame 115: cat_001 | score: 0.8949
+2026-06-30 16:13:32 | INFO    | ai           | Frame 116: cat_001 | score: 0.8458
+2026-06-30 16:13:32 | INFO    | ai           | Frame 117: cat_001 | score: 0.8799
+2026-06-30 16:13:32 | INFO    | ai           | FINAL: authorized=True identity=cat_001 confidence=0.8119 reason=Authorized
+2026-06-30 16:13:32 | INFO    | fsm          | AUTHORIZED: nana (conf=0.8119) -> DISPENSE
+2026-06-30 16:13:32 | INFO    | pump         | Dispensing water for 2.0s
+2026-06-30 16:13:32 | INFO    | pump         | Pump pin held -> pump ON
+2026-06-30 16:13:34 | INFO    | pump         | Pump pin released -> pump OFF
+2026-06-30 16:13:34 | INFO    | gate         | Opening gate...
+2026-06-30 16:13:37 | INFO    | gate         | Closing gate...
+2026-06-30 16:13:38 | INFO    | gate         | Gate closed, servo detached.
+2026-06-30 16:13:39 | INFO    | fsm          | levels -> food 0% | water 0%
+2026-06-30 16:13:39 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:13:39 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 16:13:40 | INFO    | fsm          | feeding logged for nana
+2026-06-30 16:13:40 | INFO    | fsm          | cooldown 10s -> SLEEP
+2026-06-30 16:13:44 | INFO    | main         | stopped by user (Ctrl+C)
+2026-06-30 16:13:44 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 16:13:44 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-30 16:13:45 | INFO    | main         | cleanup complete — goodbye
+2026-06-30 16:22:39 | INFO    | main         | building components...
+2026-06-30 16:22:42 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 16:22:42 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 16:22:42 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 16:22:42 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 16:22:49 | INFO    | cloud        | Firebase connected
+2026-06-30 16:22:49 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-30 16:22:49 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-30 16:23:06 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-06-30 16:23:07 | INFO    | fsm          | levels -> food 0% | water 0%
+2026-06-30 16:23:07 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:23:07 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 16:23:07 | INFO    | fsm          | READY -> SLEEP
+2026-06-30 16:23:08 | INFO    | fsm          | levels -> food 0% | water 0%
+2026-06-30 16:23:08 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:23:09 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 16:23:10 | INFO    | fsm          | [16:23] LIVE TEST for nana -> CALL_CAT
+2026-06-30 16:23:10 | INFO    | fsm          | WAIT_FOR_MOTION (timeout 60s)
+2026-06-30 16:23:11 | INFO    | fsm          | motion detected -> VERIFY (expecting nana)
+2026-06-30 16:23:11 | INFO    | ai           | Frame 1: no face
+2026-06-30 16:23:11 | INFO    | ai           | Frame 2: no face
+2026-06-30 16:23:12 | INFO    | ai           | Frame 3: no face
+2026-06-30 16:23:12 | INFO    | ai           | Frame 4: no face
+2026-06-30 16:23:12 | INFO    | ai           | Frame 5: no face
+2026-06-30 16:23:12 | INFO    | ai           | Frame 6: no face
+2026-06-30 16:23:12 | INFO    | ai           | Frame 7: no face
+2026-06-30 16:23:12 | INFO    | ai           | Frame 8: no face
+2026-06-30 16:23:12 | INFO    | ai           | Frame 9: no face
+2026-06-30 16:23:13 | INFO    | ai           | Frame 10: no face
+2026-06-30 16:23:13 | INFO    | ai           | Frame 11: no face
+2026-06-30 16:23:13 | INFO    | ai           | Frame 12: no face
+2026-06-30 16:23:13 | INFO    | ai           | Frame 13: no face
+2026-06-30 16:23:14 | INFO    | ai           | Frame 14: no face
+2026-06-30 16:23:14 | INFO    | ai           | Frame 15: no face
+2026-06-30 16:23:14 | INFO    | ai           | Frame 16: no face
+2026-06-30 16:23:14 | INFO    | ai           | Frame 17: no face
+2026-06-30 16:23:15 | INFO    | ai           | Frame 18: no face
+2026-06-30 16:23:15 | INFO    | ai           | Frame 19: no face
+2026-06-30 16:23:15 | INFO    | ai           | Frame 20: no face
+2026-06-30 16:23:15 | INFO    | ai           | Frame 21: no face
+2026-06-30 16:23:16 | INFO    | ai           | Frame 22: no face
+2026-06-30 16:23:16 | INFO    | ai           | Frame 23: no face
+2026-06-30 16:23:16 | INFO    | ai           | Frame 24: no face
+2026-06-30 16:23:16 | INFO    | ai           | Frame 25: no face
+2026-06-30 16:23:16 | INFO    | ai           | Frame 26: no face
+2026-06-30 16:23:16 | INFO    | ai           | Frame 27: no face
+2026-06-30 16:23:16 | INFO    | ai           | Frame 28: no face
+2026-06-30 16:23:17 | INFO    | ai           | Frame 29: no face
+2026-06-30 16:23:17 | INFO    | ai           | Frame 30: no face
+2026-06-30 16:23:17 | INFO    | ai           | Frame 31: no face
+2026-06-30 16:23:17 | INFO    | ai           | Frame 32: no face
+2026-06-30 16:23:17 | INFO    | ai           | Frame 33: no face
+2026-06-30 16:23:17 | INFO    | ai           | Frame 34: no face
+2026-06-30 16:23:18 | INFO    | ai           | Frame 35: no face
+2026-06-30 16:23:18 | INFO    | ai           | Frame 36: no face
+2026-06-30 16:23:18 | INFO    | ai           | Frame 37: no face
+2026-06-30 16:23:18 | INFO    | ai           | Frame 38: no face
+2026-06-30 16:23:18 | INFO    | ai           | Frame 39: no face
+2026-06-30 16:23:18 | INFO    | ai           | Frame 40: no face
+2026-06-30 16:23:18 | INFO    | ai           | Frame 41: no face
+2026-06-30 16:23:19 | INFO    | ai           | Frame 42: no face
+2026-06-30 16:23:19 | INFO    | ai           | Frame 43: no face
+2026-06-30 16:23:19 | INFO    | ai           | Frame 44: no face
+2026-06-30 16:23:19 | INFO    | ai           | Frame 45: no face
+2026-06-30 16:23:20 | INFO    | ai           | Frame 46: no face
+2026-06-30 16:23:20 | INFO    | ai           | Frame 47: no face
+2026-06-30 16:23:20 | INFO    | ai           | Frame 48: no face
+2026-06-30 16:23:20 | INFO    | ai           | Frame 49: no face
+2026-06-30 16:23:21 | INFO    | ai           | Frame 50: no face
+2026-06-30 16:23:21 | INFO    | ai           | Frame 51: no face
+2026-06-30 16:23:21 | INFO    | ai           | Frame 52: no face
+2026-06-30 16:23:21 | INFO    | ai           | Frame 53: no face
+2026-06-30 16:23:22 | INFO    | ai           | Frame 54: no face
+2026-06-30 16:23:22 | INFO    | ai           | Frame 55: no face
+2026-06-30 16:23:22 | INFO    | ai           | Frame 56: no face
+2026-06-30 16:23:22 | INFO    | ai           | Frame 57: no face
+2026-06-30 16:23:22 | INFO    | ai           | Frame 58: no face
+2026-06-30 16:23:22 | INFO    | ai           | Frame 59: no face
+2026-06-30 16:23:22 | INFO    | ai           | Frame 60: no face
+2026-06-30 16:23:23 | INFO    | ai           | Frame 61: no face
+2026-06-30 16:23:23 | INFO    | ai           | Frame 62: no face
+2026-06-30 16:23:23 | INFO    | ai           | Frame 63: no face
+2026-06-30 16:23:23 | INFO    | ai           | Frame 64: no face
+2026-06-30 16:23:23 | INFO    | ai           | Frame 65: no face
+2026-06-30 16:23:23 | INFO    | ai           | Frame 66: no face
+2026-06-30 16:23:23 | INFO    | ai           | Frame 67: no face
+2026-06-30 16:23:24 | INFO    | ai           | Frame 68: no face
+2026-06-30 16:23:24 | INFO    | ai           | Frame 69: no face
+2026-06-30 16:23:24 | INFO    | ai           | Frame 70: no face
+2026-06-30 16:23:24 | INFO    | ai           | Frame 71: no face
+2026-06-30 16:23:24 | INFO    | ai           | Frame 72: no face
+2026-06-30 16:23:24 | INFO    | ai           | Frame 73: no face
+2026-06-30 16:23:24 | INFO    | ai           | Frame 74: no face
+2026-06-30 16:23:25 | INFO    | ai           | Frame 75: no face
+2026-06-30 16:23:25 | INFO    | ai           | Frame 76: no face
+2026-06-30 16:23:25 | INFO    | ai           | Frame 77: no face
+2026-06-30 16:23:25 | INFO    | ai           | Frame 78: no face
+2026-06-30 16:23:25 | INFO    | ai           | Frame 79: no face
+2026-06-30 16:23:25 | INFO    | ai           | Frame 80: no face
+2026-06-30 16:23:26 | INFO    | ai           | Frame 81: no face
+2026-06-30 16:23:26 | INFO    | ai           | Frame 82: no face
+2026-06-30 16:23:26 | INFO    | ai           | Frame 83: no face
+2026-06-30 16:23:26 | INFO    | ai           | Frame 84: no face
+2026-06-30 16:23:27 | INFO    | ai           | Frame 85: no face
+2026-06-30 16:23:27 | INFO    | ai           | Frame 86: no face
+2026-06-30 16:23:27 | INFO    | ai           | Frame 87: no face
+2026-06-30 16:23:27 | INFO    | ai           | Frame 88: no face
+2026-06-30 16:23:28 | INFO    | ai           | Frame 89: no face
+2026-06-30 16:23:28 | INFO    | ai           | Frame 90: no face
+2026-06-30 16:23:28 | INFO    | ai           | Frame 91: no face
+2026-06-30 16:23:28 | INFO    | ai           | Frame 92: no face
+2026-06-30 16:23:28 | INFO    | ai           | Frame 93: no face
+2026-06-30 16:23:29 | INFO    | ai           | Frame 94: no face
+2026-06-30 16:23:29 | INFO    | ai           | Frame 95: no face
+2026-06-30 16:23:29 | INFO    | ai           | Frame 96: no face
+2026-06-30 16:23:29 | INFO    | ai           | Frame 97: no face
+2026-06-30 16:23:29 | INFO    | ai           | Frame 98: no face
+2026-06-30 16:23:29 | INFO    | ai           | Frame 99: no face
+2026-06-30 16:23:29 | INFO    | ai           | Frame 100: no face
+2026-06-30 16:23:30 | INFO    | ai           | Frame 101: no face
+2026-06-30 16:23:30 | INFO    | ai           | Frame 102: no face
+2026-06-30 16:23:30 | INFO    | ai           | Frame 103: no face
+2026-06-30 16:23:30 | INFO    | ai           | Frame 104: no face
+2026-06-30 16:23:30 | INFO    | ai           | Frame 105: no face
+2026-06-30 16:23:30 | INFO    | ai           | Frame 106: no face
+2026-06-30 16:23:30 | INFO    | ai           | Frame 107: no face
+2026-06-30 16:23:31 | INFO    | ai           | Frame 108: no face
+2026-06-30 16:23:31 | INFO    | ai           | Frame 109: no face
+2026-06-30 16:23:31 | INFO    | ai           | Frame 110: no face
+2026-06-30 16:23:31 | INFO    | ai           | Frame 111: no face
+2026-06-30 16:23:31 | INFO    | ai           | Frame 112: no face
+2026-06-30 16:23:31 | INFO    | ai           | Frame 113: no face
+2026-06-30 16:23:31 | INFO    | ai           | Frame 114: no face
+2026-06-30 16:23:32 | INFO    | ai           | Frame 115: no face
+2026-06-30 16:23:32 | INFO    | ai           | Frame 116: no face
+2026-06-30 16:23:32 | INFO    | ai           | Frame 117: no face
+2026-06-30 16:23:32 | INFO    | ai           | Frame 118: no face
+2026-06-30 16:23:32 | INFO    | ai           | Frame 119: no face
+2026-06-30 16:23:32 | INFO    | ai           | Frame 120: no face
+2026-06-30 16:23:33 | INFO    | ai           | Frame 121: no face
+2026-06-30 16:23:33 | INFO    | ai           | Frame 122: no face
+2026-06-30 16:23:33 | INFO    | ai           | Frame 123: no face
+2026-06-30 16:23:33 | INFO    | ai           | Frame 124: no face
+2026-06-30 16:23:33 | INFO    | ai           | Frame 125: no face
+2026-06-30 16:23:33 | INFO    | ai           | Frame 126: no face
+2026-06-30 16:23:33 | INFO    | ai           | Frame 127: no face
+2026-06-30 16:23:34 | INFO    | ai           | Frame 128: no face
+2026-06-30 16:23:34 | INFO    | ai           | Frame 129: no face
+2026-06-30 16:23:34 | INFO    | ai           | Frame 130: no face
+2026-06-30 16:23:34 | INFO    | ai           | Frame 131: no face
+2026-06-30 16:23:34 | INFO    | ai           | Frame 132: no face
+2026-06-30 16:23:34 | INFO    | ai           | Frame 133: no face
+2026-06-30 16:23:34 | INFO    | ai           | Frame 134: no face
+2026-06-30 16:23:35 | INFO    | ai           | Frame 135: no face
+2026-06-30 16:23:35 | INFO    | ai           | Frame 136: no face
+2026-06-30 16:23:35 | INFO    | ai           | Frame 137: no face
+2026-06-30 16:23:35 | INFO    | ai           | Frame 138: no face
+2026-06-30 16:23:35 | INFO    | ai           | Frame 139: no face
+2026-06-30 16:23:35 | INFO    | ai           | Frame 140: no face
+2026-06-30 16:23:35 | INFO    | ai           | Frame 141: no face
+2026-06-30 16:23:36 | INFO    | ai           | Frame 142: no face
+2026-06-30 16:23:36 | INFO    | ai           | Frame 143: no face
+2026-06-30 16:23:36 | INFO    | ai           | Frame 144: no face
+2026-06-30 16:23:36 | INFO    | ai           | Frame 145: no face
+2026-06-30 16:23:36 | INFO    | ai           | Frame 146: no face
+2026-06-30 16:23:36 | INFO    | ai           | Frame 147: no face
+2026-06-30 16:23:36 | INFO    | ai           | Frame 148: no face
+2026-06-30 16:23:37 | INFO    | ai           | Frame 149: no face
+2026-06-30 16:23:37 | INFO    | ai           | Frame 150: no face
+2026-06-30 16:23:37 | INFO    | ai           | Frame 151: no face
+2026-06-30 16:23:37 | INFO    | ai           | Frame 152: no face
+2026-06-30 16:23:37 | INFO    | ai           | Frame 153: no face
+2026-06-30 16:23:37 | INFO    | ai           | Frame 154: no face
+2026-06-30 16:23:37 | INFO    | ai           | Frame 155: no face
+2026-06-30 16:23:38 | INFO    | ai           | Frame 156: no face
+2026-06-30 16:23:38 | INFO    | ai           | Frame 157: no face
+2026-06-30 16:23:38 | INFO    | ai           | Frame 158: no face
+2026-06-30 16:23:38 | INFO    | ai           | Frame 159: no face
+2026-06-30 16:23:38 | INFO    | ai           | Frame 160: no face
+2026-06-30 16:23:38 | INFO    | ai           | Frame 161: no face
+2026-06-30 16:23:38 | INFO    | ai           | Frame 162: no face
+2026-06-30 16:23:39 | INFO    | ai           | Frame 163: no face
+2026-06-30 16:23:39 | INFO    | ai           | Frame 164: no face
+2026-06-30 16:23:39 | INFO    | ai           | Frame 165: no face
+2026-06-30 16:23:39 | INFO    | ai           | Frame 166: no face
+2026-06-30 16:23:39 | INFO    | ai           | Frame 167: no face
+2026-06-30 16:23:39 | INFO    | ai           | Frame 168: no face
+2026-06-30 16:23:40 | INFO    | ai           | Frame 169: no face
+2026-06-30 16:23:40 | INFO    | ai           | Frame 170: no face
+2026-06-30 16:23:40 | INFO    | ai           | Frame 171: no face
+2026-06-30 16:23:40 | INFO    | ai           | Frame 172: no face
+2026-06-30 16:23:40 | INFO    | ai           | Frame 173: no face
+2026-06-30 16:23:40 | INFO    | ai           | Frame 174: no face
+2026-06-30 16:23:40 | INFO    | ai           | Frame 175: no face
+2026-06-30 16:23:41 | INFO    | ai           | Frame 176: no face
+2026-06-30 16:23:41 | INFO    | ai           | Frame 177: no face
+2026-06-30 16:23:41 | INFO    | ai           | Frame 178: no face
+2026-06-30 16:23:41 | INFO    | ai           | Frame 179: no face
+2026-06-30 16:23:41 | INFO    | ai           | Frame 180: no face
+2026-06-30 16:23:41 | INFO    | ai           | Frame 181: no face
+2026-06-30 16:23:41 | INFO    | ai           | Frame 182: no face
+2026-06-30 16:23:42 | INFO    | ai           | Frame 183: no face
+2026-06-30 16:23:42 | INFO    | ai           | Frame 184: no face
+2026-06-30 16:23:42 | INFO    | ai           | Frame 185: no face
+2026-06-30 16:23:42 | INFO    | ai           | Frame 186: no face
+2026-06-30 16:23:42 | INFO    | ai           | Frame 187: no face
+2026-06-30 16:23:42 | INFO    | ai           | Frame 188: no face
+2026-06-30 16:23:42 | INFO    | ai           | Frame 189: no face
+2026-06-30 16:23:43 | INFO    | ai           | Frame 190: no face
+2026-06-30 16:23:43 | INFO    | ai           | Frame 191: no face
+                                                                                                                                                                                   2026-06-30 16:34:52 | INFO    | main         | building components...
+2026-06-30 16:34:54 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 16:34:54 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 16:34:54 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 16:34:54 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 16:35:01 | INFO    | cloud        | Firebase connected
+2026-06-30 16:35:01 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-30 16:35:01 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-30 16:35:17 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-06-30 16:35:18 | INFO    | fsm          | levels -> food 0% | water 0%
+2026-06-30 16:35:18 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:35:19 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 16:35:19 | INFO    | fsm          | READY -> SLEEP
+2026-06-30 16:35:20 | INFO    | fsm          | levels -> food 0% | water 0%
+2026-06-30 16:35:20 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:35:20 | WARNING | fsm          | LOW WATER: 0%
+2026-06-30 16:35:52 | INFO    | fsm          | levels -> food 0% | water 92%
+2026-06-30 16:35:52 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:36:01 | INFO    | fsm          | [16:36] LIVE TEST for nana -> CALL_CAT
+2026-06-30 16:36:01 | INFO    | fsm          | WAIT_FOR_MOTION (timeout 60s)
+2026-06-30 16:36:15 | INFO    | fsm          | motion detected -> VERIFY (expecting nana)
+2026-06-30 16:36:15 | INFO    | ai           | Frame 1: no face
+2026-06-30 16:36:15 | INFO    | ai           | Frame 2: no face
+2026-06-30 16:36:16 | INFO    | ai           | Frame 3: no face
+2026-06-30 16:36:16 | INFO    | ai           | Frame 4: no face
+2026-06-30 16:36:16 | INFO    | ai           | Frame 5: no face
+2026-06-30 16:36:16 | INFO    | ai           | Frame 6: no face
+2026-06-30 16:36:16 | INFO    | ai           | Frame 7: no face
+2026-06-30 16:36:16 | INFO    | ai           | Frame 8: no face
+2026-06-30 16:36:17 | INFO    | ai           | Frame 9: no face
+2026-06-30 16:36:17 | INFO    | ai           | Frame 10: no face
+2026-06-30 16:36:17 | INFO    | ai           | Frame 11: no face
+2026-06-30 16:36:17 | INFO    | ai           | Frame 12: no face
+2026-06-30 16:36:17 | INFO    | ai           | Frame 13: no face
+2026-06-30 16:36:17 | INFO    | ai           | Frame 14: no face
+2026-06-30 16:36:18 | INFO    | ai           | Frame 15: no face
+2026-06-30 16:36:18 | INFO    | ai           | Frame 16: no face
+2026-06-30 16:36:18 | INFO    | ai           | Frame 17: no face
+2026-06-30 16:36:18 | INFO    | ai           | Frame 18: no face
+2026-06-30 16:36:18 | INFO    | ai           | Frame 19: no face
+2026-06-30 16:36:19 | INFO    | ai           | Frame 20: cat_001 | score: 0.8064
+2026-06-30 16:36:20 | INFO    | ai           | Frame 21: cat_001 | score: 0.9055
+2026-06-30 16:36:20 | INFO    | ai           | Frame 22: cat_001 | score: 0.8129
+2026-06-30 16:36:20 | INFO    | ai           | Frame 23: no face
+2026-06-30 16:36:20 | INFO    | ai           | Frame 24: no face
+2026-06-30 16:36:20 | INFO    | ai           | Frame 25: no face
+2026-06-30 16:36:20 | INFO    | ai           | Frame 26: no face
+2026-06-30 16:36:21 | INFO    | ai           | Frame 27: no face
+2026-06-30 16:36:21 | INFO    | ai           | Frame 28: no face
+2026-06-30 16:36:21 | INFO    | ai           | Frame 29: no face
+2026-06-30 16:36:21 | INFO    | ai           | Frame 30: cat_001 | score: 0.6015
+2026-06-30 16:36:22 | INFO    | ai           | Frame 31: cat_001 | score: 0.6855
+2026-06-30 16:36:22 | INFO    | ai           | Frame 32: cat_001 | score: 0.8121
+2026-06-30 16:36:22 | INFO    | ai           | Frame 33: cat_001 | score: 0.8068
+2026-06-30 16:36:22 | INFO    | ai           | Frame 34: cat_001 | score: 0.8522
+2026-06-30 16:36:22 | INFO    | ai           | Frame 35: cat_001 | score: 0.8152
+2026-06-30 16:36:23 | INFO    | ai           | Frame 36: cat_001 | score: 0.8143
+2026-06-30 16:36:23 | INFO    | ai           | Frame 37: cat_001 | score: 0.8243
+2026-06-30 16:36:23 | INFO    | ai           | Frame 38: cat_001 | score: 0.824
+2026-06-30 16:36:23 | INFO    | ai           | Frame 39: cat_001 | score: 0.8533
+2026-06-30 16:36:24 | INFO    | ai           | Frame 40: cat_001 | score: 0.8336
+2026-06-30 16:36:24 | INFO    | ai           | Frame 41: cat_001 | score: 0.7494
+2026-06-30 16:36:24 | INFO    | ai           | Frame 42: cat_001 | score: 0.7922
+2026-06-30 16:36:24 | INFO    | ai           | Frame 43: cat_001 | score: 0.832
+2026-06-30 16:36:25 | INFO    | ai           | Frame 44: cat_001 | score: 0.8441
+2026-06-30 16:36:25 | INFO    | ai           | Frame 45: cat_001 | score: 0.8486
+2026-06-30 16:36:25 | INFO    | ai           | Frame 46: no face
+2026-06-30 16:36:25 | INFO    | ai           | Frame 47: cat_001 | score: 0.7821
+2026-06-30 16:36:25 | INFO    | ai           | FINAL: authorized=True identity=cat_001 confidence=0.8048 reason=Authorized
+2026-06-30 16:36:25 | INFO    | fsm          | AUTHORIZED: nana (conf=0.8048) -> DISPENSE
+2026-06-30 16:36:25 | INFO    | pump         | Dispensing water for 2.0s
+2026-06-30 16:36:25 | INFO    | pump         | Pump pin held -> pump ON
+2026-06-30 16:36:27 | INFO    | pump         | Pump pin released -> pump OFF
+2026-06-30 16:36:27 | INFO    | gate         | Opening gate...
+2026-06-30 16:36:30 | INFO    | gate         | Closing gate...
+2026-06-30 16:36:31 | INFO    | gate         | Gate closed, servo detached.
+2026-06-30 16:36:32 | INFO    | fsm          | levels -> food 0% | water 92%
+2026-06-30 16:36:32 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:36:32 | INFO    | fsm          | feeding logged for nana
+2026-06-30 16:36:32 | INFO    | fsm          | cooldown 10s -> SLEEP
+2026-06-30 16:36:43 | INFO    | fsm          | levels -> food 0% | water 92%
+2026-06-30 16:36:43 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:36:47 | INFO    | main         | stopped by user (Ctrl+C)
+2026-06-30 16:36:47 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 16:36:47 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-06-30 16:36:48 | INFO    | main         | cleanup complete — goodbye
+2026-06-30 16:39:47 | INFO    | main         | building components...
+2026-06-30 16:39:47 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-06-30 16:39:47 | INFO    | picamera2.picamera2 | Camera now open.
+2026-06-30 16:39:47 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-06-30 16:39:47 | INFO    | picamera2.picamera2 | Camera started
+2026-06-30 16:39:51 | INFO    | cloud        | Firebase connected
+2026-06-30 16:39:51 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-06-30 16:39:51 | INFO    | fsm          | PIR warm-up 15s...
+2026-06-30 16:40:07 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-06-30 16:40:08 | INFO    | fsm          | levels -> food 0% | water 92%
+2026-06-30 16:40:08 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:40:09 | INFO    | fsm          | READY -> SLEEP
+2026-06-30 16:40:10 | INFO    | fsm          | levels -> food 0% | water 92%
+2026-06-30 16:40:10 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:40:11 | INFO    | fsm          | [16:40] LIVE TEST for nana -> CALL_CAT
+2026-06-30 16:40:11 | INFO    | fsm          | WAIT_FOR_MOTION (timeout 60s)
+2026-06-30 16:40:21 | INFO    | fsm          | motion detected -> VERIFY (expecting nana)
+2026-06-30 16:40:21 | INFO    | ai           | Frame 1: no face
+2026-06-30 16:40:22 | INFO    | ai           | Frame 2: no face
+2026-06-30 16:40:22 | INFO    | ai           | Frame 3: no face
+2026-06-30 16:40:22 | INFO    | ai           | Frame 4: no face
+2026-06-30 16:40:22 | INFO    | ai           | Frame 5: no face
+2026-06-30 16:40:22 | INFO    | ai           | Frame 6: no face
+2026-06-30 16:40:22 | INFO    | ai           | Frame 7: no face
+2026-06-30 16:40:23 | INFO    | ai           | Frame 8: no face
+2026-06-30 16:40:23 | INFO    | ai           | Frame 9: no face
+2026-06-30 16:40:23 | INFO    | ai           | Frame 10: no face
+2026-06-30 16:40:23 | INFO    | ai           | Frame 11: no face
+2026-06-30 16:40:23 | INFO    | ai           | Frame 12: no face
+2026-06-30 16:40:23 | INFO    | ai           | Frame 13: no face
+2026-06-30 16:40:24 | INFO    | ai           | Frame 14: no face
+2026-06-30 16:40:24 | INFO    | ai           | Frame 15: no face
+2026-06-30 16:40:24 | INFO    | ai           | Frame 16: no face
+2026-06-30 16:40:24 | INFO    | ai           | Frame 17: no face
+2026-06-30 16:40:24 | INFO    | ai           | Frame 18: no face
+2026-06-30 16:40:24 | INFO    | ai           | Frame 19: no face
+2026-06-30 16:40:24 | INFO    | ai           | Frame 20: no face
+2026-06-30 16:40:25 | INFO    | ai           | Frame 21: no face
+2026-06-30 16:40:25 | INFO    | ai           | Frame 22: no face
+2026-06-30 16:40:25 | INFO    | ai           | Frame 23: no face
+2026-06-30 16:40:25 | INFO    | ai           | Frame 24: no face
+2026-06-30 16:40:25 | INFO    | ai           | Frame 25: no face
+2026-06-30 16:40:25 | INFO    | ai           | Frame 26: no face
+2026-06-30 16:40:26 | INFO    | ai           | Frame 27: no face
+2026-06-30 16:40:26 | INFO    | ai           | Frame 28: no face
+2026-06-30 16:40:26 | INFO    | ai           | Frame 29: no face
+2026-06-30 16:40:26 | INFO    | ai           | Frame 30: no face
+2026-06-30 16:40:26 | INFO    | ai           | Frame 31: no face
+2026-06-30 16:40:26 | INFO    | ai           | Frame 32: no face
+2026-06-30 16:40:27 | INFO    | ai           | Frame 33: no face
+2026-06-30 16:40:27 | INFO    | ai           | Frame 34: no face
+2026-06-30 16:40:27 | INFO    | ai           | Frame 35: no face
+2026-06-30 16:40:27 | INFO    | ai           | Frame 36: no face
+2026-06-30 16:40:27 | INFO    | ai           | Frame 37: no face
+2026-06-30 16:40:27 | INFO    | ai           | Frame 38: no face
+2026-06-30 16:40:28 | INFO    | ai           | Frame 39: cat_001 | score: 0.4545
+2026-06-30 16:40:29 | INFO    | ai           | Frame 40: cat_001 | score: 0.7869
+2026-06-30 16:40:29 | INFO    | ai           | Frame 41: cat_001 | score: 0.8793
+2026-06-30 16:40:29 | INFO    | ai           | Frame 42: cat_001 | score: 0.8114
+2026-06-30 16:40:29 | INFO    | ai           | Frame 43: cat_001 | score: 0.8671
+2026-06-30 16:40:30 | INFO    | ai           | Frame 44: cat_001 | score: 0.8528
+2026-06-30 16:40:30 | INFO    | ai           | Frame 45: cat_001 | score: 0.857
+2026-06-30 16:40:30 | INFO    | ai           | Frame 46: cat_001 | score: 0.8233
+2026-06-30 16:40:30 | INFO    | ai           | Frame 47: cat_001 | score: 0.8561
+2026-06-30 16:40:30 | INFO    | ai           | Frame 48: cat_001 | score: 0.8466
+2026-06-30 16:40:31 | INFO    | ai           | Frame 49: cat_001 | score: 0.8357
+2026-06-30 16:40:31 | INFO    | ai           | Frame 50: cat_001 | score: 0.8846
+2026-06-30 16:40:31 | INFO    | ai           | Frame 51: cat_001 | score: 0.8723
+2026-06-30 16:40:31 | INFO    | ai           | Frame 52: cat_001 | score: 0.8745
+2026-06-30 16:40:32 | INFO    | ai           | Frame 53: cat_001 | score: 0.8886
+2026-06-30 16:40:32 | INFO    | ai           | Frame 54: cat_001 | score: 0.8586
+2026-06-30 16:40:32 | INFO    | ai           | Frame 55: cat_001 | score: 0.8748
+2026-06-30 16:40:32 | INFO    | ai           | Frame 56: cat_001 | score: 0.8737
+2026-06-30 16:40:33 | INFO    | ai           | Frame 57: cat_001 | score: 0.8806
+2026-06-30 16:40:33 | INFO    | ai           | Frame 58: cat_001 | score: 0.8757
+2026-06-30 16:40:33 | INFO    | ai           | FINAL: authorized=True identity=cat_001 confidence=0.8377 reason=Authorized
+2026-06-30 16:40:33 | INFO    | fsm          | AUTHORIZED: nana (conf=0.8377) -> DISPENSE
+2026-06-30 16:40:33 | INFO    | pump         | Dispensing water for 2.0s
+2026-06-30 16:40:33 | INFO    | pump         | Pump pin held -> pump ON
+2026-06-30 16:40:35 | INFO    | pump         | Pump pin released -> pump OFF
+2026-06-30 16:40:35 | INFO    | gate         | Opening gate...
+2026-06-30 16:40:38 | INFO    | gate         | Closing gate...
+2026-06-30 16:40:38 | INFO    | gate         | Gate closed, servo detached.
+2026-06-30 16:40:39 | INFO    | fsm          | levels -> food 0% | water 100%
+2026-06-30 16:40:39 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:40:40 | INFO    | fsm          | feeding logged for nana
+2026-06-30 16:40:40 | INFO    | fsm          | cooldown 10s -> SLEEP
+2026-06-30 16:40:51 | INFO    | fsm          | levels -> food 0% | water 100%
+2026-06-30 16:40:51 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:41:23 | INFO    | fsm          | levels -> food 0% | water 100%
+2026-06-30 16:41:23 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:41:56 | INFO    | fsm          | levels -> food 0% | water 100%
+2026-06-30 16:41:56 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:42:29 | INFO    | fsm          | levels -> food 0% | water 100%
+2026-06-30 16:42:29 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:43:02 | INFO    | fsm          | levels -> food 0% | water 100%
+2026-06-30 16:43:02 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:43:34 | INFO    | fsm          | levels -> food 0% | water 100%
+2026-06-30 16:43:34 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:44:07 | INFO    | fsm          | levels -> food 0% | water 100%
+2026-06-30 16:44:07 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:44:39 | INFO    | fsm          | levels -> food 0% | water 100%
+2026-06-30 16:44:39 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:45:12 | INFO    | fsm          | levels -> food 0% | water 100%
+2026-06-30 16:45:12 | WARNING | fsm          | LOW FOOD: 0%
+2026-06-30 16:45:18 | INFO    | main         | stopped by user (Ctrl+C)
+2026-06-30 16:45:18 | INFO    | picamera2.picamera2 | Camera stopped
+2026-06-30 16:45:19 | INFO    | main         | cleanup complete — goodbye
+2026-07-02 05:34:19 | INFO    | main         | building components...
+2026-07-02 05:34:20 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-07-02 05:34:20 | INFO    | picamera2.picamera2 | Camera now open.
+2026-07-02 05:34:20 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-07-02 05:34:20 | INFO    | picamera2.picamera2 | Camera started
+2026-07-02 05:34:23 | INFO    | gate         | Gate ready at closed position, PWM signal stopped
+2026-07-02 05:34:26 | INFO    | cloud        | Firebase connected
+2026-07-02 05:34:26 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-07-02 05:34:26 | INFO    | fsm          | PIR warm-up 15s...
+2026-07-02 05:34:43 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-07-02 05:34:44 | INFO    | fsm          | levels -> food 76% | water 83%
+2026-07-02 05:34:44 | INFO    | fsm          | READY -> SLEEP
+2026-07-02 05:34:45 | INFO    | fsm          | levels -> food 76% | water 83%
+2026-07-02 05:34:45 | INFO    | fsm          | [05:34] LIVE TEST for nana -> CALL_CAT
+2026-07-02 05:34:45 | INFO    | fsm          | WAIT_FOR_MOTION (timeout 60s)
+2026-07-02 05:34:55 | INFO    | fsm          | motion detected -> VERIFY (expecting nana)
+2026-07-02 05:34:55 | INFO    | ai           | Frame 1: no face
+2026-07-02 05:34:55 | INFO    | ai           | Frame 2: no face
+2026-07-02 05:34:55 | INFO    | ai           | Frame 3: no face
+2026-07-02 05:34:56 | INFO    | ai           | Frame 4: no face
+2026-07-02 05:34:56 | INFO    | ai           | Frame 5: no face
+2026-07-02 05:34:56 | INFO    | ai           | Frame 6: no face
+2026-07-02 05:34:56 | INFO    | ai           | Frame 7: no face
+2026-07-02 05:34:56 | INFO    | ai           | Frame 8: no face
+2026-07-02 05:34:56 | INFO    | ai           | Frame 9: no face
+2026-07-02 05:34:56 | INFO    | ai           | Frame 10: no face
+2026-07-02 05:34:56 | INFO    | ai           | Frame 11: no face
+2026-07-02 05:34:56 | INFO    | ai           | Frame 12: no face
+2026-07-02 05:34:57 | INFO    | ai           | Frame 13: no face
+2026-07-02 05:34:57 | INFO    | ai           | Frame 14: no face
+2026-07-02 05:34:57 | INFO    | ai           | Frame 15: no face
+2026-07-02 05:34:57 | INFO    | ai           | Frame 16: no face
+2026-07-02 05:34:57 | INFO    | ai           | Frame 17: no face
+2026-07-02 05:34:57 | INFO    | ai           | Frame 18: no face
+2026-07-02 05:34:57 | INFO    | ai           | Frame 19: no face
+2026-07-02 05:34:57 | INFO    | ai           | Frame 20: no face
+2026-07-02 05:34:58 | INFO    | ai           | Frame 21: no face
+2026-07-02 05:34:58 | INFO    | ai           | Frame 22: no face
+2026-07-02 05:34:58 | INFO    | ai           | Frame 23: no face
+2026-07-02 05:34:58 | INFO    | ai           | Frame 24: no face
+2026-07-02 05:34:58 | INFO    | ai           | Frame 25: no face
+2026-07-02 05:34:58 | INFO    | ai           | Frame 26: no face
+2026-07-02 05:34:58 | INFO    | ai           | Frame 27: no face
+2026-07-02 05:34:58 | INFO    | ai           | Frame 28: no face
+2026-07-02 05:34:59 | INFO    | ai           | Frame 29: no face
+2026-07-02 05:34:59 | INFO    | ai           | Frame 30: no face
+2026-07-02 05:34:59 | INFO    | ai           | Frame 31: no face
+2026-07-02 05:34:59 | INFO    | ai           | Frame 32: no face
+2026-07-02 05:34:59 | INFO    | ai           | Frame 33: no face
+2026-07-02 05:34:59 | INFO    | ai           | Frame 34: no face
+2026-07-02 05:34:59 | INFO    | ai           | Frame 35: no face
+2026-07-02 05:34:59 | INFO    | ai           | Frame 36: no face
+2026-07-02 05:35:00 | INFO    | ai           | Frame 37: no face
+2026-07-02 05:35:00 | INFO    | ai           | Frame 38: no face
+2026-07-02 05:35:00 | INFO    | ai           | Frame 39: no face
+2026-07-02 05:35:00 | INFO    | ai           | Frame 40: no face
+2026-07-02 05:35:00 | INFO    | ai           | Frame 41: no face
+2026-07-02 05:35:00 | INFO    | ai           | Frame 42: no face
+2026-07-02 05:35:00 | INFO    | ai           | Frame 43: no face
+2026-07-02 05:35:00 | INFO    | ai           | Frame 44: no face
+2026-07-02 05:35:01 | INFO    | ai           | Frame 45: no face
+2026-07-02 05:35:01 | INFO    | ai           | Frame 46: no face
+2026-07-02 05:35:01 | INFO    | ai           | Frame 47: no face
+2026-07-02 05:35:01 | INFO    | ai           | Frame 48: no face
+2026-07-02 05:35:01 | INFO    | ai           | Frame 49: no face
+2026-07-02 05:35:01 | INFO    | ai           | Frame 50: no face
+2026-07-02 05:35:01 | INFO    | ai           | Frame 51: no face
+2026-07-02 05:35:01 | INFO    | ai           | Frame 52: no face
+2026-07-02 05:35:01 | INFO    | ai           | Frame 53: no face
+2026-07-02 05:35:02 | INFO    | ai           | Frame 54: no face
+2026-07-02 05:35:02 | INFO    | ai           | Frame 55: no face
+2026-07-02 05:35:02 | INFO    | ai           | Frame 56: no face
+2026-07-02 05:35:02 | INFO    | ai           | Frame 57: no face
+2026-07-02 05:35:02 | INFO    | ai           | Frame 58: no face
+2026-07-02 05:35:02 | INFO    | ai           | Frame 59: no face
+2026-07-02 05:35:02 | INFO    | ai           | Frame 60: no face
+2026-07-02 05:35:02 | INFO    | ai           | Frame 61: no face
+2026-07-02 05:35:03 | INFO    | ai           | Frame 62: no face
+2026-07-02 05:35:03 | INFO    | ai           | Frame 63: no face
+2026-07-02 05:35:03 | INFO    | ai           | Frame 64: no face
+2026-07-02 05:35:03 | INFO    | ai           | Frame 65: no face
+2026-07-02 05:35:03 | INFO    | ai           | Frame 66: no face
+2026-07-02 05:35:03 | INFO    | ai           | Frame 67: no face
+2026-07-02 05:35:03 | INFO    | ai           | Frame 68: no face
+2026-07-02 05:35:03 | INFO    | ai           | Frame 69: no face
+2026-07-02 05:35:04 | INFO    | ai           | Frame 70: no face
+2026-07-02 05:35:04 | INFO    | ai           | Frame 71: no face
+2026-07-02 05:35:04 | INFO    | ai           | Frame 72: no face
+2026-07-02 05:35:04 | INFO    | ai           | Frame 73: no face
+2026-07-02 05:35:04 | INFO    | ai           | Frame 74: no face
+2026-07-02 05:35:04 | INFO    | ai           | Frame 75: no face
+2026-07-02 05:35:04 | INFO    | ai           | Frame 76: no face
+2026-07-02 05:35:04 | INFO    | ai           | Frame 77: no face
+2026-07-02 05:35:05 | INFO    | ai           | Frame 78: no face
+2026-07-02 05:35:05 | INFO    | ai           | Frame 79: no face
+2026-07-02 05:35:05 | INFO    | ai           | Frame 80: no face
+2026-07-02 05:35:05 | INFO    | ai           | Frame 81: no face
+2026-07-02 05:35:05 | INFO    | ai           | Frame 82: no face
+2026-07-02 05:35:05 | INFO    | ai           | Frame 83: no face
+2026-07-02 05:35:05 | INFO    | ai           | Frame 84: no face
+2026-07-02 05:35:05 | INFO    | ai           | Frame 85: no face
+2026-07-02 05:35:05 | INFO    | ai           | Frame 86: no face
+2026-07-02 05:35:06 | INFO    | ai           | Frame 87: no face
+2026-07-02 05:35:06 | INFO    | ai           | Frame 88: no face
+2026-07-02 05:35:06 | INFO    | ai           | Frame 89: no face
+2026-07-02 05:35:06 | INFO    | ai           | Frame 90: no face
+2026-07-02 05:35:06 | INFO    | ai           | Frame 91: no face
+2026-07-02 05:35:06 | INFO    | ai           | Frame 92: no face
+2026-07-02 05:35:06 | INFO    | ai           | Frame 93: no face
+2026-07-02 05:35:06 | INFO    | ai           | Frame 94: no face
+2026-07-02 05:35:07 | INFO    | ai           | Frame 95: no face
+2026-07-02 05:35:07 | INFO    | ai           | Frame 96: no face
+2026-07-02 05:35:07 | INFO    | ai           | Frame 97: no face
+2026-07-02 05:35:07 | INFO    | ai           | Frame 98: no face
+2026-07-02 05:35:07 | INFO    | ai           | Frame 99: no face
+2026-07-02 05:35:07 | INFO    | ai           | Frame 100: no face
+2026-07-02 05:35:07 | INFO    | ai           | Frame 101: no face
+2026-07-02 05:35:07 | INFO    | ai           | Frame 102: no face
+2026-07-02 05:35:08 | INFO    | ai           | Frame 103: no face
+2026-07-02 05:35:08 | INFO    | ai           | Frame 104: no face
+2026-07-02 05:35:08 | INFO    | ai           | Frame 105: no face
+2026-07-02 05:35:08 | INFO    | ai           | Frame 106: no face
+2026-07-02 05:35:08 | INFO    | ai           | Frame 107: no face
+2026-07-02 05:35:08 | INFO    | ai           | Frame 108: no face
+2026-07-02 05:35:08 | INFO    | ai           | Frame 109: no face
+2026-07-02 05:35:08 | INFO    | ai           | Frame 110: no face
+2026-07-02 05:35:09 | INFO    | ai           | Frame 111: no face
+2026-07-02 05:35:09 | INFO    | ai           | Frame 112: no face
+2026-07-02 05:35:09 | INFO    | ai           | Frame 113: no face
+2026-07-02 05:35:09 | INFO    | ai           | Frame 114: no face
+2026-07-02 05:35:09 | INFO    | ai           | Frame 115: no face
+2026-07-02 05:35:09 | INFO    | ai           | Frame 116: no face
+2026-07-02 05:35:09 | INFO    | ai           | Frame 117: no face
+2026-07-02 05:35:09 | INFO    | ai           | Frame 118: no face
+2026-07-02 05:35:10 | INFO    | ai           | Frame 119: no face
+2026-07-02 05:35:10 | INFO    | ai           | Frame 120: no face
+2026-07-02 05:35:10 | INFO    | ai           | Frame 121: no face
+2026-07-02 05:35:10 | INFO    | ai           | Frame 122: no face
+2026-07-02 05:35:10 | INFO    | ai           | Frame 123: no face
+2026-07-02 05:35:10 | INFO    | ai           | Frame 124: no face
+2026-07-02 05:35:10 | INFO    | ai           | Frame 125: no face
+2026-07-02 05:35:10 | INFO    | ai           | Frame 126: no face
+2026-07-02 05:35:10 | INFO    | ai           | Frame 127: no face
+2026-07-02 05:35:11 | INFO    | ai           | Frame 128: no face
+2026-07-02 05:35:11 | INFO    | ai           | Frame 129: no face
+2026-07-02 05:35:11 | INFO    | ai           | Frame 130: no face
+2026-07-02 05:35:11 | INFO    | ai           | Frame 131: no face
+2026-07-02 05:35:11 | INFO    | ai           | Frame 132: no face
+2026-07-02 05:35:11 | INFO    | ai           | Frame 133: no face
+2026-07-02 05:35:11 | INFO    | ai           | Frame 134: no face
+2026-07-02 05:35:11 | INFO    | ai           | Frame 135: no face
+2026-07-02 05:35:12 | INFO    | ai           | Frame 136: no face
+2026-07-02 05:35:12 | INFO    | ai           | Frame 137: no face
+2026-07-02 05:35:12 | INFO    | ai           | Frame 138: no face
+2026-07-02 05:35:12 | INFO    | ai           | Frame 139: no face
+2026-07-02 05:35:12 | INFO    | ai           | Frame 140: no face
+2026-07-02 05:35:12 | INFO    | ai           | Frame 141: no face
+2026-07-02 05:35:12 | INFO    | ai           | Frame 142: no face
+2026-07-02 05:35:12 | INFO    | ai           | Frame 143: no face
+2026-07-02 05:35:13 | INFO    | ai           | Frame 144: no face
+2026-07-02 05:35:13 | INFO    | ai           | Frame 145: no face
+2026-07-02 05:35:13 | INFO    | ai           | Frame 146: no face
+2026-07-02 05:35:13 | INFO    | ai           | Frame 147: no face
+2026-07-02 05:35:13 | INFO    | ai           | Frame 148: no face
+2026-07-02 05:35:13 | INFO    | ai           | Frame 149: no face
+2026-07-02 05:35:13 | INFO    | ai           | Frame 150: no face
+2026-07-02 05:35:13 | INFO    | ai           | Frame 151: no face
+2026-07-02 05:35:14 | INFO    | ai           | Frame 152: no face
+2026-07-02 05:35:14 | INFO    | ai           | Frame 153: no face
+2026-07-02 05:35:14 | INFO    | ai           | Frame 154: no face
+2026-07-02 05:35:14 | INFO    | ai           | Frame 155: no face
+2026-07-02 05:35:14 | INFO    | ai           | Frame 156: no face
+2026-07-02 05:35:14 | INFO    | ai           | Frame 157: no face
+2026-07-02 05:35:14 | INFO    | ai           | Frame 158: no face
+2026-07-02 05:35:14 | INFO    | ai           | Frame 159: no face
+2026-07-02 05:35:14 | INFO    | ai           | Frame 160: no face
+2026-07-02 05:35:15 | INFO    | ai           | Frame 161: no face
+2026-07-02 05:35:15 | INFO    | ai           | Frame 162: no face
+2026-07-02 05:35:15 | INFO    | ai           | Frame 163: no face
+2026-07-02 05:35:15 | INFO    | ai           | Frame 164: no face
+2026-07-02 05:35:15 | INFO    | ai           | Frame 165: no face
+2026-07-02 05:35:15 | INFO    | ai           | Frame 166: no face
+2026-07-02 05:35:15 | INFO    | ai           | Frame 167: no face
+2026-07-02 05:35:15 | INFO    | ai           | Frame 168: no face
+2026-07-02 05:35:16 | INFO    | ai           | Frame 169: no face
+2026-07-02 05:35:16 | INFO    | ai           | Frame 170: no face
+2026-07-02 05:35:16 | INFO    | ai           | Frame 171: no face
+2026-07-02 05:35:16 | INFO    | ai           | Frame 172: no face
+2026-07-02 05:35:16 | INFO    | ai           | Frame 173: no face
+2026-07-02 05:35:16 | INFO    | ai           | Frame 174: no face
+2026-07-02 05:35:16 | INFO    | ai           | Frame 175: no face
+2026-07-02 05:35:16 | INFO    | ai           | Frame 176: no face
+2026-07-02 05:35:17 | INFO    | ai           | Frame 177: no face
+2026-07-02 05:35:17 | INFO    | ai           | Frame 178: no face
+2026-07-02 05:35:17 | INFO    | ai           | Frame 179: no face
+2026-07-02 05:35:17 | INFO    | ai           | Frame 180: no face
+2026-07-02 05:35:17 | INFO    | ai           | Frame 181: no face
+2026-07-02 05:35:17 | INFO    | ai           | Frame 182: no face
+2026-07-02 05:35:17 | INFO    | ai           | Frame 183: no face
+2026-07-02 05:35:17 | INFO    | ai           | Frame 184: no face
+2026-07-02 05:35:18 | INFO    | ai           | Frame 185: no face
+2026-07-02 05:35:18 | INFO    | ai           | Frame 186: no face
+2026-07-02 05:35:18 | INFO    | ai           | Frame 187: no face
+2026-07-02 05:35:18 | INFO    | ai           | Frame 188: no face
+2026-07-02 05:35:18 | INFO    | ai           | Frame 189: no face
+2026-07-02 05:35:18 | INFO    | ai           | Frame 190: no face
+2026-07-02 05:35:18 | INFO    | ai           | Frame 191: no face
+2026-07-02 05:35:18 | INFO    | ai           | Frame 192: no face
+2026-07-02 05:35:19 | INFO    | ai           | Frame 193: no face
+2026-07-02 05:35:19 | INFO    | ai           | Frame 194: no face
+2026-07-02 05:35:19 | INFO    | ai           | Frame 195: no face
+2026-07-02 05:35:19 | INFO    | ai           | Frame 196: no face
+2026-07-02 05:35:19 | INFO    | ai           | Frame 197: no face
+2026-07-02 05:35:19 | INFO    | ai           | Frame 198: no face
+2026-07-02 05:35:19 | INFO    | ai           | Frame 199: no face
+2026-07-02 05:35:19 | INFO    | ai           | Frame 200: no face
+2026-07-02 05:35:19 | INFO    | ai           | Frame 201: no face
+2026-07-02 05:35:20 | INFO    | ai           | Frame 202: no face
+2026-07-02 05:35:20 | INFO    | ai           | Frame 203: no face
+2026-07-02 05:35:20 | INFO    | ai           | Frame 204: no face
+2026-07-02 05:35:20 | INFO    | ai           | Frame 205: no face
+2026-07-02 05:35:20 | INFO    | ai           | Frame 206: no face
+2026-07-02 05:35:20 | INFO    | ai           | Frame 207: no face
+2026-07-02 05:35:20 | INFO    | ai           | Frame 208: no face
+2026-07-02 05:35:20 | INFO    | ai           | Frame 209: no face
+2026-07-02 05:35:21 | INFO    | ai           | Frame 210: no face
+2026-07-02 05:35:21 | INFO    | ai           | Frame 211: no face
+2026-07-02 05:35:21 | INFO    | ai           | Frame 212: no face
+2026-07-02 05:35:21 | INFO    | ai           | Frame 213: no face
+2026-07-02 05:35:21 | INFO    | ai           | Frame 214: no face
+2026-07-02 05:35:21 | INFO    | ai           | Frame 215: no face
+2026-07-02 05:35:21 | INFO    | ai           | Frame 216: no face
+2026-07-02 05:35:21 | INFO    | ai           | Frame 217: no face
+2026-07-02 05:35:22 | INFO    | ai           | Frame 218: no face
+2026-07-02 05:35:22 | INFO    | ai           | Frame 219: no face
+2026-07-02 05:35:22 | INFO    | ai           | Frame 220: no face
+2026-07-02 05:35:22 | INFO    | ai           | Frame 221: no face
+2026-07-02 05:35:22 | INFO    | ai           | Frame 222: no face
+2026-07-02 05:35:22 | INFO    | ai           | Frame 223: no face
+2026-07-02 05:35:22 | INFO    | ai           | Frame 224: no face
+2026-07-02 05:35:22 | INFO    | ai           | Frame 225: no face
+2026-07-02 05:35:23 | INFO    | ai           | Frame 226: no face
+2026-07-02 05:35:23 | INFO    | ai           | Frame 227: no face
+2026-07-02 05:35:23 | INFO    | ai           | Frame 228: no face
+2026-07-02 05:35:23 | INFO    | ai           | Frame 229: no face
+2026-07-02 05:35:23 | INFO    | ai           | Frame 230: no face
+2026-07-02 05:35:23 | INFO    | ai           | Frame 231: no face
+2026-07-02 05:35:23 | INFO    | ai           | Frame 232: no face
+2026-07-02 05:35:23 | INFO    | ai           | Frame 233: no face
+2026-07-02 05:35:24 | INFO    | ai           | Frame 234: no face
+2026-07-02 05:35:24 | INFO    | ai           | Frame 235: no face
+2026-07-02 05:35:24 | INFO    | ai           | Frame 236: no face
+2026-07-02 05:35:24 | INFO    | ai           | Frame 237: no face
+2026-07-02 05:35:24 | INFO    | ai           | Frame 238: no face
+2026-07-02 05:35:24 | INFO    | ai           | Frame 239: no face
+2026-07-02 05:35:24 | INFO    | ai           | Frame 240: no face
+2026-07-02 05:35:24 | INFO    | ai           | Frame 241: no face
+2026-07-02 05:35:24 | INFO    | ai           | Frame 242: no face
+2026-07-02 05:35:25 | INFO    | ai           | Frame 243: no face
+2026-07-02 05:35:25 | INFO    | ai           | Frame 244: no face
+2026-07-02 05:35:25 | INFO    | ai           | Frame 245: no face
+2026-07-02 05:35:25 | INFO    | ai           | Frame 246: no face
+2026-07-02 05:35:25 | INFO    | ai           | Frame 247: no face
+2026-07-02 05:35:25 | INFO    | ai           | Frame 248: no face
+2026-07-02 05:35:25 | INFO    | ai           | Frame 249: no face
+2026-07-02 05:35:25 | INFO    | ai           | Frame 250: no face
+2026-07-02 05:35:26 | INFO    | ai           | Frame 251: no face
+2026-07-02 05:35:26 | INFO    | ai           | Frame 252: no face
+2026-07-02 05:35:26 | INFO    | ai           | Frame 253: no face
+2026-07-02 05:35:26 | INFO    | ai           | Frame 254: no face
+2026-07-02 05:35:26 | INFO    | ai           | Frame 255: no face
+2026-07-02 05:35:26 | INFO    | ai           | Frame 256: no face
+2026-07-02 05:35:26 | INFO    | ai           | Frame 257: no face
+2026-07-02 05:35:26 | INFO    | ai           | Frame 258: no face
+2026-07-02 05:35:27 | INFO    | ai           | Frame 259: no face
+2026-07-02 05:35:27 | INFO    | ai           | Frame 260: no face
+2026-07-02 05:35:27 | INFO    | ai           | Frame 261: no face
+2026-07-02 05:35:27 | INFO    | ai           | Frame 262: no face
+2026-07-02 05:35:27 | INFO    | ai           | Frame 263: no face
+2026-07-02 05:35:27 | INFO    | ai           | Frame 264: no face
+2026-07-02 05:35:27 | INFO    | ai           | Frame 265: no face
+2026-07-02 05:35:27 | INFO    | ai           | Frame 266: no face
+2026-07-02 05:35:28 | INFO    | ai           | Frame 267: no face
+2026-07-02 05:35:28 | INFO    | ai           | Frame 268: no face
+2026-07-02 05:35:28 | INFO    | ai           | Frame 269: no face
+2026-07-02 05:35:28 | INFO    | ai           | Frame 270: no face
+2026-07-02 05:35:28 | INFO    | ai           | Frame 271: no face
+2026-07-02 05:35:28 | INFO    | ai           | Frame 272: no face
+2026-07-02 05:35:28 | INFO    | ai           | Frame 273: no face
+2026-07-02 05:35:28 | INFO    | ai           | Frame 274: no face
+2026-07-02 05:35:28 | INFO    | ai           | Frame 275: no face
+2026-07-02 05:35:29 | INFO    | ai           | Frame 276: no face
+2026-07-02 05:35:29 | INFO    | ai           | Frame 277: no face
+2026-07-02 05:35:29 | INFO    | ai           | Frame 278: no face
+2026-07-02 05:35:29 | INFO    | ai           | Frame 279: no face
+2026-07-02 05:35:29 | INFO    | ai           | Frame 280: no face
+2026-07-02 05:35:29 | INFO    | ai           | Frame 281: no face
+2026-07-02 05:35:29 | INFO    | ai           | Frame 282: no face
+2026-07-02 05:35:29 | INFO    | ai           | Frame 283: no face
+2026-07-02 05:35:30 | INFO    | ai           | Frame 284: no face
+2026-07-02 05:35:30 | INFO    | ai           | Frame 285: no face
+2026-07-02 05:35:30 | INFO    | ai           | Frame 286: no face
+2026-07-02 05:35:30 | INFO    | ai           | Frame 287: no face
+2026-07-02 05:35:30 | INFO    | ai           | Frame 288: no face
+2026-07-02 05:35:30 | INFO    | ai           | Frame 289: no face
+2026-07-02 05:35:30 | INFO    | ai           | Frame 290: no face
+2026-07-02 05:35:30 | INFO    | ai           | Frame 291: no face
+2026-07-02 05:35:31 | INFO    | ai           | Frame 292: no face
+2026-07-02 05:35:31 | INFO    | ai           | Frame 293: no face
+2026-07-02 05:35:31 | INFO    | ai           | Frame 294: no face
+2026-07-02 05:35:31 | INFO    | ai           | Frame 295: no face
+2026-07-02 05:35:31 | INFO    | ai           | Frame 296: no face
+2026-07-02 05:35:31 | INFO    | ai           | Frame 297: no face
+2026-07-02 05:35:31 | INFO    | ai           | Frame 298: no face
+2026-07-02 05:35:31 | INFO    | ai           | Frame 299: no face
+2026-07-02 05:35:32 | INFO    | ai           | Frame 300: no face
+2026-07-02 05:35:32 | INFO    | ai           | Frame 301: no face
+2026-07-02 05:35:32 | INFO    | ai           | Frame 302: no face
+2026-07-02 05:35:32 | INFO    | ai           | Frame 303: no face
+2026-07-02 05:35:32 | INFO    | ai           | Frame 304: no face
+2026-07-02 05:35:32 | INFO    | ai           | Frame 305: no face
+2026-07-02 05:35:32 | INFO    | ai           | Frame 306: no face
+2026-07-02 05:35:32 | INFO    | ai           | Frame 307: no face
+2026-07-02 05:35:33 | INFO    | ai           | Frame 308: no face
+2026-07-02 05:35:33 | INFO    | ai           | Frame 309: no face
+2026-07-02 05:35:33 | INFO    | ai           | Frame 310: no face
+2026-07-02 05:35:33 | INFO    | ai           | Frame 311: no face
+2026-07-02 05:35:33 | INFO    | ai           | Frame 312: no face
+2026-07-02 05:35:33 | INFO    | ai           | Frame 313: no face
+2026-07-02 05:35:33 | INFO    | ai           | Frame 314: no face
+2026-07-02 05:35:33 | INFO    | ai           | Frame 315: no face
+2026-07-02 05:35:33 | INFO    | ai           | Frame 316: no face
+2026-07-02 05:35:34 | INFO    | ai           | Frame 317: no face
+2026-07-02 05:35:34 | INFO    | ai           | Frame 318: no face
+2026-07-02 05:35:34 | INFO    | ai           | Frame 319: no face
+2026-07-02 05:35:34 | INFO    | ai           | Frame 320: no face
+2026-07-02 05:35:34 | INFO    | ai           | Frame 321: no face
+2026-07-02 05:35:34 | INFO    | ai           | Frame 322: no face
+2026-07-02 05:35:34 | INFO    | ai           | Frame 323: no face
+2026-07-02 05:35:34 | INFO    | ai           | Frame 324: no face
+2026-07-02 05:35:35 | INFO    | ai           | Frame 325: no face
+2026-07-02 05:35:35 | INFO    | ai           | Frame 326: no face
+2026-07-02 05:35:35 | INFO    | ai           | Frame 327: no face
+2026-07-02 05:35:35 | INFO    | ai           | Frame 328: no face
+2026-07-02 05:35:35 | INFO    | ai           | Frame 329: no face
+2026-07-02 05:35:35 | INFO    | ai           | Frame 330: no face
+2026-07-02 05:35:35 | INFO    | ai           | Frame 331: no face
+2026-07-02 05:35:35 | INFO    | ai           | Frame 332: no face
+2026-07-02 05:35:36 | INFO    | ai           | Frame 333: no face
+2026-07-02 05:35:36 | INFO    | ai           | Frame 334: no face
+2026-07-02 05:35:36 | INFO    | ai           | Frame 335: no face
+2026-07-02 05:35:36 | INFO    | ai           | Frame 336: no face
+2026-07-02 05:35:36 | INFO    | ai           | Frame 337: no face
+2026-07-02 05:35:36 | INFO    | ai           | Frame 338: no face
+2026-07-02 05:35:36 | INFO    | ai           | Frame 339: no face
+2026-07-02 05:35:36 | INFO    | ai           | Frame 340: no face
+2026-07-02 05:35:37 | INFO    | ai           | Frame 341: no face
+2026-07-02 05:35:37 | INFO    | ai           | Frame 342: no face
+2026-07-02 05:35:37 | INFO    | ai           | Frame 343: no face
+2026-07-02 05:35:37 | INFO    | ai           | Frame 344: no face
+2026-07-02 05:35:37 | INFO    | ai           | Frame 345: no face
+2026-07-02 05:35:37 | INFO    | ai           | Frame 346: no face
+2026-07-02 05:35:37 | INFO    | ai           | Frame 347: no face
+2026-07-02 05:35:37 | INFO    | ai           | Frame 348: no face
+2026-07-02 05:35:38 | INFO    | ai           | Frame 349: no face
+2026-07-02 05:35:38 | INFO    | ai           | Frame 350: no face
+2026-07-02 05:35:38 | INFO    | ai           | Frame 351: no face
+2026-07-02 05:35:38 | INFO    | ai           | Frame 352: no face
+2026-07-02 05:35:38 | INFO    | ai           | Frame 353: no face
+2026-07-02 05:35:38 | INFO    | ai           | Frame 354: no face
+2026-07-02 05:35:38 | INFO    | ai           | Frame 355: no face
+2026-07-02 05:35:38 | INFO    | ai           | Frame 356: no face
+2026-07-02 05:35:39 | INFO    | ai           | Frame 357: no face
+2026-07-02 05:35:39 | INFO    | ai           | Frame 358: no face
+2026-07-02 05:35:39 | INFO    | ai           | Frame 359: no face
+2026-07-02 05:35:39 | INFO    | ai           | Frame 360: no face
+2026-07-02 05:35:39 | INFO    | ai           | Frame 361: no face
+2026-07-02 05:35:39 | INFO    | ai           | Frame 362: no face
+2026-07-02 05:35:39 | INFO    | ai           | Frame 363: no face
+2026-07-02 05:35:39 | INFO    | ai           | Frame 364: no face
+2026-07-02 05:35:39 | INFO    | ai           | Frame 365: no face
+2026-07-02 05:35:40 | INFO    | ai           | Frame 366: no face
+2026-07-02 05:35:40 | INFO    | ai           | Frame 367: no face
+2026-07-02 05:35:40 | INFO    | ai           | Frame 368: no face
+2026-07-02 05:35:40 | INFO    | ai           | Frame 369: no face
+2026-07-02 05:35:40 | INFO    | ai           | Frame 370: no face
+2026-07-02 05:35:40 | INFO    | ai           | Frame 371: no face
+2026-07-02 05:35:41 | INFO    | ai           | Frame 372: no face
+2026-07-02 05:35:41 | INFO    | ai           | Frame 373: no face
+2026-07-02 05:35:41 | INFO    | ai           | Frame 374: no face
+2026-07-02 05:35:41 | INFO    | ai           | Frame 375: no face
+2026-07-02 05:35:41 | INFO    | ai           | Frame 376: no face
+2026-07-02 05:35:41 | INFO    | ai           | Frame 377: no face
+2026-07-02 05:35:41 | INFO    | ai           | Frame 378: no face
+2026-07-02 05:35:42 | INFO    | ai           | Frame 379: no face
+2026-07-02 05:35:42 | INFO    | ai           | Frame 380: no face
+2026-07-02 05:35:42 | INFO    | ai           | Frame 381: no face
+2026-07-02 05:35:42 | INFO    | ai           | Frame 382: no face
+2026-07-02 05:35:42 | INFO    | ai           | Frame 383: no face
+2026-07-02 05:35:42 | INFO    | ai           | Frame 384: no face
+2026-07-02 05:35:42 | INFO    | ai           | Frame 385: no face
+2026-07-02 05:35:43 | INFO    | ai           | Frame 386: no face
+2026-07-02 05:35:43 | INFO    | ai           | Frame 387: no face
+2026-07-02 05:35:43 | INFO    | ai           | Frame 388: no face
+2026-07-02 05:35:43 | INFO    | ai           | Frame 389: no face
+2026-07-02 05:35:43 | INFO    | ai           | Frame 390: no face
+2026-07-02 05:35:43 | INFO    | ai           | Frame 391: no face
+2026-07-02 05:35:43 | INFO    | ai           | Frame 392: no face
+2026-07-02 05:35:44 | INFO    | ai           | Frame 393: no face
+2026-07-02 05:35:44 | INFO    | ai           | Frame 394: no face
+2026-07-02 05:35:44 | INFO    | ai           | Frame 395: no face
+2026-07-02 05:35:44 | INFO    | ai           | Frame 396: no face
+2026-07-02 05:35:44 | INFO    | ai           | Frame 397: no face
+2026-07-02 05:35:44 | INFO    | ai           | Frame 398: no face
+2026-07-02 05:35:44 | INFO    | ai           | Frame 399: no face
+2026-07-02 05:35:45 | INFO    | ai           | Frame 400: no face
+2026-07-02 05:35:45 | INFO    | ai           | Frame 401: no face
+2026-07-02 05:35:45 | INFO    | ai           | Frame 402: no face
+2026-07-02 05:35:45 | INFO    | ai           | Frame 403: no face
+2026-07-02 05:35:45 | INFO    | ai           | Frame 404: no face
+2026-07-02 05:35:45 | INFO    | ai           | Frame 405: no face
+2026-07-02 05:35:45 | INFO    | ai           | Frame 406: no face
+2026-07-02 05:35:46 | INFO    | ai           | Frame 407: no face
+2026-07-02 05:35:46 | INFO    | ai           | Frame 408: no face
+2026-07-02 05:35:46 | INFO    | ai           | Frame 409: no face
+2026-07-02 05:35:46 | INFO    | ai           | Frame 410: no face
+2026-07-02 05:35:46 | INFO    | ai           | Frame 411: no face
+2026-07-02 05:35:46 | INFO    | ai           | Frame 412: no face
+2026-07-02 05:35:47 | INFO    | ai           | Frame 413: no face
+2026-07-02 05:35:47 | INFO    | ai           | Frame 414: no face
+2026-07-02 05:35:47 | INFO    | ai           | Frame 415: no face
+2026-07-02 05:35:47 | INFO    | ai           | Frame 416: no face
+2026-07-02 05:35:47 | INFO    | ai           | Frame 417: no face
+2026-07-02 05:35:47 | INFO    | ai           | Frame 418: no face
+2026-07-02 05:35:47 | INFO    | ai           | Frame 419: no face
+2026-07-02 05:35:48 | INFO    | ai           | Frame 420: no face
+2026-07-02 05:35:48 | INFO    | ai           | Frame 421: no face
+2026-07-02 05:35:48 | INFO    | ai           | Frame 422: no face
+2026-07-02 05:35:48 | INFO    | ai           | Frame 423: no face
+2026-07-02 05:35:48 | INFO    | ai           | Frame 424: no face
+2026-07-02 05:35:48 | INFO    | ai           | Frame 425: no face
+2026-07-02 05:35:49 | INFO    | ai           | Frame 426: no face
+2026-07-02 05:35:49 | INFO    | ai           | Frame 427: no face
+2026-07-02 05:35:49 | INFO    | ai           | Frame 428: no face
+2026-07-02 05:35:49 | INFO    | ai           | Frame 429: no face
+2026-07-02 05:35:49 | INFO    | ai           | Frame 430: no face
+2026-07-02 05:35:49 | INFO    | ai           | Frame 431: no face
+2026-07-02 05:35:50 | INFO    | ai           | Frame 432: no face
+2026-07-02 05:35:50 | INFO    | ai           | Frame 433: no face
+2026-07-02 05:35:50 | INFO    | ai           | Frame 434: no face
+2026-07-02 05:35:50 | INFO    | ai           | Frame 435: no face
+2026-07-02 05:35:50 | INFO    | ai           | Frame 436: no face
+2026-07-02 05:35:50 | INFO    | ai           | Frame 437: no face
+2026-07-02 05:35:51 | INFO    | ai           | Frame 438: no face
+2026-07-02 05:35:51 | INFO    | ai           | Frame 439: no face
+2026-07-02 05:35:51 | INFO    | ai           | Frame 440: no face
+2026-07-02 05:35:51 | INFO    | ai           | Frame 441: no face
+2026-07-02 05:35:51 | INFO    | ai           | Frame 442: no face
+2026-07-02 05:35:51 | INFO    | ai           | Frame 443: no face
+2026-07-02 05:35:52 | INFO    | ai           | Frame 444: no face
+2026-07-02 05:35:52 | INFO    | ai           | Frame 445: no face
+2026-07-02 05:35:52 | INFO    | ai           | Frame 446: no face
+2026-07-02 05:35:52 | INFO    | ai           | Frame 447: no face
+2026-07-02 05:35:52 | INFO    | ai           | Frame 448: no face
+2026-07-02 05:35:52 | INFO    | ai           | Frame 449: no face
+2026-07-02 05:35:53 | INFO    | ai           | Frame 450: no face
+2026-07-02 05:35:53 | INFO    | ai           | Frame 451: no face
+2026-07-02 05:35:53 | INFO    | ai           | Frame 452: no face
+2026-07-02 05:35:53 | INFO    | ai           | Frame 453: no face
+2026-07-02 05:35:53 | INFO    | ai           | Frame 454: no face
+2026-07-02 05:35:54 | INFO    | ai           | Frame 455: cat_002 | score: 0.0486
+2026-07-02 05:35:54 | INFO    | ai           | Frame 456: no face
+2026-07-02 05:35:55 | INFO    | ai           | Frame 457: no face
+2026-07-02 05:35:55 | INFO    | ai           | Frame 458: no face
+2026-07-02 05:35:55 | INFO    | ai           | Frame 459: no face
+2026-07-02 05:35:55 | INFO    | ai           | Frame 460: no face
+2026-07-02 05:35:55 | INFO    | ai           | Frame 461: no face
+2026-07-02 05:35:56 | INFO    | ai           | Frame 462: no face
+2026-07-02 05:35:56 | INFO    | ai           | Frame 463: no face
+2026-07-02 05:35:56 | INFO    | ai           | Frame 464: no face
+2026-07-02 05:35:56 | INFO    | ai           | Frame 465: no face
+2026-07-02 05:35:56 | INFO    | ai           | Frame 466: no face
+2026-07-02 05:35:56 | INFO    | ai           | Frame 467: no face
+2026-07-02 05:35:57 | INFO    | ai           | Frame 468: no face
+2026-07-02 05:35:57 | INFO    | ai           | Frame 469: no face
+2026-07-02 05:35:57 | INFO    | ai           | Frame 470: no face
+2026-07-02 05:35:57 | INFO    | ai           | Frame 471: no face
+2026-07-02 05:35:57 | INFO    | ai           | Frame 472: no face
+2026-07-02 05:35:57 | INFO    | ai           | Frame 473: no face
+2026-07-02 05:35:58 | INFO    | ai           | Frame 474: no face
+2026-07-02 05:35:58 | INFO    | ai           | Frame 475: no face
+2026-07-02 05:35:58 | INFO    | ai           | Frame 476: no face
+2026-07-02 05:35:58 | INFO    | ai           | Frame 477: no face
+2026-07-02 05:35:58 | INFO    | ai           | Frame 478: no face
+2026-07-02 05:35:59 | INFO    | ai           | Frame 479: no face
+2026-07-02 05:35:59 | INFO    | ai           | Frame 480: no face
+2026-07-02 05:35:59 | INFO    | ai           | Frame 481: no face
+2026-07-02 05:35:59 | INFO    | ai           | Frame 482: no face
+2026-07-02 05:35:59 | INFO    | ai           | Frame 483: no face
+2026-07-02 05:36:00 | INFO    | ai           | Frame 484: cat_001 | score: 0.8906
+2026-07-02 05:36:00 | INFO    | ai           | Frame 485: cat_001 | score: 0.9046
+2026-07-02 05:36:00 | INFO    | ai           | Frame 486: no face
+2026-07-02 05:36:00 | INFO    | ai           | Frame 487: cat_001 | score: 0.9116
+2026-07-02 05:36:01 | INFO    | ai           | Frame 488: cat_001 | score: 0.8977
+2026-07-02 05:36:01 | INFO    | ai           | Frame 489: cat_001 | score: 0.9125
+2026-07-02 05:36:01 | INFO    | ai           | Frame 490: cat_001 | score: 0.9028
+2026-07-02 05:36:01 | INFO    | ai           | Frame 491: cat_001 | score: 0.901
+2026-07-02 05:36:01 | INFO    | ai           | Frame 492: cat_001 | score: 0.9189
+2026-07-02 05:36:02 | INFO    | ai           | Frame 493: cat_001 | score: 0.9169
+2026-07-02 05:36:02 | INFO    | ai           | Frame 494: cat_001 | score: 0.9058
+2026-07-02 05:36:02 | INFO    | ai           | Frame 495: cat_001 | score: 0.8895
+2026-07-02 05:36:02 | INFO    | ai           | Frame 496: cat_001 | score: 0.9188
+2026-07-02 05:36:03 | INFO    | ai           | Frame 497: cat_001 | score: 0.911
+2026-07-02 05:36:03 | INFO    | ai           | Frame 498: cat_001 | score: 0.911
+2026-07-02 05:36:03 | INFO    | ai           | Frame 499: cat_001 | score: 0.9103
+2026-07-02 05:36:03 | INFO    | ai           | Frame 500: cat_001 | score: 0.8811
+2026-07-02 05:36:04 | INFO    | ai           | Frame 501: cat_001 | score: 0.8959
+2026-07-02 05:36:04 | INFO    | ai           | Frame 502: cat_001 | score: 0.8938
+2026-07-02 05:36:04 | INFO    | ai           | Frame 503: cat_001 | score: 0.8996
+2026-07-02 05:36:04 | INFO    | ai           | FINAL: authorized=True identity=cat_001 confidence=0.9039 reason=Authorized
+2026-07-02 05:36:04 | INFO    | fsm          | AUTHORIZED: nana (conf=0.9039) -> DISPENSE
+2026-07-02 05:36:04 | INFO    | pump         | Dispensing water for 2.0s
+2026-07-02 05:36:04 | INFO    | pump         | Pump pin held -> pump ON
+2026-07-02 05:36:06 | INFO    | pump         | Pump pin released -> pump OFF
+2026-07-02 05:36:06 | INFO    | gate         | Opening gate...
+2026-07-02 05:36:10 | INFO    | gate         | Closing gate...
+2026-07-02 05:36:10 | INFO    | gate         | Gate closed.
+2026-07-02 05:36:11 | INFO    | fsm          | levels -> food 76% | water 83%
+2026-07-02 05:36:12 | INFO    | fsm          | feeding logged for nana
+2026-07-02 05:36:12 | INFO    | fsm          | cooldown 10s -> SLEEP
+2026-07-02 05:36:23 | INFO    | fsm          | levels -> food 76% | water 83%
+2026-07-02 05:36:24 | INFO    | main         | stopped by user (Ctrl+C)
+2026-07-02 05:36:24 | INFO    | picamera2.picamera2 | Camera stopped
+2026-07-02 05:36:25 | INFO    | main         | cleanup complete — goodbye
+2026-07-02 05:46:29 | INFO    | main         | building components...
+2026-07-02 05:46:30 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-07-02 05:46:30 | INFO    | picamera2.picamera2 | Camera now open.
+2026-07-02 05:46:30 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-07-02 05:46:30 | INFO    | picamera2.picamera2 | Camera started
+2026-07-02 05:46:36 | INFO    | cloud        | Firebase connected
+2026-07-02 05:46:36 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-07-02 05:46:36 | INFO    | fsm          | PIR warm-up 15s...
+2026-07-02 05:46:54 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-07-02 05:46:55 | INFO    | fsm          | levels -> food 80% | water 93%
+2026-07-02 05:46:55 | INFO    | fsm          | READY -> SLEEP
+2026-07-02 05:46:56 | INFO    | fsm          | levels -> food 80% | water 93%
+2026-07-02 05:47:00 | INFO    | main         | stopped by user (Ctrl+C)
+2026-07-02 05:47:00 | INFO    | picamera2.picamera2 | Camera stopped
+2026-07-02 05:47:00 | INFO    | main         | cleanup complete — goodbye
+2026-07-02 05:47:36 | INFO    | main         | building components...
+2026-07-02 05:47:37 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-07-02 05:47:37 | INFO    | picamera2.picamera2 | Camera now open.
+2026-07-02 05:47:37 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-07-02 05:47:37 | INFO    | picamera2.picamera2 | Camera started
+2026-07-02 05:47:40 | INFO    | cloud        | Firebase connected
+2026-07-02 05:47:40 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-07-02 05:47:40 | INFO    | fsm          | PIR warm-up 15s...
+2026-07-02 05:47:57 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-07-02 05:47:59 | INFO    | fsm          | levels -> food 80% | water 93%
+2026-07-02 05:47:59 | INFO    | fsm          | READY -> SLEEP
+2026-07-02 05:48:00 | INFO    | fsm          | levels -> food 80% | water 93%
+2026-07-02 05:48:01 | INFO    | fsm          | [05:48] LIVE TEST for nana -> CALL_CAT
+2026-07-02 05:48:01 | INFO    | fsm          | WAIT_FOR_MOTION (timeout 60s)
+2026-07-02 05:48:17 | INFO    | fsm          | motion detected -> VERIFY (expecting nana)
+2026-07-02 05:48:18 | INFO    | ai           | Frame 1: no face
+2026-07-02 05:48:18 | INFO    | ai           | Frame 2: no face
+2026-07-02 05:48:18 | INFO    | ai           | Frame 3: no face
+2026-07-02 05:48:18 | INFO    | ai           | Frame 4: no face
+2026-07-02 05:48:18 | INFO    | ai           | Frame 5: no face
+2026-07-02 05:48:18 | INFO    | ai           | Frame 6: no face
+2026-07-02 05:48:19 | INFO    | ai           | Frame 7: no face
+2026-07-02 05:48:19 | INFO    | ai           | Frame 8: no face
+2026-07-02 05:48:19 | INFO    | ai           | Frame 9: no face
+2026-07-02 05:48:19 | INFO    | ai           | Frame 10: no face
+2026-07-02 05:48:19 | INFO    | ai           | Frame 11: no face
+2026-07-02 05:48:19 | INFO    | ai           | Frame 12: no face
+2026-07-02 05:48:20 | INFO    | ai           | Frame 13: no face
+2026-07-02 05:48:20 | INFO    | ai           | Frame 14: no face
+2026-07-02 05:48:20 | INFO    | ai           | Frame 15: no face
+2026-07-02 05:48:20 | INFO    | ai           | Frame 16: no face
+2026-07-02 05:48:20 | INFO    | ai           | Frame 17: no face
+2026-07-02 05:48:20 | INFO    | ai           | Frame 18: no face
+2026-07-02 05:48:21 | INFO    | ai           | Frame 19: no face
+2026-07-02 05:48:21 | INFO    | ai           | Frame 20: no face
+2026-07-02 05:48:21 | INFO    | ai           | Frame 21: no face
+2026-07-02 05:48:21 | INFO    | ai           | Frame 22: no face
+2026-07-02 05:48:21 | INFO    | ai           | Frame 23: no face
+2026-07-02 05:48:22 | INFO    | ai           | Frame 24: no face
+2026-07-02 05:48:22 | INFO    | ai           | Frame 25: no face
+2026-07-02 05:48:22 | INFO    | ai           | Frame 26: no face
+2026-07-02 05:48:22 | INFO    | ai           | Frame 27: no face
+2026-07-02 05:48:22 | INFO    | ai           | Frame 28: no face
+2026-07-02 05:48:22 | INFO    | ai           | Frame 29: no face
+2026-07-02 05:48:22 | INFO    | ai           | Frame 30: no face
+2026-07-02 05:48:23 | INFO    | ai           | Frame 31: no face
+2026-07-02 05:48:23 | INFO    | ai           | Frame 32: no face
+2026-07-02 05:48:23 | INFO    | ai           | Frame 33: no face
+2026-07-02 05:48:23 | INFO    | ai           | Frame 34: no face
+2026-07-02 05:48:23 | INFO    | ai           | Frame 35: no face
+2026-07-02 05:48:23 | INFO    | ai           | Frame 36: no face
+2026-07-02 05:48:24 | INFO    | ai           | Frame 37: no face
+2026-07-02 05:48:24 | INFO    | ai           | Frame 38: no face
+2026-07-02 05:48:24 | INFO    | ai           | Frame 39: no face
+2026-07-02 05:48:24 | INFO    | ai           | Frame 40: no face
+2026-07-02 05:48:24 | INFO    | ai           | Frame 41: no face
+2026-07-02 05:48:24 | INFO    | ai           | Frame 42: no face
+2026-07-02 05:48:24 | INFO    | ai           | Frame 43: no face
+2026-07-02 05:48:25 | INFO    | ai           | Frame 44: no face
+2026-07-02 05:48:25 | INFO    | ai           | Frame 45: no face
+2026-07-02 05:48:25 | INFO    | ai           | Frame 46: no face
+2026-07-02 05:48:25 | INFO    | ai           | Frame 47: no face
+2026-07-02 05:48:26 | INFO    | ai           | Frame 48: cat_001 | score: 0.8423
+2026-07-02 05:48:26 | INFO    | ai           | Frame 49: no face
+2026-07-02 05:48:27 | INFO    | ai           | Frame 50: no face
+2026-07-02 05:48:27 | INFO    | ai           | Frame 51: no face
+2026-07-02 05:48:27 | INFO    | ai           | Frame 52: no face
+2026-07-02 05:48:27 | INFO    | ai           | Frame 53: no face
+2026-07-02 05:48:27 | INFO    | ai           | Frame 54: no face
+2026-07-02 05:48:27 | INFO    | ai           | Frame 55: no face
+2026-07-02 05:48:28 | INFO    | ai           | Frame 56: no face
+2026-07-02 05:48:28 | INFO    | ai           | Frame 57: no face
+2026-07-02 05:48:28 | INFO    | ai           | Frame 58: cat_001 | score: 0.8938
+2026-07-02 05:48:28 | INFO    | ai           | Frame 59: no face
+2026-07-02 05:48:29 | INFO    | ai           | Frame 60: no face
+2026-07-02 05:48:29 | INFO    | ai           | Frame 61: cat_001 | score: 0.8671
+2026-07-02 05:48:29 | INFO    | ai           | Frame 62: cat_001 | score: 0.7083
+2026-07-02 05:48:29 | INFO    | ai           | Frame 63: cat_001 | score: 0.8471
+2026-07-02 05:48:30 | INFO    | ai           | Frame 64: cat_001 | score: 0.8749
+2026-07-02 05:48:30 | INFO    | ai           | Frame 65: cat_001 | score: 0.8817
+2026-07-02 05:48:30 | INFO    | ai           | Frame 66: cat_001 | score: 0.9102
+2026-07-02 05:48:30 | INFO    | ai           | Frame 67: cat_001 | score: 0.8966
+2026-07-02 05:48:31 | INFO    | ai           | Frame 68: cat_001 | score: 0.8898
+2026-07-02 05:48:31 | INFO    | ai           | Frame 69: cat_001 | score: 0.8677
+2026-07-02 05:48:31 | INFO    | ai           | Frame 70: cat_001 | score: 0.8932
+2026-07-02 05:48:31 | INFO    | ai           | Frame 71: cat_001 | score: 0.8779
+2026-07-02 05:48:32 | INFO    | ai           | Frame 72: cat_001 | score: 0.8799
+2026-07-02 05:48:32 | INFO    | ai           | Frame 73: cat_001 | score: 0.8837
+2026-07-02 05:48:32 | INFO    | ai           | Frame 74: no face
+2026-07-02 05:48:32 | INFO    | ai           | Frame 75: no face
+2026-07-02 05:48:32 | INFO    | ai           | Frame 76: no face
+2026-07-02 05:48:33 | INFO    | ai           | Frame 77: no face
+2026-07-02 05:48:33 | INFO    | ai           | Frame 78: no face
+2026-07-02 05:48:33 | INFO    | ai           | Frame 79: no face
+2026-07-02 05:48:33 | INFO    | ai           | Frame 80: no face
+2026-07-02 05:48:33 | INFO    | ai           | Frame 81: no face
+2026-07-02 05:48:34 | INFO    | ai           | Frame 82: no face
+2026-07-02 05:48:34 | INFO    | ai           | Frame 83: no face
+2026-07-02 05:48:34 | INFO    | ai           | Frame 84: cat_001 | score: 0.624
+2026-07-02 05:48:34 | INFO    | ai           | Frame 85: cat_001 | score: 0.6409
+2026-07-02 05:48:35 | INFO    | ai           | Frame 86: no face
+2026-07-02 05:48:35 | INFO    | ai           | Frame 87: no face
+2026-07-02 05:48:35 | INFO    | ai           | Frame 88: no face
+2026-07-02 05:48:35 | INFO    | ai           | Frame 89: no face
+2026-07-02 05:48:35 | INFO    | ai           | Frame 90: no face
+2026-07-02 05:48:36 | INFO    | ai           | Frame 91: no face
+2026-07-02 05:48:36 | INFO    | ai           | Frame 92: no face
+2026-07-02 05:48:36 | INFO    | ai           | Frame 93: no face
+2026-07-02 05:48:36 | INFO    | ai           | Frame 94: no face
+2026-07-02 05:48:36 | INFO    | ai           | Frame 95: cat_001 | score: 0.8966
+2026-07-02 05:48:37 | INFO    | ai           | Frame 96: cat_001 | score: 0.799
+2026-07-02 05:48:37 | INFO    | ai           | Frame 97: cat_001 | score: 0.8718
+2026-07-02 05:48:37 | INFO    | ai           | FINAL: authorized=True identity=cat_001 confidence=0.8423 reason=Authorized
+2026-07-02 05:48:37 | INFO    | fsm          | AUTHORIZED: nana (conf=0.8423) -> DISPENSE
+2026-07-02 05:48:37 | INFO    | pump         | Dispensing water for 2.0s
+2026-07-02 05:48:37 | INFO    | pump         | Pump pin held -> pump ON
+2026-07-02 05:48:39 | INFO    | pump         | Pump pin released -> pump OFF
+2026-07-02 05:48:39 | INFO    | gate         | Opening gate...
+2026-07-02 05:48:42 | INFO    | gate         | Closing gate...
+2026-07-02 05:48:43 | INFO    | gate         | Gate closed, servo detached.
+2026-07-02 05:48:44 | INFO    | fsm          | levels -> food 76% | water 93%
+2026-07-02 05:48:44 | INFO    | fsm          | feeding logged for nana
+2026-07-02 05:48:44 | INFO    | fsm          | cooldown 10s -> SLEEP
+2026-07-02 05:48:50 | INFO    | picamera2.picamera2 | Camera stopped
+2026-07-02 05:48:50 | INFO    | main         | cleanup complete — goodbye
+2026-07-02 06:27:07 | INFO    | main         | building components...
+2026-07-02 06:27:08 | INFO    | picamera2.picamera2 | Initialization successful.
+2026-07-02 06:27:08 | INFO    | picamera2.picamera2 | Camera now open.
+2026-07-02 06:27:08 | INFO    | picamera2.picamera2 | Configuration successful!
+2026-07-02 06:27:08 | INFO    | picamera2.picamera2 | Camera started
+2026-07-02 06:27:11 | INFO    | gate         | Gate ready at closed position, no vibration
+2026-07-02 06:27:14 | INFO    | cloud        | Firebase connected
+2026-07-02 06:27:14 | INFO    | fsm          | === Cat Feeder FSM starting ===
+2026-07-02 06:27:14 | INFO    | fsm          | PIR warm-up 15s...
+2026-07-02 06:27:30 | INFO    | fsm          | found 3 cat(s) in Firebase
+2026-07-02 06:27:31 | INFO    | fsm          | levels -> food 77% | water 79%
+2026-07-02 06:27:31 | INFO    | fsm          | READY -> SLEEP
+2026-07-02 06:27:32 | INFO    | fsm          | levels -> food 77% | water 83%
+2026-07-02 06:28:00 | INFO    | fsm          | [06:28] LIVE TEST for nana -> CALL_CAT
+2026-07-02 06:28:00 | INFO    | fsm          | WAIT_FOR_MOTION (timeout 60s)
+2026-07-02 06:28:05 | INFO    | fsm          | motion detected -> VERIFY (expecting nana)
+2026-07-02 06:28:06 | INFO    | ai           | Frame 1: no face
+2026-07-02 06:28:06 | INFO    | ai           | Frame 2: no face
+2026-07-02 06:28:06 | INFO    | ai           | Frame 3: no face
+2026-07-02 06:28:06 | INFO    | ai           | Frame 4: no face
+2026-07-02 06:28:06 | INFO    | ai           | Frame 5: no face
+2026-07-02 06:28:06 | INFO    | ai           | Frame 6: no face
+2026-07-02 06:28:06 | INFO    | ai           | Frame 7: no face
+2026-07-02 06:28:06 | INFO    | ai           | Frame 8: no face
+2026-07-02 06:28:07 | INFO    | ai           | Frame 9: no face
+2026-07-02 06:28:07 | INFO    | ai           | Frame 10: no face
+2026-07-02 06:28:07 | INFO    | ai           | Frame 11: no face
+2026-07-02 06:28:07 | INFO    | ai           | Frame 12: no face
+2026-07-02 06:28:07 | INFO    | ai           | Frame 13: no face
+2026-07-02 06:28:07 | INFO    | ai           | Frame 14: no face
+2026-07-02 06:28:07 | INFO    | ai           | Frame 15: no face
+2026-07-02 06:28:07 | INFO    | ai           | Frame 16: no face
+2026-07-02 06:28:08 | INFO    | ai           | Frame 17: no face
+2026-07-02 06:28:08 | INFO    | ai           | Frame 18: no face
+2026-07-02 06:28:08 | INFO    | ai           | Frame 19: no face
+2026-07-02 06:28:08 | INFO    | ai           | Frame 20: no face
+2026-07-02 06:28:08 | INFO    | ai           | Frame 21: no face
+2026-07-02 06:28:08 | INFO    | ai           | Frame 22: no face
+2026-07-02 06:28:08 | INFO    | ai           | Frame 23: no face
+2026-07-02 06:28:08 | INFO    | ai           | Frame 24: no face
+2026-07-02 06:28:09 | INFO    | ai           | Frame 25: no face
+2026-07-02 06:28:09 | INFO    | ai           | Frame 26: no face
+2026-07-02 06:28:09 | INFO    | ai           | Frame 27: no face
+2026-07-02 06:28:09 | INFO    | ai           | Frame 28: no face
+2026-07-02 06:28:09 | INFO    | ai           | Frame 29: no face
+2026-07-02 06:28:09 | INFO    | ai           | Frame 30: no face
+2026-07-02 06:28:09 | INFO    | ai           | Frame 31: no face
+2026-07-02 06:28:10 | INFO    | ai           | Frame 32: no face
+2026-07-02 06:28:10 | INFO    | ai           | Frame 33: no face
+2026-07-02 06:28:10 | INFO    | ai           | Frame 34: no face
+2026-07-02 06:28:10 | INFO    | ai           | Frame 35: no face
+2026-07-02 06:28:10 | INFO    | ai           | Frame 36: no face
+2026-07-02 06:28:11 | INFO    | ai           | Frame 37: cat_001 | score: 0.8114
+2026-07-02 06:28:11 | INFO    | ai           | Frame 38: cat_001 | score: 0.8507
+2026-07-02 06:28:12 | INFO    | ai           | Frame 39: cat_001 | score: 0.4623
+2026-07-02 06:28:12 | INFO    | ai           | Frame 40: cat_001 | score: 0.8828
+2026-07-02 06:28:12 | INFO    | ai           | Frame 41: cat_001 | score: 0.8528
+2026-07-02 06:28:12 | INFO    | ai           | Frame 42: cat_001 | score: 0.8504
+2026-07-02 06:28:13 | INFO    | ai           | Frame 43: cat_001 | score: 0.7812
+2026-07-02 06:28:13 | INFO    | ai           | Frame 44: cat_001 | score: 0.8678
+2026-07-02 06:28:13 | INFO    | ai           | Frame 45: cat_001 | score: 0.8799
+2026-07-02 06:28:14 | INFO    | ai           | Frame 46: cat_001 | score: 0.8573
+2026-07-02 06:28:14 | INFO    | ai           | Frame 47: cat_001 | score: 0.8333
+2026-07-02 06:28:14 | INFO    | ai           | Frame 48: cat_001 | score: 0.8482
+2026-07-02 06:28:14 | INFO    | ai           | Frame 49: cat_001 | score: 0.7841
+2026-07-02 06:28:15 | INFO    | ai           | Frame 50: cat_001 | score: 0.8272
+2026-07-02 06:28:15 | INFO    | ai           | Frame 51: cat_001 | score: 0.8356
+2026-07-02 06:28:15 | INFO    | ai           | Frame 52: cat_001 | score: 0.8318
+2026-07-02 06:28:15 | INFO    | ai           | Frame 53: cat_001 | score: 0.8061
+2026-07-02 06:28:16 | INFO    | ai           | Frame 54: cat_001 | score: 0.8278
+2026-07-02 06:28:16 | INFO    | ai           | Frame 55: cat_001 | score: 0.7388
+2026-07-02 06:28:16 | INFO    | ai           | Frame 56: cat_001 | score: 0.7765
+2026-07-02 06:28:16 | INFO    | ai           | FINAL: authorized=True identity=cat_001 confidence=0.8103 reason=Authorized
+2026-07-02 06:28:16 | INFO    | fsm          | AUTHORIZED: nana (conf=0.8103) -> DISPENSE
+2026-07-02 06:28:16 | INFO    | pump         | Dispensing water for 2.0s
+2026-07-02 06:28:16 | INFO    | pump         | Pump pin held -> pump ON
+2026-07-02 06:28:18 | INFO    | pump         | Pump pin released -> pump OFF
+2026-07-02 06:28:18 | INFO    | gate         | Opening gate...
+2026-07-02 06:28:22 | INFO    | gate         | Closing gate...
+2026-07-02 06:28:22 | INFO    | gate         | Gate closed.
+2026-07-02 06:28:23 | INFO    | fsm          | levels -> food 77% | water 83%
+2026-07-02 06:28:23 | INFO    | fsm          | feeding logged for nana
+2026-07-02 06:28:23 | INFO    | fsm          | cooldown 10s -> SLEEP
+2026-07-02 06:28:34 | INFO    | fsm          | levels -> food 82% | water 83%
+2026-07-02 06:29:07 | INFO    | fsm          | levels -> food 77% | water 79%
+2026-07-02 06:29:14 | INFO    | main         | stopped by user (Ctrl+C)
+2026-07-02 06:29:14 | INFO    | picamera2.picamera2 | Camera stopped
+2026-07-02 06:29:14 | INFO    | picamera2.picamera2 | Camera closed successfully.
+2026-07-02 06:29:15 | INFO    | main         | cleanup complete — goodbye
