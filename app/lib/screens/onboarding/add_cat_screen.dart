@@ -44,8 +44,9 @@ class AddCatScreen extends StatelessWidget {
               ),
               const SizedBox(height: AppSpacing.sm),
               Text(
-                'Add your first cat to start setting up feeding schedules '
-                'and tracking activity.',
+                'Let\'s set up your first cat. '
+                'The feeder camera will recognize your cat\'s face '
+                'before you give them a name.',
                 style: AppTextStyles.bodyMedium,
               ),
               const SizedBox(height: AppSpacing.xxl),

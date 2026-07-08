@@ -24,15 +24,48 @@ class FirebaseService {
         );
   }
 
-  /// Creates a new cat document, plus a matching `settings/{catId}` and
-  /// `system_status/{catId}` document so the rest of the app has data to
-  /// read for it right away.
+  /// Writes an enrollment command to Firebase so the Raspberry Pi knows
+  /// to start capturing the cat's face.
+  Future<void> startEnrollment() async {
+    await _db.collection('commands').doc('enroll').set({
+      'status': 'pending',
+      'frames_done': 0,
+      'frames_needed': 40,
+      'instruction': 'Bring your cat to the feeder camera',
+      'created_at': DateTime.now().toIso8601String(),
+    });
+  }
+
+  /// Real-time stream of the enrollment progress document.
+  /// Emits every time the Raspberry Pi updates the frame count,
+  /// instruction, or status.
+  Stream<Map<String, dynamic>> watchEnrollment() {
+    return _db
+        .collection('commands')
+        .doc('enroll')
+        .snapshots()
+        .map((doc) => doc.data() ?? {});
+  }
+
+  /// Marks the enrollment as cancelled. The Pi will detect this and stop.
+  Future<void> cancelEnrollment() async {
+    await _db.collection('commands').doc('enroll').set({
+      'status': 'cancelled',
+      'created_at': DateTime.now().toIso8601String(),
+    });
+  }
+
+  /// Creates a new cat document using the ID assigned by the Raspberry Pi
+  /// during enrollment. The [catId] must match the gallery ID the Pi saved
+  /// (e.g. "cat_003"). This is what links the face gallery on the Pi to
+  /// the cat profile in Firebase.
   Future<CatProfile> addCat({
+    required String catId,
     required String name,
     double portionG = 30,
     double waterG = 150,
   }) async {
-    final docRef = _db.collection('cats').doc();
+    final docRef = _db.collection('cats').doc(catId);
     final now = DateTime.now();
 
     final data = {
@@ -50,7 +83,7 @@ class FirebaseService {
 
     batch.set(docRef, data);
 
-    batch.set(_db.collection('settings').doc(docRef.id), {
+    batch.set(_db.collection('settings').doc(catId), {
       'notifications_enabled': true,
       'low_food_alert': true,
       'low_water_alert': true,
@@ -61,7 +94,7 @@ class FirebaseService {
       'call_sound_url': null,
     });
 
-    batch.set(_db.collection('system_status').doc(docRef.id), {
+    batch.set(_db.collection('system_status').doc(catId), {
       'food_level_pct': 100,
       'water_level_pct': 100,
       'pi_online': false,
@@ -70,7 +103,7 @@ class FirebaseService {
 
     await batch.commit();
 
-    return CatProfile.fromMap(docRef.id, data);
+    return CatProfile.fromMap(catId, data);
   }
 
   /// Deletes a cat along with its per-cat settings/status documents.

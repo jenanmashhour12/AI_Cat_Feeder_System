@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import '../core/constants/app_colors.dart';
 import '../core/constants/app_spacing.dart';
 import '../core/constants/app_text_styles.dart';
+import '../screens/enrollment/enrollment_screen.dart';
 import '../services/firebase_service.dart';
 
-/// Form for creating a new cat. Reused both by the forced first-run
-/// onboarding screen and by the "Add New Cat" option in [CatSwitcher].
+/// Entry point for the add-cat flow. Shows a brief explanation and a
+/// "Start Enrollment" button. Does NOT collect cat info yet — that
+/// happens in [CatInfoForm] after the Raspberry Pi successfully
+/// recognizes the cat's face.
 class AddCatForm extends StatefulWidget {
   final FirebaseService firebaseService;
-
-  /// Called with the new cat's id once it has been created.
   final ValueChanged<String>? onCreated;
-
-  /// If provided, a Cancel button is shown next to Add Cat.
   final VoidCallback? onCancel;
 
   const AddCatForm({
@@ -27,42 +26,33 @@ class AddCatForm extends StatefulWidget {
 }
 
 class _AddCatFormState extends State<AddCatForm> {
-  final _nameController = TextEditingController();
-  double _portionG = 30;
-  double _waterG = 150;
-  bool _isSaving = false;
+  bool _isStarting = false;
   String? _error;
 
-  @override
-  void dispose() {
-    _nameController.dispose();
-    super.dispose();
-  }
-
-  Future<void> _submit() async {
-    final name = _nameController.text.trim();
-
-    if (name.isEmpty) {
-      setState(() => _error = 'Please enter a name for your cat.');
-      return;
-    }
-
+  Future<void> _startEnrollment() async {
     setState(() {
-      _isSaving = true;
+      _isStarting = true;
       _error = null;
     });
 
     try {
-      final cat = await widget.firebaseService.addCat(
-        name: name,
-        portionG: _portionG,
-        waterG: _waterG,
+      await widget.firebaseService.startEnrollment();
+
+      if (!mounted) return;
+
+      await Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (_) => EnrollmentScreen(
+            firebaseService: widget.firebaseService,
+            onCreated: widget.onCreated,
+            onCancel: () => Navigator.of(context).pop(),
+          ),
+        ),
       );
-      widget.onCreated?.call(cat.id);
     } catch (e) {
-      setState(() => _error = 'Could not add cat: $e');
+      setState(() => _error = 'Could not start enrollment: $e');
     } finally {
-      if (mounted) setState(() => _isSaving = false);
+      if (mounted) setState(() => _isStarting = false);
     }
   }
 
@@ -72,56 +62,63 @@ class _AddCatFormState extends State<AddCatForm> {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Cat Name', style: AppTextStyles.titleSmall),
-        const SizedBox(height: AppSpacing.sm),
-        TextField(
-          controller: _nameController,
-          textCapitalization: TextCapitalization.words,
-          style:
-              AppTextStyles.bodyMedium.copyWith(color: AppColors.textPrimary),
-          decoration: InputDecoration(
-            hintText: 'e.g. Nana',
-            hintStyle: AppTextStyles.bodyMedium,
-            filled: true,
-            fillColor: AppColors.surfaceVariant,
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: AppSpacing.lg,
-              vertical: AppSpacing.md,
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
-              borderSide: BorderSide.none,
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
-              borderSide:
-                  const BorderSide(color: AppColors.primary, width: 1.5),
-            ),
+        Container(
+          width: 56,
+          height: 56,
+          decoration: BoxDecoration(
+            color: AppColors.primaryLight,
+            borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
+          ),
+          child: const Icon(
+            Icons.camera_alt_outlined,
+            color: AppColors.primary,
+            size: 28,
           ),
         ),
-        const SizedBox(height: AppSpacing.xl),
-        _buildSlider(
-          label: 'Default Portion',
-          value: _portionG,
-          min: 10,
-          max: 100,
-          unit: 'g',
-          onChanged: (v) => setState(() => _portionG = v),
+        const SizedBox(height: AppSpacing.lg),
+        Text(
+          'Recognize your cat first',
+          style: AppTextStyles.headlineMedium,
+        ),
+        const SizedBox(height: AppSpacing.sm),
+        Text(
+          'Place your cat in front of the feeder camera. '
+          'The feeder will capture their face and recognize them. '
+          'You can give them a name once they are recognized.',
+          style: AppTextStyles.bodyMedium,
         ),
         const SizedBox(height: AppSpacing.xl),
-        _buildSlider(
-          label: 'Water Bowl Capacity',
-          value: _waterG,
-          min: 50,
-          max: 300,
-          unit: 'g',
-          onChanged: (v) => setState(() => _waterG = v),
+        Container(
+          padding: const EdgeInsets.all(AppSpacing.md),
+          decoration: BoxDecoration(
+            color: AppColors.surfaceVariant,
+            borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
+          ),
+          child: Row(
+            children: [
+              const Icon(
+                Icons.info_outline,
+                color: AppColors.primary,
+                size: 18,
+              ),
+              const SizedBox(width: AppSpacing.sm),
+              Expanded(
+                child: Text(
+                  'Make sure the feeder is powered on and the '
+                  'camera has a clear view.',
+                  style: AppTextStyles.bodySmall,
+                ),
+              ),
+            ],
+          ),
         ),
         if (_error != null) ...[
           const SizedBox(height: AppSpacing.md),
           Text(
             _error!,
-            style: AppTextStyles.bodySmall.copyWith(color: AppColors.error),
+            style: AppTextStyles.bodySmall.copyWith(
+              color: AppColors.error,
+            ),
           ),
         ],
         const SizedBox(height: AppSpacing.xxl),
@@ -130,7 +127,7 @@ class _AddCatFormState extends State<AddCatForm> {
             if (widget.onCancel != null) ...[
               Expanded(
                 child: OutlinedButton(
-                  onPressed: _isSaving ? null : widget.onCancel,
+                  onPressed: _isStarting ? null : widget.onCancel,
                   child: const Text('Cancel'),
                 ),
               ),
@@ -138,8 +135,8 @@ class _AddCatFormState extends State<AddCatForm> {
             ],
             Expanded(
               child: ElevatedButton(
-                onPressed: _isSaving ? null : _submit,
-                child: _isSaving
+                onPressed: _isStarting ? null : _startEnrollment,
+                child: _isStarting
                     ? const SizedBox(
                         width: 18,
                         height: 18,
@@ -148,63 +145,10 @@ class _AddCatFormState extends State<AddCatForm> {
                           color: Colors.white,
                         ),
                       )
-                    : const Text('Add Cat'),
+                    : const Text('Start Enrollment'),
               ),
             ),
           ],
-        ),
-      ],
-    );
-  }
-
-  Widget _buildSlider({
-    required String label,
-    required double value,
-    required double min,
-    required double max,
-    required String unit,
-    required ValueChanged<double> onChanged,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(label, style: AppTextStyles.titleSmall),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: AppSpacing.md,
-                vertical: AppSpacing.xs,
-              ),
-              decoration: BoxDecoration(
-                color: AppColors.primaryLight,
-                borderRadius: BorderRadius.circular(AppSpacing.chipRadius),
-              ),
-              child: Text(
-                '${value.toStringAsFixed(0)}$unit',
-                style: AppTextStyles.titleSmall
-                    .copyWith(color: AppColors.primary),
-              ),
-            ),
-          ],
-        ),
-        SliderTheme(
-          data: SliderTheme.of(context).copyWith(
-            activeTrackColor: AppColors.primary,
-            inactiveTrackColor: AppColors.primaryLight,
-            thumbColor: AppColors.primary,
-            overlayColor: AppColors.primary.withValues(alpha: 0.12),
-            trackHeight: 4,
-            thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 10),
-          ),
-          child: Slider(
-            value: value,
-            min: min,
-            max: max,
-            divisions: ((max - min) / 5).round(),
-            onChanged: onChanged,
-          ),
         ),
       ],
     );
