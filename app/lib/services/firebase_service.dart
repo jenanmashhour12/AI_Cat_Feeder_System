@@ -7,7 +7,7 @@ import '../models/notification_item.dart';
 import '../models/cat_profile.dart';
 
 class FirebaseService {
-  final FirebaseFirestore _db = FirebaseFirestore.instance;
+  late final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   /// ============================
   /// Cats
@@ -47,12 +47,28 @@ class FirebaseService {
         .map((doc) => doc.data() ?? {});
   }
 
-  /// Marks the enrollment as cancelled. The Pi will detect this and stop.
-  Future<void> cancelEnrollment() async {
-    await _db.collection('commands').doc('enroll').set({
-      'status': 'cancelled',
+  /// Builds the enrollment command payload used by the Raspberry Pi.
+  Map<String, dynamic> buildEnrollmentCommandPayload({
+    required String status,
+    String? catId,
+  }) {
+    final payload = <String, dynamic>{
+      'status': status,
       'created_at': DateTime.now().toIso8601String(),
-    });
+    };
+
+    if (catId != null && catId.isNotEmpty) {
+      payload['cat_id'] = catId;
+    }
+
+    return payload;
+  }
+
+  /// Marks the enrollment as cancelled. The Pi will detect this and stop.
+  Future<void> cancelEnrollment({String? catId}) async {
+    await _db.collection('commands').doc('enroll').set(
+          buildEnrollmentCommandPayload(status: 'cancelled', catId: catId),
+        );
   }
 
   /// Creates a new cat document using the ID assigned by the Raspberry Pi

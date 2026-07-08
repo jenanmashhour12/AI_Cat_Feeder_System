@@ -45,6 +45,18 @@ class _CatInfoFormState extends State<CatInfoForm> {
     super.dispose();
   }
 
+  Future<void> _cancelEnrollment() async {
+    try {
+      await widget.firebaseService.cancelEnrollment(catId: widget.catId);
+    } catch (_) {
+      // Ignore cancellation write failures and still close the form.
+    }
+
+    if (mounted) {
+      widget.onCancel?.call();
+    }
+  }
+
   Future<void> _save() async {
     final name = _nameController.text.trim();
 
@@ -87,7 +99,7 @@ class _CatInfoFormState extends State<CatInfoForm> {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: AppColors.textPrimary),
-          onPressed: _isSaving ? null : widget.onCancel,
+          onPressed: _isSaving ? null : _cancelEnrollment,
         ),
         title: Text('Name Your Cat', style: AppTextStyles.titleMedium),
       ),

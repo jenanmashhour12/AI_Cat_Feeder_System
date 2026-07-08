@@ -27,11 +27,12 @@ class EnrollmentScreen extends StatefulWidget {
 class _EnrollmentScreenState extends State<EnrollmentScreen> {
   bool _isCancelling = false;
   bool _hasNavigatedToInfoForm = false;
+  String? _currentCatId;
 
   Future<void> _cancel() async {
     setState(() => _isCancelling = true);
     try {
-      await widget.firebaseService.cancelEnrollment();
+      await widget.firebaseService.cancelEnrollment(catId: _currentCatId);
     } finally {
       if (mounted) {
         widget.onCancel?.call();
@@ -83,6 +84,10 @@ class _EnrollmentScreenState extends State<EnrollmentScreen> {
               'Bring your cat to the feeder camera';
           final reason = data['reason'] as String? ?? 'Unknown error';
           final catId = data['cat_id'] as String?;
+
+          if (catId != null && catId != _currentCatId) {
+            _currentCatId = catId;
+          }
 
           if (status == 'done' && catId != null) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
