@@ -18,6 +18,19 @@ from errors import PumpError, SensorError, CameraError, GateError, HardwareError
 from log_setup import get_logger
 
 
+def _enable_pigpio_if_available():
+    """Use pigpio for gpiozero when it is installed on the Pi."""
+    try:
+        from gpiozero import Device
+        from gpiozero.pins.pigpio import PiGPIOFactory
+
+        if Device.pin_factory is None:
+            Device.pin_factory = PiGPIOFactory()
+    except Exception:
+        # Fall back to gpiozero's default pin factory if pigpio is unavailable.
+        pass
+
+
 # ════════════════════════════════════════════════════════════════
 #  WATER PUMP (via relay)
 # ════════════════════════════════════════════════════════════════
@@ -44,6 +57,8 @@ class WaterPump:
         self.log = get_logger("pump")
         if config.SIMULATION:
             self.log.info("SIMULATION: water pump (no GPIO)")
+            return
+        _enable_pigpio_if_available()
         # NOTE: deliberately NOT creating a persistent gpiozero device here.
         # Holding the pin open at all (even set "off") was keeping the pump
         # on for this hardware -- the pin must be fully released when idle.
@@ -90,6 +105,7 @@ class LevelSensor:
         if config.SIMULATION:
             self.log.info("SIMULATION: %s level sensor", name)
             return
+        _enable_pigpio_if_available()
         try:
             from gpiozero import DistanceSensor
             self._dev = DistanceSensor(
@@ -145,6 +161,7 @@ class PirMotion:
         if config.SIMULATION:
             self.log.info("SIMULATION: PIR (always reports motion)")
             return
+        _enable_pigpio_if_available()
         try:
             from gpiozero import MotionSensor
             self._dev = MotionSensor(config.PIR_PIN)
@@ -294,6 +311,7 @@ class FoodGate:
         if config.SIMULATION:
             self.log.info("SIMULATION: food gate")
             return
+        _enable_pigpio_if_available()
         try:
             import RPi.GPIO as GPIO
             self._GPIO = GPIO

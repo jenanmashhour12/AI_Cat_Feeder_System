@@ -41,8 +41,8 @@ SERVO_OPEN_ANGLE   = 90             # SET THIS — angle when the gate is OPEN (
 # ── Level-sensor calibration (cm from the sensor down to the surface) ──
 FOOD_EMPTY_CM  = 25.0              # SET THIS — distance when FOOD container is EMPTY
 FOOD_FULL_CM   = 5.0              # SET THIS — distance when FOOD container is FULL
-WATER_EMPTY_CM = 25.0              # SET THIS — distance when WATER tank is EMPTY
-WATER_FULL_CM  = 5.0              # SET THIS — distance when WATER tank is FULL
+WATER_EMPTY_CM = 18.0              # SET THIS — distance when WATER tank is EMPTY
+WATER_FULL_CM  = 3.0              # SET THIS — distance when WATER tank is FULL
 LOW_LEVEL_PCT  = 15               # warn (and flag in logs) below this %
 
 # ── Camera ──
