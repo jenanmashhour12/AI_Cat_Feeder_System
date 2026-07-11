@@ -18,9 +18,6 @@ Collections used (all TOP-LEVEL, matching firebase_service.dart):
   schedules/{scheduleId}
       cat_id, label, hour, minute, portion_g,
       enabled (bool), active_days (7 bools, Mon..Sun)
-      [CONFIRMED on real Pi data 2026-06-30 -- field names below MUST
-       match exactly: 'enabled' not 'isEnabled', 'active_days' not
-       'activeDays', 'portion_g' not 'portion_grams']
 
   feedings/{feedingId}
       cat_id, cat_name, authorized, confidence, portion_g, timestamp
@@ -28,17 +25,24 @@ Collections used (all TOP-LEVEL, matching firebase_service.dart):
   notifications/{notifId}
       cat_id, title, message, type, is_read, timestamp
 
-  commands/{catId}            <- NEW, needed for manual feed from the app
+  commands/{catId}            <- manual feed per cat
       type: "manual_feed", portion_g, consumed: false, created_at
 
-The cloud is NON-CRITICAL: every method catches its own errors and logs them
-instead of crashing. If Firebase is down the feeder keeps working offline.
+  commands/enroll             <- enrollment triggered by the app
+      status: "pending"|"capturing"|"done"|"failed"|"cancelled"|"idle"
+      frames_done, frames_needed, instruction
+      cat_id   (present when status=done or status=cancelled)
+      reason   (present when status=failed)
 """
 
 import datetime as dt
+import os
+import glob
 
 import config
 from log_setup import get_logger
+
+GALLERY_DIR = "/home/raspberry/GP/AI_Cat_Feeder_System-main/data/galleries"
 
 
 class Cloud:
@@ -52,10 +56,7 @@ class Cloud:
             return
 
         try:
-            # Import only for the side effect of initialising the Firebase app
-            # (firebase_logger already calls firebase_admin.initialize_app()).
             import firebase_logger  # noqa: F401
-
             from firebase_admin import firestore
             self.db = firestore.client()
             self.online = True
@@ -64,13 +65,9 @@ class Cloud:
             self.log.error("Firebase unavailable (running offline): %s", exc)
 
     # ─────────────────────────────────────────────
-    #  CATS   ->  collection "cats"
+    #  CATS
     # ─────────────────────────────────────────────
     def get_cats(self):
-        """
-        Return all cats as a dict: { cat_id: {name, portion_g, water_g, ...} }
-        Matches cat_profile.dart's CatProfile.fromMap fields.
-        """
         if not self.online:
             return {}
         try:
@@ -81,7 +78,6 @@ class Cloud:
             return {}
 
     def get_cat(self, cat_id):
-        """Return one cat's data dict, or None."""
         if not self.online:
             return None
         try:
@@ -91,8 +87,23 @@ class Cloud:
             self.log.error("get_cat(%s) failed: %s", cat_id, exc)
             return None
 
+    def get_cat_ids(self):
+        """
+        Return a set of all cat IDs currently in Firebase.
+        Used by _sync_galleries() to detect deleted cats.
+        Returns empty set if Firebase is offline — caller must NOT delete
+        gallery files when this returns empty.
+        """
+        if not self.online:
+            return set()
+        try:
+            docs = self.db.collection("cats").stream()
+            return {d.id for d in docs}
+        except Exception as exc:
+            self.log.error("get_cat_ids failed: %s", exc)
+            return set()
+
     def touch_cat_last_seen(self, cat_id):
-        """Update last_seen + increment total_feedings after a successful feed."""
         if not self.online:
             return
         try:
@@ -105,15 +116,9 @@ class Cloud:
             self.log.error("touch_cat_last_seen(%s) failed: %s", cat_id, exc)
 
     # ─────────────────────────────────────────────
-    #  SCHEDULES   ->  collection "schedules"
+    #  SCHEDULES
     # ─────────────────────────────────────────────
     def get_schedules(self):
-        """
-        Return ALL schedules across all cats as a list of dicts:
-          { id, cat_id, label, hour, minute, portion_grams,
-            isEnabled, activeDays:[7 bools, Mon..Sun] }
-        Matches FeedingSchedule.toMap() in the app.
-        """
         if not self.online:
             return []
         try:
@@ -129,13 +134,9 @@ class Cloud:
             return []
 
     # ─────────────────────────────────────────────
-    #  SYSTEM STATUS (per cat)   ->  collection "system_status"
+    #  SYSTEM STATUS
     # ─────────────────────────────────────────────
     def update_system_status(self, cat_id, food_pct, water_pct):
-        """
-        Push real food/water levels for ONE cat's feeder.
-        Matches SystemStatus.fromMap() field names in the app.
-        """
         if not self.online:
             return
         try:
@@ -149,7 +150,6 @@ class Cloud:
             self.log.error("update_system_status(%s) failed: %s", cat_id, exc)
 
     def mark_pi_online(self, cat_ids, online=True):
-        """Set pi_online=True/False for every cat's system_status doc."""
         if not self.online:
             return
         try:
@@ -165,13 +165,9 @@ class Cloud:
             self.log.error("mark_pi_online failed: %s", exc)
 
     # ─────────────────────────────────────────────
-    #  FEEDINGS (activity log)   ->  collection "feedings"
+    #  FEEDINGS
     # ─────────────────────────────────────────────
     def log_feeding(self, cat_id, cat_name, authorized, confidence, portion_g):
-        """
-        Write one feeding event as a NEW document in the 'feedings' collection.
-        Matches ActivityLog.fromFeeding() expectations in the app.
-        """
         if not self.online:
             return
         try:
@@ -189,13 +185,9 @@ class Cloud:
             self.log.error("log_feeding failed: %s", exc)
 
     # ─────────────────────────────────────────────
-    #  NOTIFICATIONS   ->  collection "notifications"
+    #  NOTIFICATIONS
     # ─────────────────────────────────────────────
     def add_notification(self, cat_id, title, message, notif_type="info"):
-        """
-        Write a notification the app can show (e.g. low food, unrecognized
-        animal). Matches NotificationItem.fromMap() in the app.
-        """
         if not self.online:
             return
         try:
@@ -211,16 +203,9 @@ class Cloud:
             self.log.error("add_notification failed: %s", exc)
 
     # ─────────────────────────────────────────────
-    #  COMMANDS (manual feed)   ->  collection "commands"
-    #  NOTE: this collection does not exist yet in firebase_service.dart --
-    #  it needs to be added to the app for manual feed to work. See the
-    #  companion .md file for the exact Dart code to add.
+    #  COMMANDS (manual feed)
     # ─────────────────────────────────────────────
     def get_pending_command(self, cat_id):
-        """
-        Return an unconsumed manual-feed command for this cat, or None.
-        Looks for: commands/{cat_id} = { type, portion_g, consumed: false }
-        """
         if not self.online:
             return None
         try:
@@ -234,7 +219,6 @@ class Cloud:
         return None
 
     def consume_command(self, cat_id):
-        """Mark a command as handled so it doesn't trigger again."""
         if not self.online:
             return
         try:
@@ -243,6 +227,99 @@ class Cloud:
             })
         except Exception as exc:
             self.log.error("consume_command(%s) failed: %s", cat_id, exc)
+
+    # ─────────────────────────────────────────────
+    #  ENROLLMENT
+    # ─────────────────────────────────────────────
+    def get_enroll_command(self):
+        if not self.online:
+            return None
+        try:
+            doc = self.db.collection("commands").document("enroll").get()
+            if doc.exists:
+                data = doc.to_dict()
+                if data.get("status") == "pending":
+                    return data
+        except Exception as exc:
+            self.log.error("get_enroll_command failed: %s", exc)
+        return None
+
+    def update_enroll_progress(self, frames_done, frames_needed, instruction):
+        if not self.online:
+            return
+        try:
+            self.db.collection("commands").document("enroll").set({
+                "status":        "capturing",
+                "frames_done":   frames_done,
+                "frames_needed": frames_needed,
+                "instruction":   instruction,
+            }, merge=True)
+        except Exception as exc:
+            self.log.error("update_enroll_progress failed: %s", exc)
+
+    def complete_enrollment(self, cat_id):
+        if not self.online:
+            return
+        try:
+            self.db.collection("commands").document("enroll").set({
+                "status": "done",
+                "cat_id": cat_id,
+            }, merge=True)
+        except Exception as exc:
+            self.log.error("complete_enrollment failed: %s", exc)
+
+    def fail_enrollment(self, reason):
+        if not self.online:
+            return
+        try:
+            self.db.collection("commands").document("enroll").set({
+                "status": "failed",
+                "reason": reason,
+            }, merge=True)
+        except Exception as exc:
+            self.log.error("fail_enrollment failed: %s", exc)
+
+    def get_cancelled_enrollment(self):
+        if not self.online:
+            return None
+        try:
+            doc = self.db.collection("commands").document("enroll").get()
+            if doc.exists:
+                data = doc.to_dict()
+                if data.get("status") == "cancelled" and data.get("cat_id"):
+                    return data["cat_id"]
+        except Exception as exc:
+            self.log.error("get_cancelled_enrollment failed: %s", exc)
+        return None
+
+    def clear_enroll_command(self):
+        if not self.online:
+            return
+        try:
+            self.db.collection("commands").document("enroll").set({
+                "status": "idle",
+            })
+        except Exception as exc:
+            self.log.error("clear_enroll_command failed: %s", exc)
+
+    def next_cat_id(self):
+        """
+        Generate the next available cat ID by looking at existing gallery files.
+        e.g. if cat_001.json and cat_002.json exist -> returns 'cat_003'
+        """
+        try:
+            existing = glob.glob(os.path.join(GALLERY_DIR, "cat_*.json"))
+            numbers = []
+            for f in existing:
+                base = os.path.basename(f)
+                num_str = base.replace("cat_", "").replace(".json", "")
+                if num_str.isdigit():
+                    numbers.append(int(num_str))
+            next_num = max(numbers) + 1 if numbers else 1
+            return f"cat_{next_num:03d}"
+        except Exception as exc:
+            self.log.error("next_cat_id failed: %s", exc)
+            return "cat_999"
 
     def close(self):
         pass
