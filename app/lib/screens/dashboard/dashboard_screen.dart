@@ -8,6 +8,7 @@ import '../../widgets/section_header.dart';
 import '../../widgets/info_chip.dart';
 import '../../widgets/cat_switcher.dart';
 import '../../models/system_status.dart';
+import '../../models/feeding_schedule.dart';
 import '../../services/firebase_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -54,7 +55,7 @@ class DashboardScreen extends StatelessWidget {
                   const SizedBox(height: AppSpacing.xl),
                   _buildHeader(context),
                   const SizedBox(height: AppSpacing.xxl),
-                  _buildSystemStatusBanner(status),
+                  _buildSystemStatusBanner(status, catId),
                   const SizedBox(height: AppSpacing.xxl),
                   SectionHeader(
                     title: 'System Status',
@@ -65,7 +66,7 @@ class DashboardScreen extends StatelessWidget {
                     onAction: () {},
                   ),
                   const SizedBox(height: AppSpacing.md),
-                  _buildStatusGrid(status),
+                  _buildStatusGrid(status, catId),
                   const SizedBox(height: AppSpacing.xxl),
                   const SectionHeader(title: 'Quick Actions'),
                   const SizedBox(height: AppSpacing.md),
@@ -74,7 +75,7 @@ class DashboardScreen extends StatelessWidget {
                   SectionHeader(
                     title: 'Latest Activity',
                     actionLabel: 'View All',
-                    onAction: () {},
+                    onAction: () => onNavigate?.call(2),
                   ),
                   const SizedBox(height: AppSpacing.md),
                   _buildActivityPreview(catId),
@@ -133,7 +134,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSystemStatusBanner(SystemStatus status) {
+  Widget _buildSystemStatusBanner(SystemStatus status, String catId) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(AppSpacing.lg),
@@ -183,27 +184,37 @@ class DashboardScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Next Feeding',
-                    style:
-                        AppTextStyles.bodySmall.copyWith(color: Colors.white70),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    '6:00 PM',
-                    style: AppTextStyles.displayMedium
-                        .copyWith(color: Colors.white),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    'In 3 hours 24 minutes',
-                    style:
-                        AppTextStyles.bodySmall.copyWith(color: Colors.white70),
-                  ),
-                ],
+              StreamBuilder<List<FeedingSchedule>>(
+                stream: _firebaseService.watchSchedules(catId),
+                builder: (context, snapshot) {
+                  final next =
+                      _computeNextFeeding(snapshot.data ?? const []);
+
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Next Feeding',
+                        style: AppTextStyles.bodySmall
+                            .copyWith(color: Colors.white70),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        next?.schedule.formattedTime ?? '--:--',
+                        style: AppTextStyles.displayMedium
+                            .copyWith(color: Colors.white),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        next == null
+                            ? 'No active schedules'
+                            : _formatCountdown(next.time),
+                        style: AppTextStyles.bodySmall
+                            .copyWith(color: Colors.white70),
+                      ),
+                    ],
+                  );
+                },
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -230,7 +241,69 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildStatusGrid(SystemStatus status) {
+  /// Finds the soonest upcoming occurrence across all enabled schedules,
+  /// respecting each schedule's active days. Returns null if there are no
+  /// enabled schedules with at least one active day.
+  _NextFeeding? _computeNextFeeding(List<FeedingSchedule> schedules) {
+    final now = DateTime.now();
+    DateTime? soonest;
+    FeedingSchedule? soonestSchedule;
+
+    for (final schedule in schedules.where((s) => s.isEnabled)) {
+      for (int dayOffset = 0; dayOffset < 7; dayOffset++) {
+        final day = DateTime(now.year, now.month, now.day)
+            .add(Duration(days: dayOffset));
+        final weekdayIndex = day.weekday - 1; // Mon=0 ... Sun=6
+        if (weekdayIndex >= schedule.activeDays.length ||
+            !schedule.activeDays[weekdayIndex]) {
+          continue;
+        }
+
+        final candidate = DateTime(
+          day.year,
+          day.month,
+          day.day,
+          schedule.hour,
+          schedule.minute,
+        );
+
+        if (candidate.isBefore(now)) continue;
+
+        if (soonest == null || candidate.isBefore(soonest)) {
+          soonest = candidate;
+          soonestSchedule = schedule;
+        }
+        break;
+      }
+    }
+
+    if (soonest == null || soonestSchedule == null) return null;
+    return _NextFeeding(time: soonest, schedule: soonestSchedule);
+  }
+
+  String _formatCountdown(DateTime target) {
+    final diff = target.difference(DateTime.now());
+
+    if (diff.inDays >= 1) {
+      return diff.inDays == 1 ? 'Tomorrow' : 'In ${diff.inDays} days';
+    }
+
+    final hours = diff.inHours;
+    final minutes = diff.inMinutes % 60;
+
+    if (hours > 0 && minutes > 0) {
+      return 'In $hours hour${hours == 1 ? '' : 's'} '
+          '$minutes minute${minutes == 1 ? '' : 's'}';
+    } else if (hours > 0) {
+      return 'In $hours hour${hours == 1 ? '' : 's'}';
+    } else if (minutes > 0) {
+      return 'In $minutes minute${minutes == 1 ? '' : 's'}';
+    } else {
+      return 'Feeding now';
+    }
+  }
+
+  Widget _buildStatusGrid(SystemStatus status, String catId) {
     return Column(
       children: [
         Row(
@@ -263,22 +336,17 @@ class DashboardScreen extends StatelessWidget {
           ],
         ),
         const SizedBox(height: AppSpacing.md),
-        const StatusCard(
-          title: 'Last Feeding',
-          value: '9:00 AM — 30g',
-          subtitle: 'Successful  •  Cat detected and authorized',
-          icon: Icons.history_outlined,
-          iconColor: AppColors.success,
-          iconBackground: AppColors.successLight,
-        ),
+        _buildLastFeedingCard(catId),
         const SizedBox(height: AppSpacing.md),
         StatusCard(
           title: 'Raspberry Pi',
           value: status.piOnline ? 'Connected' : 'Disconnected',
-          subtitle: 'Signal: Strong  •  Latency: 12ms',
+          subtitle: 'Last synced ${_formatRelativeTime(status.lastUpdated)}'
+              '${status.ipAddress != null ? '  •  IP: ${status.ipAddress}' : ''}',
           icon: Icons.developer_board_outlined,
-          iconColor: AppColors.success,
-          iconBackground: AppColors.successLight,
+          iconColor: status.piOnline ? AppColors.success : AppColors.error,
+          iconBackground:
+              status.piOnline ? AppColors.successLight : AppColors.errorLight,
           trailing: Container(
             width: 8,
             height: 8,
@@ -290,6 +358,78 @@ class DashboardScreen extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Widget _buildLastFeedingCard(String catId) {
+    return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+      stream: _firebaseService.watchLatestFeedings(catId),
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          debugPrint('watchLatestFeedings error: ${snapshot.error}');
+          return const StatusCard(
+            title: 'Last Feeding',
+            value: 'Error loading',
+            subtitle: 'Check the debug console for details',
+            icon: Icons.error_outline,
+            iconColor: AppColors.error,
+            iconBackground: AppColors.errorLight,
+          );
+        }
+
+        final docs = snapshot.data?.docs ?? [];
+
+        if (docs.isEmpty) {
+          return const StatusCard(
+            title: 'Last Feeding',
+            value: 'No feedings yet',
+            subtitle: 'Waiting for the first feeding',
+            icon: Icons.history_outlined,
+            iconColor: AppColors.textHint,
+            iconBackground: AppColors.surfaceVariant,
+          );
+        }
+
+        final data = docs.first.data();
+        final authorized = data['authorized'] == true;
+        final portion = data['portion_g'] ?? 0;
+        final timestamp = _parseFeedingTimestamp(data['timestamp']);
+
+        return StatusCard(
+          title: 'Last Feeding',
+          value: '${_formatClockTime(timestamp)} — ${portion}g',
+          subtitle: authorized
+              ? 'Successful  •  Cat detected and authorized'
+              : 'Failed  •  Access denied',
+          icon: Icons.history_outlined,
+          iconColor: authorized ? AppColors.success : AppColors.error,
+          iconBackground:
+              authorized ? AppColors.successLight : AppColors.errorLight,
+        );
+      },
+    );
+  }
+
+  DateTime _parseFeedingTimestamp(dynamic value) {
+    if (value == null) return DateTime.now();
+    if (value is DateTime) return value;
+    if (value is String) return DateTime.tryParse(value) ?? DateTime.now();
+    return value.toDate();
+  }
+
+  String _formatRelativeTime(DateTime time) {
+    final diff = DateTime.now().difference(time);
+
+    if (diff.inMinutes < 1) return 'just now';
+    if (diff.inMinutes < 60) return '${diff.inMinutes}m ago';
+    if (diff.inHours < 24) return '${diff.inHours}h ago';
+    return '${diff.inDays}d ago';
+  }
+
+  String _formatClockTime(DateTime time) {
+    final h = time.hour % 12 == 0 ? 12 : time.hour % 12;
+    final m = time.minute.toString().padLeft(2, '0');
+    final period = time.hour < 12 ? 'AM' : 'PM';
+    return '$h:$m $period';
   }
 
   Widget _buildLevelBar(double value, Color color) {
@@ -352,6 +492,18 @@ class DashboardScreen extends StatelessWidget {
     return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
       stream: _firebaseService.watchLatestFeedings(catId),
       builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          // Most commonly a missing Firestore composite index (this query
+          // filters by cat_id AND orders by timestamp). Check the debug
+          // console — Firestore's error includes a direct link to create it.
+          debugPrint('watchLatestFeedings error: ${snapshot.error}');
+          return Text(
+            'Could not load activity. Check the debug console for a '
+            'Firestore index link.',
+            style: AppTextStyles.bodyMedium.copyWith(color: AppColors.error),
+          );
+        }
+
         if (!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
         }
@@ -483,6 +635,13 @@ class _QuickActionButton extends StatelessWidget {
       ),
     );
   }
+}
+
+class _NextFeeding {
+  final DateTime time;
+  final FeedingSchedule schedule;
+
+  const _NextFeeding({required this.time, required this.schedule});
 }
 
 class _ActivityItem {

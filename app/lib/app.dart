@@ -5,6 +5,7 @@ import 'core/theme/app_theme.dart';
 import 'core/constants/app_colors.dart';
 import 'core/cat_session.dart';
 import 'models/cat_profile.dart';
+import 'models/notification_item.dart';
 import 'services/firebase_service.dart';
 import 'screens/dashboard/dashboard_screen.dart';
 import 'screens/schedule/schedule_screen.dart';
@@ -12,6 +13,7 @@ import 'screens/activity_logs/activity_logs_screen.dart';
 import 'screens/notifications/notifications_screen.dart';
 import 'screens/settings/settings_screen.dart';
 import 'screens/onboarding/add_cat_screen.dart';
+import 'widgets/notification_toast.dart';
 
 class CatFeederApp extends StatelessWidget {
   const CatFeederApp({super.key});
@@ -96,7 +98,73 @@ class MainShell extends StatefulWidget {
 }
 
 class _MainShellState extends State<MainShell> {
+  final FirebaseService _firebaseService = FirebaseService();
+
   int _selectedIndex = 0;
+
+  StreamSubscription<List<NotificationItem>>? _notificationSub;
+  String? _watchedCatId;
+  Set<String> _seenNotificationIds = {};
+  bool _seededSeenIds = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final catId = CatSessionScope.of(context).currentCatId;
+    if (catId != _watchedCatId) {
+      _watchedCatId = catId;
+      _seededSeenIds = false;
+      _seenNotificationIds = {};
+      _notificationSub?.cancel();
+      _notificationSub = catId == null
+          ? null
+          : _firebaseService.watchNotifications(catId).listen(_onNotifications);
+    }
+  }
+
+  void _onNotifications(List<NotificationItem> notifications) {
+    if (!_seededSeenIds) {
+      // First connect (app just opened, or cat switched). Don't flood the
+      // user with the whole backlog, but do surface the most recent unread
+      // notification — otherwise an event that fired while the app was
+      // closed/backgrounded would never show a toast at all.
+      _seenNotificationIds = notifications.map((n) => n.id).toSet();
+      _seededSeenIds = true;
+
+      final unread = notifications.where((n) => !n.isRead).toList()
+        ..sort((a, b) => b.timestamp.compareTo(a.timestamp));
+
+      if (unread.isNotEmpty && mounted) {
+        _showToast(unread.first);
+      }
+      return;
+    }
+
+    final fresh = notifications
+        .where((n) => !_seenNotificationIds.contains(n.id))
+        .toList();
+    _seenNotificationIds = notifications.map((n) => n.id).toSet();
+
+    if (fresh.isEmpty || !mounted) return;
+
+    for (final notification in fresh) {
+      _showToast(notification);
+    }
+  }
+
+  void _showToast(NotificationItem notification) {
+    showNotificationToast(
+      context,
+      notification,
+      onTap: () => setState(() => _selectedIndex = 3),
+    );
+  }
+
+  @override
+  void dispose() {
+    _notificationSub?.cancel();
+    super.dispose();
+  }
 
   late final List<Widget> _screens = [
     DashboardScreen(

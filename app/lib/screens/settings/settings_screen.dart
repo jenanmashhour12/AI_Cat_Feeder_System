@@ -8,6 +8,7 @@ import '../../core/constants/app_spacing.dart';
 import '../../core/constants/app_text_styles.dart';
 import '../../core/cat_session.dart';
 import '../../models/cat_profile.dart';
+import '../../models/system_status.dart';
 import '../../services/firebase_service.dart';
 import '../../widgets/cat_switcher.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -159,47 +160,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
             _buildSection(
               title: 'Device',
               children: [
-                _SettingsTile(
-                  icon: Icons.developer_board_outlined,
-                  iconColor: AppColors.success,
-                  iconBg: AppColors.successLight,
-                  title: 'Raspberry Pi Status',
-                  subtitle: 'Connected  •  IP: 192.168.1.42',
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        width: 8,
-                        height: 8,
-                        decoration: BoxDecoration(
-                          color: AppColors.online,
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                      ),
-                      const SizedBox(width: AppSpacing.sm),
-                      const Icon(Icons.chevron_right,
-                          color: AppColors.textHint, size: 20),
-                    ],
-                  ),
-                ),
+                _buildPiStatusTile(),
                 const _SettingsTile(
                   icon: Icons.cloud_sync_outlined,
                   iconColor: AppColors.primary,
                   iconBg: AppColors.primaryLight,
                   title: 'Firebase Sync',
                   subtitle: 'Realtime sync active',
-                  trailing: Icon(Icons.chevron_right,
-                      color: AppColors.textHint, size: 20),
+                  trailing: SizedBox.shrink(),
                 ),
-                const _SettingsTile(
-                  icon: Icons.wifi_outlined,
-                  iconColor: AppColors.success,
-                  iconBg: AppColors.successLight,
-                  title: 'Network',
-                  subtitle: 'Connected  •  Signal: Strong',
-                  trailing: Icon(Icons.chevron_right,
-                      color: AppColors.textHint, size: 20),
-                ),
+                _buildNetworkTile(),
               ],
             ),
             const SizedBox(height: AppSpacing.xl),
@@ -333,6 +303,156 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: AppSpacing.xxxl),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildPiStatusTile() {
+    final catId = _catId;
+    if (catId == null) return const SizedBox.shrink();
+
+    return StreamBuilder<SystemStatus>(
+      stream: _firebaseService.watchSystemStatus(catId),
+      builder: (context, snapshot) {
+        final status = snapshot.data;
+        final online = status?.piOnline ?? false;
+
+        final subtitle = status == null
+            ? 'Loading...'
+            : online
+                ? (status.ipAddress != null
+                    ? 'Connected  •  IP: ${status.ipAddress}'
+                    : 'Connected  •  IP not reported by device')
+                : 'Disconnected';
+
+        return GestureDetector(
+          onTap: status == null ? null : () => _showDeviceDetails(status),
+          child: _SettingsTile(
+            icon: Icons.developer_board_outlined,
+            iconColor: online ? AppColors.success : AppColors.error,
+            iconBg: online ? AppColors.successLight : AppColors.errorLight,
+            title: 'Raspberry Pi Status',
+            subtitle: subtitle,
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 8,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: online ? AppColors.online : AppColors.offline,
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                ),
+                const SizedBox(width: AppSpacing.sm),
+                const Icon(Icons.chevron_right,
+                    color: AppColors.textHint, size: 20),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildNetworkTile() {
+    final catId = _catId;
+    if (catId == null) return const SizedBox.shrink();
+
+    return StreamBuilder<SystemStatus>(
+      stream: _firebaseService.watchSystemStatus(catId),
+      builder: (context, snapshot) {
+        final status = snapshot.data;
+        final online = status?.piOnline ?? false;
+
+        final subtitle = status == null
+            ? 'Loading...'
+            : '${online ? 'Connected' : 'Disconnected'}  •  '
+                'Last synced ${_formatRelativeTime(status.lastUpdated)}';
+
+        return GestureDetector(
+          onTap: status == null ? null : () => _showDeviceDetails(status),
+          child: _SettingsTile(
+            icon: Icons.wifi_outlined,
+            iconColor: online ? AppColors.success : AppColors.error,
+            iconBg: online ? AppColors.successLight : AppColors.errorLight,
+            title: 'Network',
+            subtitle: subtitle,
+            trailing: const Icon(Icons.chevron_right,
+                color: AppColors.textHint, size: 20),
+          ),
+        );
+      },
+    );
+  }
+
+  String _formatRelativeTime(DateTime time) {
+    final diff = DateTime.now().difference(time);
+
+    if (diff.inMinutes < 1) return 'just now';
+    if (diff.inMinutes < 60) return '${diff.inMinutes}m ago';
+    if (diff.inHours < 24) return '${diff.inHours}h ago';
+    return '${diff.inDays}d ago';
+  }
+
+  void _showDeviceDetails(SystemStatus status) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: AppColors.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppSpacing.cardRadius),
+        ),
+        title: Text('Device Status', style: AppTextStyles.headlineMedium),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildDetailRow(
+              'Status',
+              status.piOnline ? 'Connected' : 'Disconnected',
+            ),
+            _buildDetailRow(
+              'IP Address',
+              status.ipAddress ?? 'Not reported by device',
+            ),
+            _buildDetailRow(
+              'Last synced',
+              _formatRelativeTime(status.lastUpdated),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: Text(
+              'Close',
+              style: AppTextStyles.bodyMedium.copyWith(
+                color: AppColors.primary,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDetailRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: AppSpacing.xs),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(label, style: AppTextStyles.bodyMedium),
+          const SizedBox(width: AppSpacing.lg),
+          Flexible(
+            child: Text(
+              value,
+              style: AppTextStyles.titleSmall,
+              textAlign: TextAlign.right,
+            ),
+          ),
+        ],
       ),
     );
   }
